@@ -7,22 +7,20 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_bold"
         android:text="WasteWise"
         android:textColor="#000000"
-        android:textSize="40sp"
+        android:textSize="44sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685" />
+        app:layout_constraintTop_toBottomOf="@+id/loginImage" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/appDesc"
         android:layout_width="256dp"
         android:layout_height="37dp"
         android:fontFamily="@font/inter"
@@ -30,30 +28,67 @@
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/signUpBtn"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/appName" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/signUpBtn"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="50dp"
+        android:backgroundTint="#262626"
+        android:fontFamily="@font/inter"
         android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:cornerRadius="10dip"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="285dp"
-        android:layout_height="225dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:id="@+id/loginImage"
+        android:layout_width="414dp"
+        android:layout_height="303dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/plastic_garbage_bag_isolated_icon_free_vector_1" />
+        app:layout_constraintVertical_bias="0.37"
+        app:srcCompat="@drawable/plastic_garbage_bag_isolated_icon_free_vector" />
+
+    <ImageView
+        android:id="@+id/halfEllipse"
+        android:layout_width="49dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ellipse_218" />
+
+    <ImageView
+        android:id="@+id/fullEllipse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ellipse_220" />
+
+    <ImageView
+        android:id="@+id/fullEllipse2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ellipse_220" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
