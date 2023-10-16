@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-// login page
+// title page
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,6 +19,17 @@ public class MainActivity extends AppCompatActivity {
 
         // initialise widgets
         Button signUpBtn = findViewById(R.id.signUpBtn);
+        Button loginBtn = findViewById(R.id.loginBtn);
+
+        // go to login page when button is clicked on
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         // go to sign up page when button is clicked on
         signUpBtn.setOnClickListener(new View.OnClickListener() {

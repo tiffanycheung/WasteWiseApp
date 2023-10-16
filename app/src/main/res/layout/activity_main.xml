@@ -22,13 +22,13 @@
     <TextView
         android:id="@+id/appDesc"
         android:layout_width="256dp"
-        android:layout_height="37dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
         android:text="An integrated app to tackle waste management in Sydney councils"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/signUpBtn"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/loginBtn"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37"
+        app:layout_constraintVertical_bias="0.26"
         app:srcCompat="@drawable/plastic_garbage_bag_isolated_icon_free_vector" />
 
     <ImageView
@@ -90,5 +90,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ellipse_220" />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#262626"
+        android:fontFamily="@font/inter"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:cornerRadius="10dip"
+        app:layout_constraintBottom_toTopOf="@+id/signUpBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
