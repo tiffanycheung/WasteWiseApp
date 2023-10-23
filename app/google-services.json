@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "897699537928",
+    "project_id": "infs3605-77a74",
+    "storage_bucket": "infs3605-77a74.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897699537928:android:4605f5e90da68ae9f19dbd",
+        "android_client_info": {
+          "package_name": "com.example.wastewise"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPRrjsAQi5il8_7vP9XnrWcCdFYqPvpus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
