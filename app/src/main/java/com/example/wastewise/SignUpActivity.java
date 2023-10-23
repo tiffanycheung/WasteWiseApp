@@ -8,6 +8,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,18 +29,21 @@ public class SignUpActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
+    private ImageView backBtn;
+
     //Checks if user is already logged in, and if so, goes straight to Home
-    @Override
+  /*  @Override
     public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
         if(currentUser != null){
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(intent);
             finish();
         }
     }
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +56,8 @@ public class SignUpActivity extends AppCompatActivity {
         continueBtn = findViewById(R.id.continueBtn);
         emailEditTxt = findViewById(R.id.emailEditTxt);
         passwordEditTxt = findViewById(R.id.passwordEditTxt);
+        backBtn = findViewById(R.id.backBtn);
+
 
         // go to questionnaire page when button is clicked on
         continueBtn.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +108,15 @@ public class SignUpActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }*/
+
+            }
+        });
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                startActivity(intent);
 
             }
         });

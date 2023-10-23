@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +16,8 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
     private EditText fnameEditTxt, lnameEditTxt, dobEditTxt, postcodeEditTxt;
     private Button startBtn;
+
+    private ImageView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
         dobEditTxt = findViewById(R.id.dobEditTxt);
         postcodeEditTxt = findViewById(R.id.postcodeEditTxt);
         startBtn = findViewById(R.id.startBtn);
+        backBtn = findViewById(R.id.backBtn);
 
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +51,16 @@ public class QuestionnaireActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }
+            }
+        });
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(QuestionnaireActivity.this, SignUpActivity.class);
+                startActivity(intent);
+                finish();
+
             }
         });
 

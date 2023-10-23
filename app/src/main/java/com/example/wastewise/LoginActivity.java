@@ -7,6 +7,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,15 +27,14 @@ public class LoginActivity extends AppCompatActivity {
     private TextView forgotPasswordTxt;
     private Button loginBtn;
 
+    private ImageView backBtn;
+
     private FirebaseAuth mAuth;
 
-    @Override
+ /*   @Override
     public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        //Delete below later
-        currentUser = null;
-
 
         if(currentUser != null){
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
     }
-
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,8 @@ public class LoginActivity extends AppCompatActivity {
         emailEditTxt = findViewById(R.id.emailEditTxt);
         passwordEditTxt = findViewById(R.id.passwordEditTxt);
         forgotPasswordTxt = findViewById(R.id.forgotPasswordTxt);
+        backBtn = findViewById(R.id.backBtn);
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -103,7 +105,17 @@ public class LoginActivity extends AppCompatActivity {
         forgotPasswordTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
+                startActivity(intent);
 
+            }
+        });
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
