@@ -39,10 +39,11 @@
     <ImageView
         android:id="@+id/cardBox"
         android:layout_width="350dp"
-        android:layout_height="240dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/green_box"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/digitalCardTxt" />
 
@@ -84,7 +85,7 @@
     <ImageView
         android:id="@+id/barcodeImg"
         android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="@+id/cardBox"
         app:layout_constraintEnd_toEndOf="@+id/cardBox"
         app:layout_constraintStart_toStartOf="@+id/cardBox"

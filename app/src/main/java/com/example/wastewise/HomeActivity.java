@@ -28,7 +28,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.home);
 
         // TODO: customise welcome message to current user
-        FirebaseUser user = mAuth.getCurrentUser();
+        // FirebaseUser user = mAuth.getCurrentUser();
 
         // TODO: need some way to figure out the user's local council based on their postcode input? - last priority
 

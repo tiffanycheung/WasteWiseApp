@@ -64,7 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                boolean canContinue = canContinue();
+//                boolean canContinue = canContinue();
 
                 String email, password;
                 email = String.valueOf(emailEditTxt.getText());
@@ -72,6 +72,11 @@ public class SignUpActivity extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(SignUpActivity.this, "Please enter email.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!isValidEmail(email)) {
+                    Toast.makeText(SignUpActivity.this, "Invalid email address.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -125,7 +130,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     // check whether all fields have been filled out correctly before proceeding
-    private boolean canContinue() {
+  /*  private boolean canContinue() {
         String email = emailEditTxt.getText().toString();
         String password = passwordEditTxt.getText().toString();
         boolean canContinue = true;
@@ -146,6 +151,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         return canContinue;
     }
+*/
 
     // check whether email used to sign up is valid
     private Boolean isValidEmail(CharSequence target) {

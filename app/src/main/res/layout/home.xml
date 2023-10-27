@@ -103,7 +103,7 @@
     <ImageView
         android:id="@+id/barcodeImg"
         android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="@+id/cardBox"
         app:layout_constraintEnd_toEndOf="@+id/cardBox"
         app:layout_constraintStart_toStartOf="@+id/cardBox"
