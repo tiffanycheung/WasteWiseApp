@@ -66,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: check user exists in firebase database, customise home page based on user
 
                 String email, password;
                 email = String.valueOf(emailEditTxt.getText());
@@ -119,10 +118,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-    }
-
-    private void login() {
 
     }
 

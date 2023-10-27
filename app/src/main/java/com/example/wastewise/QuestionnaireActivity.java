@@ -16,8 +16,8 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
     private EditText fnameEditTxt, lnameEditTxt, dobEditTxt, postcodeEditTxt;
     private Button startBtn;
-
     private ImageView backBtn;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,9 @@ public class QuestionnaireActivity extends AppCompatActivity {
         // hide action bar
         getSupportActionBar().hide();
         setContentView(R.layout.user_questionnaire);
+
+        Intent intent = getIntent();
+        email = intent.getStringExtra("EMAIL");
 
         // initialise widgets
         fnameEditTxt = findViewById(R.id.fnameEditTxt);
@@ -41,13 +44,9 @@ public class QuestionnaireActivity extends AppCompatActivity {
                 boolean canSignUp = checkSignUp();
                 if (canSignUp) {
                     // create user object and retrieve name and postcode
-                    Users user = createUser();
-                    String fullName = user.getfName() + " " + user.getlName();
-                    String postcode = user.getPostcode();
+                    insertUserData();
                     // go to home page and pass the user's name and postcode
                     Intent intent = new Intent(QuestionnaireActivity.this, HomeActivity.class);
-                    intent.putExtra("FULL_NAME", fullName);
-                    intent.putExtra("POSTCODE", postcode);
                     startActivity(intent);
                     finish();
                 }
@@ -60,22 +59,21 @@ public class QuestionnaireActivity extends AppCompatActivity {
                 Intent intent = new Intent(QuestionnaireActivity.this, SignUpActivity.class);
                 startActivity(intent);
                 finish();
-
             }
         });
 
     }
 
     // To create user objects
-    private Users createUser() {
-        String fName = fnameEditTxt.getText().toString();
-        String lName = lnameEditTxt.getText().toString();
+    private void insertUserData() {
+        String fullName = fnameEditTxt.getText().toString() + " " + lnameEditTxt.getText().toString();
         String dob = dobEditTxt.getText().toString();
         String postcode = postcodeEditTxt.getText().toString();
 
-        Users user = new Users(fName, lName, dob, postcode);
+        Users user = new Users(email, fullName, dob, postcode);
 
-        return user;
+        // TODO: create entry in Firebase realtime database
+
     }
 
     // To check whether all fields have been filled out before proceeding

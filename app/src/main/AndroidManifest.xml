@@ -24,6 +24,18 @@
         <activity
             android:name=".ForgotPassword"
             android:exported="true" />
+        <activity
+            android:name=".Leaderboard"
+            android:exported="true" />
+        <activity
+            android:name=".Rewards"
+            android:exported="true" />
+        <activity
+            android:name=".Events"
+            android:exported="true" />
+        <activity
+            android:name=".DigitalCard"
+            android:exported="true" />
 
         <activity
             android:name=".MainActivity"
@@ -34,6 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -6,8 +6,8 @@ package com.example.wastewise;
 
 public class Users {
 
-    private String fName;
-    private String lName;
+    private String email;
+    private String fullName;
     private String dob;
     private String postcode;
 
@@ -15,19 +15,19 @@ public class Users {
 
     }
 
-    public Users(String fName, String lName, String dob, String postcode) {
-        this.fName = fName;
-        this.lName = lName;
+    public Users(String email, String fullName, String dob, String postcode) {
+        this.email = email;
+        this.fullName = fullName;
         this.dob = dob;
         this.postcode = postcode;
     }
 
-    public String getfName() {
-        return fName;
+    public String getEmail() {
+        return email;
     }
 
-    public String getlName() {
-        return lName;
+    public String getfullName() {
+        return fullName;
     }
 
     public String getDob() {

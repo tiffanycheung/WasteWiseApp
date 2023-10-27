@@ -89,11 +89,12 @@ public class SignUpActivity extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
 
                                     Intent intent = new Intent(SignUpActivity.this, QuestionnaireActivity.class);
+                                    intent.putExtra("EMAIL", email);
                                     startActivity(intent);
                                     finish();
 
                                    /* // Sign in success, update UI with the signed-in user's information
-                                    FirebaseUser user = mAuth.getCurrentUser();*/
+                                    */
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Toast.makeText(SignUpActivity.this, "Authentication failed.",
@@ -120,8 +121,6 @@ public class SignUpActivity extends AppCompatActivity {
 
             }
         });
-
-        //TODO: do we need to store user input from this page (i.e. email and password)??
 
     }
 
