@@ -1,327 +1,361 @@
-<?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+
+xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <ScrollView
 
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="112dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/welcomeTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Welcome Back,"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoImage" />
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-286dp"
+        android:layout_marginBottom="78dp">
 
-    <TextView
-        android:id="@+id/nameTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Name"
-        android:textColor="#2D8B00"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeTxt" />
+        <androidx.constraintlayout.widget.ConstraintLayout
 
-    <ImageView
-        android:id="@+id/factBox"
-        android:layout_width="360dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/yellow_box"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/factTitle" />
 
-    <ImageView
-        android:id="@+id/referBox"
-        android:layout_width="360dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/green_box"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/referTitle" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/checkupBox"
-        android:layout_width="360dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/pink_box"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkupTitle" />
 
-    <ImageView
-        android:id="@+id/leaderboardBox"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/green_box"
+            <ImageView
+                android:id="@+id/logoImage"
+                android:layout_width="112dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/welcomeTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Welcome Back,"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logoImage" />
+
+            <TextView
+                android:id="@+id/nameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Name"
+                android:textColor="#2D8B00"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcomeTxt" />
+
+            <ImageView
+                android:id="@+id/factBox"
+                android:layout_width="360dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/yellow_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/factTitle" />
+
+            <ImageView
+                android:id="@+id/referBox"
+                android:layout_width="360dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/green_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/referTitle" />
+
+            <ImageView
+                android:id="@+id/checkupBox"
+                android:layout_width="360dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/pink_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkupTitle" />
+
+            <ImageView
+                android:id="@+id/leaderboardBox"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/green_box"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/leaderboardTitle"
+                app:layout_constraintTop_toBottomOf="@+id/leaderboardTitle" />
+
+            <ImageView
+                android:id="@+id/cardBox"
+                android:layout_width="360dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/green_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardTitle" />
+
+            <ImageView
+                android:id="@+id/barcodeImg"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cardBox"
+                app:layout_constraintEnd_toEndOf="@+id/cardBox"
+                app:layout_constraintStart_toStartOf="@+id/cardBox"
+                app:layout_constraintTop_toTopOf="@+id/cardBox"
+                app:srcCompat="@drawable/barcode" />
+
+            <ImageView
+                android:id="@+id/rewardsBox"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/yellow_box"
+                app:layout_constraintEnd_toStartOf="@+id/eventsBox"
+                app:layout_constraintStart_toEndOf="@+id/leaderboardBox"
+                app:layout_constraintTop_toBottomOf="@+id/rewardsTitle" />
+
+            <ImageView
+                android:id="@+id/eventsBox"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/pink_box"
+                app:layout_constraintEnd_toEndOf="@+id/referBox"
+                app:layout_constraintTop_toBottomOf="@+id/eventsTitle" />
+
+            <TextView
+                android:id="@+id/referTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Refer and Earn"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/factBox"
+                app:layout_constraintTop_toBottomOf="@+id/factBox" />
+
+            <TextView
+                android:id="@+id/checkupTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Waste Checkup"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/referBox"
+                app:layout_constraintTop_toBottomOf="@+id/referBox" />
+
+            <TextView
+                android:id="@+id/checkupTxt"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="checkup"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/checkupBox"
+                app:layout_constraintStart_toEndOf="@+id/checkupIcon"
+                app:layout_constraintTop_toTopOf="@+id/checkupBox" />
+
+            <TextView
+                android:id="@+id/factTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Fact of the Day"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/nameTxt"
+                app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
+
+            <TextView
+                android:id="@+id/leaderboardTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Leaderboard"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/cardBox"
+                app:layout_constraintTop_toBottomOf="@+id/cardBox" />
+
+            <TextView
+                android:id="@+id/cardTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Digital Card"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/checkupBox"
+                app:layout_constraintTop_toBottomOf="@+id/checkupBox" />
+
+            <TextView
+                android:id="@+id/rewardsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Rewards"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/rewardsBox"
+                app:layout_constraintTop_toTopOf="@+id/leaderboardTitle" />
+
+            <TextView
+                android:id="@+id/eventsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Events"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox"
+                app:layout_constraintTop_toTopOf="@+id/rewardsTitle" />
+
+            <ImageView
+                android:id="@+id/leaderboardIcon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintBottom_toBottomOf="@+id/leaderboardBox"
+                app:layout_constraintEnd_toEndOf="@+id/leaderboardBox"
+                app:layout_constraintStart_toStartOf="@+id/leaderboardBox"
+                app:layout_constraintTop_toTopOf="@+id/leaderboardBox"
+                app:srcCompat="@drawable/trophy" />
+
+            <ImageView
+                android:id="@+id/leadershipIcon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintBottom_toBottomOf="@+id/leaderboardBox"
+                app:layout_constraintEnd_toEndOf="@+id/leaderboardBox"
+                app:layout_constraintStart_toStartOf="@+id/leaderboardBox"
+                app:layout_constraintTop_toTopOf="@+id/leaderboardBox"
+                app:srcCompat="@drawable/trophy" />
+
+            <ImageView
+                android:id="@+id/eventsIcon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintBottom_toBottomOf="@+id/eventsBox"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox"
+                app:layout_constraintTop_toTopOf="@+id/eventsBox"
+                app:srcCompat="@drawable/event" />
+
+            <ImageView
+                android:id="@+id/rewardsIcon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintBottom_toBottomOf="@+id/rewardsBox"
+                app:layout_constraintEnd_toEndOf="@+id/rewardsBox"
+                app:layout_constraintStart_toStartOf="@+id/rewardsBox"
+                app:layout_constraintTop_toTopOf="@+id/rewardsBox"
+                app:srcCompat="@drawable/gift" />
+
+            <TextView
+                android:id="@+id/factTxt"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="fact"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/factBox"
+                app:layout_constraintEnd_toStartOf="@+id/binIcon"
+                app:layout_constraintStart_toStartOf="@+id/factBox"
+                app:layout_constraintTop_toTopOf="@+id/factBox" />
+
+            <ImageView
+                android:id="@+id/binIcon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/factBox"
+                app:layout_constraintEnd_toEndOf="@+id/factBox"
+                app:layout_constraintTop_toTopOf="@+id/factBox"
+                app:srcCompat="@drawable/recycle" />
+
+            <TextView
+                android:id="@+id/referTxt"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="refer"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/referBox"
+                app:layout_constraintStart_toEndOf="@+id/referIcon"
+                app:layout_constraintTop_toTopOf="@+id/referBox" />
+
+            <ImageView
+                android:id="@+id/referIcon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/referBox"
+                app:layout_constraintStart_toStartOf="@+id/referBox"
+                app:layout_constraintTop_toTopOf="@+id/referBox"
+                app:srcCompat="@drawable/friends" />
+
+            <ImageView
+                android:id="@+id/checkupIcon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/checkupBox"
+                app:layout_constraintStart_toStartOf="@+id/checkupBox"
+                app:layout_constraintTop_toTopOf="@+id/checkupBox"
+                app:srcCompat="@drawable/checklist" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="407dp"
+        android:layout_height="78dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/leaderboardTitle"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboardTitle" />
-
-    <ImageView
-        android:id="@+id/cardBox"
-        android:layout_width="360dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/green_box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardTitle" />
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconSize="40dp"/>
 
-    <ImageView
-        android:id="@+id/barcodeImg"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardBox"
-        app:layout_constraintEnd_toEndOf="@+id/cardBox"
-        app:layout_constraintStart_toStartOf="@+id/cardBox"
-        app:layout_constraintTop_toTopOf="@+id/cardBox"
-        app:srcCompat="@drawable/barcode" />
 
-    <ImageView
-        android:id="@+id/rewardsBox"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/yellow_box"
-        app:layout_constraintEnd_toStartOf="@+id/eventsBox"
-        app:layout_constraintStart_toEndOf="@+id/leaderboardBox"
-        app:layout_constraintTop_toBottomOf="@+id/rewardsTitle" />
-
-    <ImageView
-        android:id="@+id/eventsBox"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/pink_box"
-        app:layout_constraintEnd_toEndOf="@+id/referBox"
-        app:layout_constraintTop_toBottomOf="@+id/eventsTitle" />
-
-    <TextView
-        android:id="@+id/referTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Refer and Earn"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/factBox"
-        app:layout_constraintTop_toBottomOf="@+id/factBox" />
-
-    <TextView
-        android:id="@+id/checkupTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Waste Checkup"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/referBox"
-        app:layout_constraintTop_toBottomOf="@+id/referBox" />
-
-    <TextView
-        android:id="@+id/checkupTxt"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="checkup"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/checkupBox"
-        app:layout_constraintStart_toEndOf="@+id/checkupIcon"
-        app:layout_constraintTop_toTopOf="@+id/checkupBox" />
-
-    <TextView
-        android:id="@+id/factTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Fact of the Day"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/nameTxt"
-        app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
-
-    <TextView
-        android:id="@+id/leaderboardTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Leaderboard"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/cardBox"
-        app:layout_constraintTop_toBottomOf="@+id/cardBox" />
-
-    <TextView
-        android:id="@+id/cardTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Digital Card"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/checkupBox"
-        app:layout_constraintTop_toBottomOf="@+id/checkupBox" />
-
-    <TextView
-        android:id="@+id/rewardsTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Rewards"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/rewardsBox"
-        app:layout_constraintTop_toTopOf="@+id/leaderboardTitle" />
-
-    <TextView
-        android:id="@+id/eventsTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Events"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/eventsBox"
-        app:layout_constraintTop_toTopOf="@+id/rewardsTitle" />
-
-    <ImageView
-        android:id="@+id/leaderboardIcon"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="@+id/leaderboardBox"
-        app:layout_constraintEnd_toEndOf="@+id/leaderboardBox"
-        app:layout_constraintStart_toStartOf="@+id/leaderboardBox"
-        app:layout_constraintTop_toTopOf="@+id/leaderboardBox"
-        app:srcCompat="@drawable/trophy" />
-
-    <ImageView
-        android:id="@+id/leadershipIcon"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="@+id/leaderboardBox"
-        app:layout_constraintEnd_toEndOf="@+id/leaderboardBox"
-        app:layout_constraintStart_toStartOf="@+id/leaderboardBox"
-        app:layout_constraintTop_toTopOf="@+id/leaderboardBox"
-        app:srcCompat="@drawable/trophy" />
-
-    <ImageView
-        android:id="@+id/eventsIcon"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="@+id/eventsBox"
-        app:layout_constraintEnd_toEndOf="@+id/eventsBox"
-        app:layout_constraintStart_toStartOf="@+id/eventsBox"
-        app:layout_constraintTop_toTopOf="@+id/eventsBox"
-        app:srcCompat="@drawable/event" />
-
-    <ImageView
-        android:id="@+id/rewardsIcon"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="@+id/rewardsBox"
-        app:layout_constraintEnd_toEndOf="@+id/rewardsBox"
-        app:layout_constraintStart_toStartOf="@+id/rewardsBox"
-        app:layout_constraintTop_toTopOf="@+id/rewardsBox"
-        app:srcCompat="@drawable/gift" />
-
-    <TextView
-        android:id="@+id/factTxt"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="fact"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/factBox"
-        app:layout_constraintEnd_toStartOf="@+id/binIcon"
-        app:layout_constraintStart_toStartOf="@+id/factBox"
-        app:layout_constraintTop_toTopOf="@+id/factBox" />
-
-    <ImageView
-        android:id="@+id/binIcon"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/factBox"
-        app:layout_constraintEnd_toEndOf="@+id/factBox"
-        app:layout_constraintTop_toTopOf="@+id/factBox"
-        app:srcCompat="@drawable/recycle" />
-
-    <TextView
-        android:id="@+id/referTxt"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="refer"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/referBox"
-        app:layout_constraintStart_toEndOf="@+id/referIcon"
-        app:layout_constraintTop_toTopOf="@+id/referBox" />
-
-    <ImageView
-        android:id="@+id/referIcon"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/referBox"
-        app:layout_constraintStart_toStartOf="@+id/referBox"
-        app:layout_constraintTop_toTopOf="@+id/referBox"
-        app:srcCompat="@drawable/friends" />
-
-    <ImageView
-        android:id="@+id/checkupIcon"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/checkupBox"
-        app:layout_constraintStart_toStartOf="@+id/checkupBox"
-        app:layout_constraintTop_toTopOf="@+id/checkupBox"
-        app:srcCompat="@drawable/checklist" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+
+
+
+
+

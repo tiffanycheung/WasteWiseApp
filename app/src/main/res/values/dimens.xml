@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- Define dimensions for the "leaderboard" icon size -->
+    <dimen name="leaderboard_icon_width">74dp</dimen>
+    <dimen name="leaderboard_icon_height">36dp</dimen>
+
+</resources>
