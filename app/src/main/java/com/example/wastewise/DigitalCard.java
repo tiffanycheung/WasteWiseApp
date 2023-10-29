@@ -2,21 +2,26 @@ package com.example.wastewise;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.wastewise.databinding.DigitalCardBinding;
 import com.example.wastewise.databinding.HomeBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DigitalCard extends AppCompatActivity {
 
     private TextView nameTxt;
     private ImageView backBtn;
 
-    DigitalCardBinding binding;
+    //DigitalCardBinding binding;
+
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +34,35 @@ public class DigitalCard extends AppCompatActivity {
         nameTxt = findViewById(R.id.nameTxt);
         backBtn = findViewById(R.id.backBtn);
 
-        binding = DigitalCardBinding.inflate(getLayoutInflater());
+        //Bottom Navigation Bar
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                { if (item.getItemId() == R.id.home) {
+                    Intent intent = new Intent(DigitalCard.this, HomeActivity.class);
+                    startActivity(intent);
+                }
+
+                    if (item.getItemId() == R.id.leaderboard) {
+                        Intent intent = new Intent(DigitalCard.this, Leaderboard.class);
+                        startActivity(intent);
+                    }
+                    if (item.getItemId() == R.id.forum) {
+                    }
+                    if (item.getItemId() == R.id.checkup) {
+                    }
+                    if (item.getItemId() == R.id.profile) {
+                    }
+                    return true;
+                }
+            }
+        });
+
+
+        /*binding = DigitalCardBinding.inflate(getLayoutInflater());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             Intent intent = null;
@@ -54,7 +87,7 @@ public class DigitalCard extends AppCompatActivity {
 
             return false;
 
-        });
+        });*/
 
             backBtn.setOnClickListener(new View.OnClickListener() {
                 @Override

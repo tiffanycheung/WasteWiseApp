@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.wastewise.databinding.ActivityMainBinding;
@@ -28,11 +29,10 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
 
+/*
     HomeBinding binding;
-
+*/
     BottomNavigationView bottomNavigationView;
-    Menu menu;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +40,33 @@ public class HomeActivity extends AppCompatActivity {
         // hide action bar
         getSupportActionBar().hide();
         setContentView(R.layout.home);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.home);
 
+        //Bottom Navigation Bar
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                { if (item.getItemId() == R.id.home) {
+                }
+
+                    if (item.getItemId() == R.id.leaderboard) {
+                        Intent intent = new Intent(HomeActivity.this, Leaderboard.class);
+                        startActivity(intent);
+                    }
+                    if (item.getItemId() == R.id.forum) {
+                    }
+                    if (item.getItemId() == R.id.checkup) {
+                    }
+                    if (item.getItemId() == R.id.profile) {
+                    }
+                    return true;
+                }
+            }
+        });
         //binding for navigation bar
 
-        binding = HomeBinding.inflate(getLayoutInflater());
+     /*   binding = HomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView); // Replace with your actual ID
         Menu menu = bottomNavigationView.getMenu();
@@ -57,7 +80,7 @@ public class HomeActivity extends AppCompatActivity {
             leaderboardIcon.setBounds(0, 0, leaderboardIconWidth, leaderboardIconHeight);
             leaderboardItem.setIcon(leaderboardIcon);
         }
-
+*/
 
         // TODO: customise welcome message to current user
         // FirebaseUser user = mAuth.getCurrentUser();
@@ -132,7 +155,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         //bottom navigation navigation bar
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+     /*   binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.home) {
             }
 
@@ -147,7 +170,7 @@ public class HomeActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.profile) {
             }
             return true;
-        });
+        });*/
 
     }
 
