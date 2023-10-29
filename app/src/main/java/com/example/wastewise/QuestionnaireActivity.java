@@ -62,6 +62,8 @@ public class QuestionnaireActivity extends AppCompatActivity {
             }
         });
 
+        // TODO: add a field for refer a friend code
+
     }
 
     // To create user objects

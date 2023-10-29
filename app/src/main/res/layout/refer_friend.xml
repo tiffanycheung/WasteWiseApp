@@ -1,6 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="The More the Merrier!"
+        android:textColor="#2D8B00"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exitBtn" />
+
+    <TextView
+        android:id="@+id/referTxt"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/inter"
+        android:text="refer"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heading" />
+
+    <ImageView
+        android:id="@+id/greenBackground"
+        android:layout_width="match_parent"
+        android:layout_height="460dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/green_box"
+        app:layout_constraintTop_toTopOf="@+id/bro"
+        tools:layout_editor_absoluteX="31dp" />
+
+    <ImageView
+        android:id="@+id/bro"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/referTxt"
+        app:srcCompat="@drawable/bro" />
+
+    <ImageView
+        android:id="@+id/exitBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cross" />
+
+    <EditText
+        android:id="@+id/emailEditTxt"
+        android:layout_width="355dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_box_with_border"
+        android:ems="10"
+        android:fontFamily="@font/inter_medium"
+        android:hint="Enter email address"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/greenBackground"
+        app:layout_constraintStart_toStartOf="@+id/greenBackground"
+        app:layout_constraintTop_toBottomOf="@+id/bro" />
+
+    <Button
+        android:id="@+id/sendInviteBtn"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#262626"
+        android:fontFamily="@font/inter_semibold"
+        android:text="Send Invite"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:cornerRadius="10dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailEditTxt" />
+
+    <TextView
+        android:id="@+id/orTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="OR"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/greenBackground"
+        app:layout_constraintTop_toBottomOf="@+id/sendInviteBtn" />
+
+    <ImageView
+        android:id="@+id/whiteBackground"
+        android:layout_width="350dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/white_box"
+        app:layout_constraintEnd_toEndOf="@+id/greenBackground"
+        app:layout_constraintStart_toStartOf="@+id/greenBackground"
+        app:layout_constraintTop_toBottomOf="@+id/orTxt" />
+
+    <ImageView
+        android:id="@+id/copyCodeBtn"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:background="@drawable/darkgreen_box"
+        app:layout_constraintBottom_toBottomOf="@+id/whiteBackground"
+        app:layout_constraintEnd_toEndOf="@+id/whiteBackground"
+        app:layout_constraintTop_toTopOf="@+id/whiteBackground" />
+
+    <TextView
+        android:id="@+id/codeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="code"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/whiteBackground"
+        app:layout_constraintStart_toStartOf="@+id/whiteBackground"
+        app:layout_constraintTop_toTopOf="@+id/whiteBackground" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/copyCodeBtn"
+        app:layout_constraintEnd_toEndOf="@+id/whiteBackground"
+        app:layout_constraintStart_toStartOf="@+id/copyCodeBtn"
+        app:layout_constraintTop_toTopOf="@+id/copyCodeBtn"
+        app:srcCompat="@drawable/copy" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

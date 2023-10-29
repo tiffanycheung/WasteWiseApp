@@ -37,13 +37,13 @@
         app:srcCompat="@drawable/arrow_left_light__1_" />
 
     <TextView
-        android:id="@+id/digitalCardTxt"
+        android:id="@+id/digitalCardTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/inter_semibold"
         android:text="Digital Card"
-        android:textColor="#000000"
+        android:textColor="#2D8B00"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,13 +52,13 @@
     <ImageView
         android:id="@+id/cardBox"
         android:layout_width="350dp"
-        android:layout_height="220dp"
+        android:layout_height="200dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/green_box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/digitalCardTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/digitalCardTitle" />
 
     <TextView
         android:id="@+id/nameTxt"
@@ -72,18 +72,6 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/cardBox"
         app:layout_constraintTop_toTopOf="@+id/cardBox" />
-
-    <TextView
-        android:id="@+id/pointsTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/inter"
-        android:text="Points"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/nameTxt"
-        app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
 
     <ImageView
         android:id="@+id/leafIcon"
@@ -102,7 +90,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/cardBox"
         app:layout_constraintEnd_toEndOf="@+id/cardBox"
         app:layout_constraintStart_toStartOf="@+id/cardBox"
-        app:layout_constraintTop_toBottomOf="@+id/pointsTxt"
+        app:layout_constraintTop_toBottomOf="@+id/nameTxt"
         app:srcCompat="@drawable/barcode" />
 
     <ImageView
@@ -128,50 +116,61 @@
         app:layout_constraintTop_toBottomOf="@+id/pinkBox" />
 
     <TextView
-        android:id="@+id/todayTxt"
+        android:id="@+id/transactionTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="Transaction History"
+        android:fontFamily="@font/inter_semibold"
+        android:text="Transaction history"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/pinkBox"
         app:layout_constraintTop_toTopOf="@+id/yellowBox" />
 
     <TextView
-        android:id="@+id/youRockTxt"
+        android:id="@+id/pointsTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/inter_bold"
-        android:text="You rock!"
+        android:fontFamily="@font/inter_semibold"
+        android:text="# points"
         android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/pointsIcon"
+        app:layout_constraintTop_toTopOf="@+id/pointsIcon" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:id="@+id/pointsIcon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         app:layout_constraintBottom_toBottomOf="@+id/pinkBox"
         app:layout_constraintStart_toStartOf="@+id/nameTxt"
         app:layout_constraintTop_toTopOf="@+id/pinkBox"
-        app:srcCompat="@drawable/party_popper_1f389" />
+        app:srcCompat="@drawable/points" />
 
     <TextView
-        android:id="@+id/congratsTxt"
-        android:layout_width="wrap_content"
+        android:id="@+id/exchangeTxt"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_medium"
-        android:text="TextView"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="# exchange items"
         android:textColor="#000000"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/youRockTxt"
-        app:layout_constraintTop_toBottomOf="@+id/youRockTxt" />
+        app:layout_constraintBottom_toBottomOf="@+id/pinkBox"
+        app:layout_constraintEnd_toEndOf="@+id/pinkBox"
+        app:layout_constraintTop_toTopOf="@+id/pinkBox" />
+
+    <ImageView
+        android:id="@+id/exchangeIcon"
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/pinkBox"
+        app:layout_constraintEnd_toStartOf="@+id/exchangeTxt"
+        app:layout_constraintTop_toTopOf="@+id/pinkBox"
+        app:srcCompat="@drawable/exchange" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

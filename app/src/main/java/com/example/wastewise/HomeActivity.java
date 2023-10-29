@@ -1,5 +1,6 @@
 package com.example.wastewise;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -22,7 +23,7 @@ import java.util.Random;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private ImageView leaderboardBtn, rewardsBtn, eventsBtn, cardBtn, referBtn;
+    private ImageView leaderboardBtn, rewardsBtn, eventsBtn, cardBtn, referBtn, checkupBtn;
     private TextView factTxt, referTxt, checkupTxt;
     private FirebaseAuth mAuth;
 
@@ -74,18 +75,25 @@ public class HomeActivity extends AppCompatActivity {
         eventsBtn = findViewById(R.id.eventsBox);
         cardBtn = findViewById(R.id.cardBox);
         referBtn = findViewById(R.id.referBox);
+        checkupBtn = findViewById(R.id.checkupBox);
 
         // set up text prompts
         referTxt.setText("You could earn over 100 points. Eligibility and criteria and T&Cs apply.");
         checkupTxt.setText("Have you completed your daily waste checkup yet?");
         factTxt.setText(factOfTheDay());
 
+        checkupBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Checkups.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         referBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ReferFriend.class);
-                startActivity(intent);
-                finish();
+                showDialog();
             }
         });
         cardBtn.setOnClickListener(new View.OnClickListener() {
@@ -178,5 +186,23 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         return fact;
+    }
+
+    private void showDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.refer_friend);
+
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.white_box);
+
+        ImageView exitBtn = dialog.findViewById(R.id.exitBtn);
+
+        exitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 }

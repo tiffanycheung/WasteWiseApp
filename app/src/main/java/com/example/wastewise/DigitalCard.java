@@ -2,7 +2,7 @@ package com.example.wastewise;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +13,7 @@ import com.example.wastewise.databinding.HomeBinding;
 
 public class DigitalCard extends AppCompatActivity {
 
-    private TextView nameTxt, congratsTxt;
+    private TextView nameTxt;
     private ImageView backBtn;
 
     DigitalCardBinding binding;
@@ -27,21 +27,18 @@ public class DigitalCard extends AppCompatActivity {
 
         // initialisations
         nameTxt = findViewById(R.id.nameTxt);
-        congratsTxt = findViewById(R.id.congratsTxt);
         backBtn = findViewById(R.id.backBtn);
-
-        congratsTxt.setText("Congratulations for reaching your daily points.");
 
         binding = DigitalCardBinding.inflate(getLayoutInflater());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             Intent intent = null;
             if (item.getItemId() == R.id.home) {
-                 intent = new Intent(this, HomeActivity.class);
+                intent = new Intent(this, HomeActivity.class);
             }
 
             if (item.getItemId() == R.id.leaderboard) {
-                 intent = new Intent(this, Leaderboard.class);
+                intent = new Intent(this, Leaderboard.class);
             }
             if (item.getItemId() == R.id.forum) {
             }
@@ -56,9 +53,19 @@ public class DigitalCard extends AppCompatActivity {
             }
 
             return false;
-        });
-    }
 
+        });
+
+            backBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // TODO: needs to work out whether to go back to home page or profile page
+                }
+            });
+
+            // TODO: recyclerview for transaction history (connected to database)
+
+    }
 
 
 }
