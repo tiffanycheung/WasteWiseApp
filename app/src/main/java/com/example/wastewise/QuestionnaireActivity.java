@@ -3,12 +3,22 @@ package com.example.wastewise;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 // user questionnaire page
@@ -17,7 +27,14 @@ public class QuestionnaireActivity extends AppCompatActivity {
     private EditText fnameEditTxt, lnameEditTxt, dobEditTxt, postcodeEditTxt;
     private Button startBtn;
     private ImageView backBtn;
-    private String email;
+    String email;
+    String password;
+
+    private FirebaseFirestore fStore;
+
+    private FirebaseAuth fAuth;
+
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +42,6 @@ public class QuestionnaireActivity extends AppCompatActivity {
         // hide action bar
         getSupportActionBar().hide();
         setContentView(R.layout.user_questionnaire);
-
-        Intent intent = getIntent();
-        email = intent.getStringExtra("EMAIL");
 
         // initialise widgets
         fnameEditTxt = findViewById(R.id.fnameEditTxt);
@@ -64,17 +78,46 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
         // TODO: add a field for refer a friend code
 
+
     }
 
     // To create user objects
     private void insertUserData() {
+
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+
+        Intent intent = getIntent();
+        email = intent.getStringExtra("EMAIL");
+        password = intent.getStringExtra("PASSWORD");
+
+
         String fullName = fnameEditTxt.getText().toString() + " " + lnameEditTxt.getText().toString();
         String dob = dobEditTxt.getText().toString();
         String postcode = postcodeEditTxt.getText().toString();
 
         Users user = new Users(email, fullName, dob, postcode);
 
-        // TODO: create entry in Firebase realtime database
+        //Create entry in Firebase realtime database
+
+                        userID = fAuth.getCurrentUser().getUid();
+                        DocumentReference documentReference = fStore.collection("users").document(userID);
+                        Map<String,Object> userProfile = new HashMap<>();
+                        userProfile.put("email", email);
+                        userProfile.put("fullName", fullName);
+                        userProfile.put("dob", dob);
+                        userProfile.put("postcode", postcode);
+
+                        documentReference.set(userProfile).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(QuestionnaireActivity.this, "Account Created.",
+                                        Toast.LENGTH_SHORT).show();
+                                Log.d("TAG", "onSuccess: user Profile is created");
+
+                            }
+
+                        });
 
     }
 

@@ -90,11 +90,12 @@ public class SignUpActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(SignUpActivity.this, "Account Created.",
+                                    Toast.makeText(SignUpActivity.this, "Please Enter your Details",
                                             Toast.LENGTH_SHORT).show();
 
                                     Intent intent = new Intent(SignUpActivity.this, QuestionnaireActivity.class);
                                     intent.putExtra("EMAIL", email);
+                                    intent.putExtra("PASSWORD", password);
                                     startActivity(intent);
                                     finish();
 
