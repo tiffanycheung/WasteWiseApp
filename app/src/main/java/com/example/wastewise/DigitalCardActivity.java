@@ -10,11 +10,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.wastewise.databinding.DigitalCardBinding;
-import com.example.wastewise.databinding.HomeBinding;
+//import com.example.wastewise.databinding.DigitalCardBinding;
+//import com.example.wastewise.databinding.HomeBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class DigitalCard extends AppCompatActivity {
+public class DigitalCardActivity extends AppCompatActivity {
 
     private TextView nameTxt;
     private ImageView backBtn;
@@ -42,12 +42,12 @@ public class DigitalCard extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 { if (item.getItemId() == R.id.home) {
-                    Intent intent = new Intent(DigitalCard.this, HomeActivity.class);
+                    Intent intent = new Intent(DigitalCardActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }
 
                     if (item.getItemId() == R.id.leaderboard) {
-                        Intent intent = new Intent(DigitalCard.this, Leaderboard.class);
+                        Intent intent = new Intent(DigitalCardActivity.this, Leaderboard.class);
                         startActivity(intent);
                     }
                     if (item.getItemId() == R.id.forum) {

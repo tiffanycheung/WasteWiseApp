@@ -34,7 +34,10 @@
             android:name=".EventsActivity"
             android:exported="true" />
         <activity
-            android:name=".DigitalCard"
+            android:name=".DigitalCardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CheckupsActivity"
             android:exported="true" />
 
         <activity

@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.wastewise.databinding.RewardsBinding;
+//import com.example.wastewise.databinding.RewardsBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Rewards extends AppCompatActivity {

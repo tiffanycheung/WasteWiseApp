@@ -1,15 +1,13 @@
 package com.example.wastewise;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ReferFriend extends AppCompatActivity {
+public class ReferFriendActivity extends AppCompatActivity {
 
     private TextView referTxt;
     private ImageView copyBtn, sendInviteBtn;
@@ -22,11 +20,7 @@ public class ReferFriend extends AppCompatActivity {
         setContentView(R.layout.refer_friend);
 
         // initialisations
-        referTxt = findViewById(R.id.referTxt);
         copyBtn = findViewById(R.id.copyCodeBtn);
-
-        // set up text prompt
-        referTxt.setText("Tell your friends about us. You get 100 points from us when they create an account with us.");
 
         // TODO: generate random text for the code
 

@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.wastewise.databinding.LeaderboardBinding;
+//import com.example.wastewise.databinding.LeaderboardBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Leaderboard extends AppCompatActivity {

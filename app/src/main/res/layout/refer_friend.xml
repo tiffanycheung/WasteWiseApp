@@ -9,7 +9,6 @@
         android:id="@+id/heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:fontFamily="@font/inter_semibold"
         android:text="The More the Merrier!"
         android:textColor="#2D8B00"
@@ -20,7 +19,7 @@
 
     <TextView
         android:id="@+id/referTxt"
-        android:layout_width="320dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/inter"
@@ -35,16 +34,16 @@
     <ImageView
         android:id="@+id/greenBackground"
         android:layout_width="match_parent"
-        android:layout_height="460dp"
-        android:layout_marginTop="70dp"
-        android:background="@drawable/green_box"
-        app:layout_constraintTop_toTopOf="@+id/bro"
+        android:layout_height="400dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/green_box_rounder"
+        app:layout_constraintTop_toBottomOf="@+id/referTxt"
         tools:layout_editor_absoluteX="31dp" />
 
     <ImageView
         android:id="@+id/bro"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,8 +62,8 @@
 
     <EditText
         android:id="@+id/emailEditTxt"
-        android:layout_width="355dp"
-        android:layout_height="48dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/white_box_with_border"
         android:ems="10"
@@ -74,25 +73,25 @@
         android:paddingLeft="20dp"
         android:textColor="#000000"
         android:textColorHint="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/greenBackground"
-        app:layout_constraintStart_toStartOf="@+id/greenBackground"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/bro"
+        app:layout_constraintStart_toStartOf="@+id/bro"
         app:layout_constraintTop_toBottomOf="@+id/bro" />
 
     <Button
         android:id="@+id/sendInviteBtn"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#262626"
         android:fontFamily="@font/inter_semibold"
         android:text="Send Invite"
         android:textAllCaps="false"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:cornerRadius="10dip"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/emailEditTxt"
         app:layout_constraintHorizontal_bias="0.459"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/emailEditTxt"
         app:layout_constraintTop_toBottomOf="@+id/emailEditTxt" />
 
     <TextView
@@ -104,25 +103,26 @@
         android:text="OR"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/greenBackground"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/sendInviteBtn"
+        app:layout_constraintStart_toStartOf="@+id/sendInviteBtn"
         app:layout_constraintTop_toBottomOf="@+id/sendInviteBtn" />
 
     <ImageView
         android:id="@+id/whiteBackground"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/white_box"
-        app:layout_constraintEnd_toEndOf="@+id/greenBackground"
-        app:layout_constraintStart_toStartOf="@+id/greenBackground"
+        app:layout_constraintEnd_toEndOf="@+id/orTxt"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@+id/orTxt"
         app:layout_constraintTop_toBottomOf="@+id/orTxt" />
 
     <ImageView
         android:id="@+id/copyCodeBtn"
-        android:layout_width="100dp"
-        android:layout_height="55dp"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
         android:background="@drawable/darkgreen_box"
         app:layout_constraintBottom_toBottomOf="@+id/whiteBackground"
         app:layout_constraintEnd_toEndOf="@+id/whiteBackground"
@@ -136,15 +136,15 @@
         android:fontFamily="@font/inter_medium"
         android:text="code"
         android:textColor="#000000"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/whiteBackground"
         app:layout_constraintStart_toStartOf="@+id/whiteBackground"
         app:layout_constraintTop_toTopOf="@+id/whiteBackground" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         app:layout_constraintBottom_toBottomOf="@+id/copyCodeBtn"
         app:layout_constraintEnd_toEndOf="@+id/whiteBackground"
         app:layout_constraintStart_toStartOf="@+id/copyCodeBtn"
