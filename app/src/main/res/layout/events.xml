@@ -5,7 +5,304 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
 
+
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-187dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">>
+
+
+            <ImageView
+                android:id="@+id/logoImage"
+                android:layout_width="112dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/eventsTitle"
+                android:layout_width="204dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="68dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="center"
+                android:text="Events"
+                android:textColor="#2D8B00"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/eventsTextView"
+                android:layout_width="315dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="96dp"
+                android:fontFamily="@font/inter"
+                android:gravity="center"
+                android:text="Attend our community’s events on waste management"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.489"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/eventsBox2"
+                android:layout_width="160dp"
+                android:layout_height="302dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/green_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.454"
+                app:layout_constraintStart_toEndOf="@+id/eventsBox1"
+                app:layout_constraintTop_toBottomOf="@+id/eventsTextView" />
+
+            <ImageView
+                android:id="@+id/eventsBox3"
+                android:layout_width="160dp"
+                android:layout_height="261dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/green_box"
+                app:layout_constraintEnd_toStartOf="@+id/eventsBox2"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox1"
+                app:layout_constraintTop_toBottomOf="@+id/eventsBox1" />
+
+
+            <ImageView
+                android:id="@+id/eventsBox4"
+                android:layout_width="160dp"
+                android:layout_height="218dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/green_box"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox2"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/eventsBox3"
+                app:layout_constraintTop_toBottomOf="@+id/eventsBox2" />
+
+            <ImageView
+                android:id="@+id/eventsBox1"
+                android:layout_width="166dp"
+                android:layout_height="255dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/green_box"
+                app:layout_constraintEnd_toStartOf="@+id/eventsBox2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventsTextView" />
+
+            <TextView
+                android:id="@+id/eventTitle1"
+                android:layout_width="137dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="start"
+                android:text="Recycling Workshop"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox1"
+                app:layout_constraintHorizontal_bias="0.521"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox1"
+                app:layout_constraintTop_toBottomOf="@+id/recylcingEventIcon" />
+
+            <TextView
+                android:id="@+id/eventTitle2"
+                android:layout_width="101dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="start"
+                android:text="Cleanup Day"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox2"
+                app:layout_constraintHorizontal_bias="0.169"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+            <TextView
+                android:id="@+id/eventTitle3"
+                android:layout_width="137dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="start"
+                android:text="E-Waste Collection"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox3"
+                app:layout_constraintHorizontal_bias="0.521"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox3"
+                app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+            <TextView
+                android:id="@+id/eventTitle4"
+                android:layout_width="145dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="11dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="start"
+                android:text="Composting Workshop"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox4"
+                app:layout_constraintHorizontal_bias="0.866"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox4"
+                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+            <ImageView
+                android:id="@+id/recylcingEventIcon"
+                android:layout_width="138dp"
+                android:layout_height="122dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox1"
+                app:layout_constraintHorizontal_bias="0.545"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox1"
+                app:layout_constraintTop_toTopOf="@+id/eventsBox1"
+                app:srcCompat="@drawable/event_recycling_icon" />
+
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="138dp"
+                android:layout_height="138dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox3"
+                app:layout_constraintHorizontal_bias="0.545"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox3"
+                app:layout_constraintTop_toTopOf="@+id/eventsBox3"
+                app:srcCompat="@drawable/events_ewaste_icon" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="138dp"
+                android:layout_height="122dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox4"
+                app:layout_constraintHorizontal_bias="0.59"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox4"
+                app:layout_constraintTop_toTopOf="@+id/eventsBox4"
+                app:srcCompat="@drawable/events_composting_icon" />
+
+            <!--            <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="138dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/eventsBox2"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toStartOf="@+id/eventsBox2"
+        app:layout_constraintTop_toTopOf="@+id/eventsBox2" />-->
+
+            <TextView
+                android:id="@+id/event1Description"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/inter"
+                android:gravity="start"
+                android:lineSpacingExtra="8sp"
+                android:text="Rhodes, Sydney\nOctober 3 - 2023"
+                android:textColor="#000000"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox1"
+                app:layout_constraintHorizontal_bias="0.138"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox1"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle1" />
+
+            <TextView
+                android:id="@+id/event2Description"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/inter"
+                android:gravity="start"
+                android:lineSpacingExtra="8sp"
+                android:text="Rhodes, Sydney\nOctober 3 - 2023"
+                android:textColor="#000000"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox2"
+                app:layout_constraintHorizontal_bias="0.142"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox2"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle2" />
+
+            <TextView
+                android:id="@+id/event3Description"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/inter"
+                android:gravity="start"
+                android:lineSpacingExtra="8sp"
+                android:text="Rhodes, Sydney\nOctober 3 - 2023"
+                android:textColor="#000000"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox3"
+                app:layout_constraintHorizontal_bias="0.171"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox3"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle3" />
+
+
+            <TextView
+                android:id="@+id/event4Description"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/inter"
+                android:gravity="start"
+                android:lineSpacingExtra="8sp"
+                android:text="Rhodes, Sydney\nOctober 3 - 2023"
+                android:textColor="#000000"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox4"
+                app:layout_constraintHorizontal_bias="0.185"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox4"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle4" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="@+id/eventsBox2"
+                app:layout_constraintHorizontal_bias="0.454"
+                app:layout_constraintStart_toStartOf="@+id/eventsBox2"
+                app:layout_constraintTop_toTopOf="@+id/eventsBox2"
+                app:srcCompat="@drawable/events_cleanupday_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -15,5 +312,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu"
-        app:itemIconSize="36dp"/>
+        app:itemIconSize="36dp"
+        app:itemIconTint="@drawable/bottom_navigation_item_color"
+        app:itemTextColor="@drawable/bottom_navigation_item_color"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

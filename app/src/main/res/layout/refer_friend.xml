@@ -142,7 +142,7 @@
         app:layout_constraintTop_toTopOf="@+id/whiteBackground" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/exchangeItemsIcon"
         android:layout_width="25dp"
         android:layout_height="25dp"
         app:layout_constraintBottom_toBottomOf="@+id/copyCodeBtn"

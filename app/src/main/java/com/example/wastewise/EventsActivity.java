@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.wastewise.databinding.EventsBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -23,6 +22,7 @@ public class EventsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        setContentView(R.layout.events);
+        getSupportActionBar().hide();
 
         //Bottom Navigation Bar
 

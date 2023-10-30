@@ -8,209 +8,435 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-   <!-- <ScrollView
+    <ScrollView
 
 
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-115dp"
-        tools:layout_editor_absoluteY="36dp">-->
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="16dp">
 
-    <!--
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="-16dp"
+            tools:layout_editor_absoluteY="361dp">
+
+            <ImageView
+                android:id="@+id/factBox4"
+                android:layout_width="336dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="288dp"
+                android:background="@drawable/yellow_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <ImageView
+                android:id="@+id/factBox3"
+                android:layout_width="336dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="192dp"
+                android:background="@drawable/yellow_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="143dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Deals"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.138"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/referBox" />
+
+            <ImageView
+                android:id="@+id/factBox1"
+                android:layout_width="336dp"
+                android:layout_height="80dp"
+                android:background="@drawable/yellow_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <ImageView
+                android:id="@+id/claimNow"
+                android:layout_width="89dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/factBox2"
+                app:layout_constraintHorizontal_bias="0.53"
+                app:layout_constraintStart_toStartOf="@+id/factBox2"
+                app:layout_constraintTop_toTopOf="@+id/factBox2"
+                app:srcCompat="@drawable/claimnow_button" />
+
+
+            <TextView
+                android:id="@+id/deal1Text"
+                android:layout_width="163dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/inter"
+                android:text="10% off Coffee"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/factBox1"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="@+id/factBox1"
+                app:layout_constraintTop_toTopOf="@+id/factBox1" />
+
+            <TextView
+                android:id="@+id/point3"
+                android:layout_width="69dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/inter"
+                android:text="100 points"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/factBox3"
+                app:layout_constraintHorizontal_bias="0.951"
+                app:layout_constraintStart_toStartOf="@+id/factBox3"
+                app:layout_constraintTop_toTopOf="@+id/factBox3" />
+
+            <TextView
+                android:id="@+id/point4"
+                android:layout_width="69dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/inter"
+                android:text="100 points"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/factBox4"
+                app:layout_constraintHorizontal_bias="0.955"
+                app:layout_constraintStart_toStartOf="@+id/factBox4"
+                app:layout_constraintTop_toTopOf="@+id/factBox4" />
+
+            <ImageView
+                android:id="@+id/logoImage"
+                android:layout_width="112dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo" />
+
+            <TextView
+                android:layout_width="204dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="64dp"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="center"
+                android:text="Rewards"
+                android:textColor="#2D8B00"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.095"
+                app:layout_constraintStart_toStartOf="@+id/logoImage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="315dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="88dp"
+                android:fontFamily="@font/inter"
+                android:gravity="center"
+                android:text="See what cool discounts and deals are there to exchange for"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.486"
+                app:layout_constraintStart_toStartOf="@+id/logoImage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="143dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Summary"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.138"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <ImageView
+                android:id="@+id/referBox"
+                android:layout_width="336dp"
+                android:layout_height="86dp"
+                android:layout_marginTop="52dp"
+                android:background="@drawable/green_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <ImageView
+                android:id="@+id/pointIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintEnd_toEndOf="@+id/referBox"
+                app:layout_constraintHorizontal_bias="0.064"
+                app:layout_constraintStart_toStartOf="@+id/referBox"
+                app:layout_constraintTop_toTopOf="@+id/referBox"
+                app:srcCompat="@drawable/money_light" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="77dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="300 points"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/referBox"
+                app:layout_constraintHorizontal_bias="0.009"
+                app:layout_constraintStart_toEndOf="@+id/pointIcon"
+                app:layout_constraintTop_toTopOf="@+id/referBox" />
+
+            <ImageView
+                android:id="@+id/exchangeItemsIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintEnd_toEndOf="@+id/referBox"
+                app:layout_constraintHorizontal_bias="0.254"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="@+id/referBox"
+                app:srcCompat="@drawable/refresh_2_light" />
+
+            <TextView
+                android:layout_width="77dp"
+                android:layout_height="27dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="10 Exchange Items"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/referBox"
+                app:layout_constraintHorizontal_bias="0.195"
+                app:layout_constraintStart_toEndOf="@+id/exchangeItemsIcon"
+                app:layout_constraintTop_toTopOf="@+id/referBox" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="143dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Deals"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.138"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/referBox" />
+
+            <ImageView
+                android:id="@+id/factBox2"
+                android:layout_width="336dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="96dp"
+                android:background="@drawable/yellow_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+            <ImageView
+                android:id="@+id/coffeeIcon"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/factBox1"
+                app:layout_constraintHorizontal_bias="0.049"
+                app:layout_constraintStart_toStartOf="@+id/factBox1"
+                app:layout_constraintTop_toTopOf="@+id/factBox1"
+                app:srcCompat="@drawable/deals_coffee_icon" />
+
+            <ImageView
+                android:id="@+id/claimNow1"
+                android:layout_width="89dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="44dp"
+                app:layout_constraintEnd_toEndOf="@+id/factBox1"
+                app:layout_constraintHorizontal_bias="0.951"
+                app:layout_constraintStart_toStartOf="@+id/factBox1"
+                app:layout_constraintTop_toTopOf="@+id/factBox1"
+                app:srcCompat="@drawable/claimnow_button" />
+
+            <ImageView
+                android:id="@+id/claimNow2"
+                android:layout_width="89dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="44dp"
+                app:layout_constraintEnd_toEndOf="@+id/factBox2"
+                app:layout_constraintHorizontal_bias="0.951"
+                app:layout_constraintStart_toStartOf="@+id/factBox2"
+                app:layout_constraintTop_toTopOf="@+id/factBox2"
+                app:srcCompat="@drawable/claimnow_button" />
+
+
+            <ImageView
+                android:id="@+id/claimNow3"
+                android:layout_width="89dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="44dp"
+                app:layout_constraintEnd_toEndOf="@+id/factBox3"
+                app:layout_constraintHorizontal_bias="0.951"
+                app:layout_constraintStart_toStartOf="@+id/factBox3"
+                app:layout_constraintTop_toTopOf="@+id/factBox3"
+                app:srcCompat="@drawable/claimnow_button" />
+
+
+            <ImageView
+                android:id="@+id/claimNow4"
+                android:layout_width="89dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="44dp"
+                app:layout_constraintEnd_toEndOf="@+id/factBox4"
+                app:layout_constraintHorizontal_bias="0.951"
+                app:layout_constraintStart_toStartOf="@+id/factBox4"
+                app:layout_constraintTop_toTopOf="@+id/factBox4"
+                app:srcCompat="@drawable/claimnow_button" />
+
+            <TextView
+                android:id="@+id/points2"
+                android:layout_width="69dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/inter"
+                android:text="100 points"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/factBox2"
+                app:layout_constraintHorizontal_bias="0.955"
+                app:layout_constraintStart_toStartOf="@+id/factBox2"
+                app:layout_constraintTop_toTopOf="@+id/factBox2" />
+
+            <TextView
+                android:id="@+id/points1"
+                android:layout_width="69dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/inter"
+                android:text="100 points"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/factBox1"
+                app:layout_constraintHorizontal_bias="0.955"
+                app:layout_constraintStart_toStartOf="@+id/factBox1"
+                app:layout_constraintTop_toTopOf="@+id/factBox1" />
+
+
+            <TextView
+                android:id="@+id/deal2Text"
+                android:layout_width="163dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/inter"
+                android:text="$5 Off Groceries"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/factBox2"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="@+id/factBox2"
+                app:layout_constraintTop_toTopOf="@+id/factBox2" />
+
+            <TextView
+                android:id="@+id/deal3Text"
+                android:layout_width="163dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter"
+                android:text="Free Bagel with Purchase"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/factBox3"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="@+id/factBox3"
+                app:layout_constraintTop_toTopOf="@+id/factBox3" />
+
+            <TextView
+                android:id="@+id/deal4Text"
+                android:layout_width="163dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/inter"
+                android:text="$10 off Petrol"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/factBox4"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="@+id/factBox4"
+                app:layout_constraintTop_toTopOf="@+id/factBox4" />
+
+            <ImageView
+                android:id="@+id/groceryIcon"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                app:layout_constraintEnd_toStartOf="@+id/deal2Text"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="@+id/factBox2"
+                app:layout_constraintTop_toTopOf="@+id/claimNow"
+                app:srcCompat="@drawable/deals_grocery_icon" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toStartOf="@+id/deal3Text"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="@+id/factBox3"
+                app:layout_constraintTop_toTopOf="@+id/factBox3"
+                app:srcCompat="@drawable/deals_food_icon" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/deal4Text"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="@+id/factBox4"
+                app:layout_constraintTop_toTopOf="@+id/factBox4"
+                app:srcCompat="@drawable/deals_petrol_icon" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
--->
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-141dp"
-        tools:layout_editor_absoluteY="-146dp">
-
-        <ImageView
-            android:id="@+id/logoImage"
-            android:layout_width="112dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo" />
-
-        <TextView
-            android:layout_width="204dp"
-            android:layout_height="29dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginTop="64dp"
-            android:fontFamily="@font/inter_semibold"
-            android:gravity="center"
-            android:text="Rewards"
-            android:textColor="#2D8B00"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.095"
-            app:layout_constraintStart_toStartOf="@+id/logoImage"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="315dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="88dp"
-            android:fontFamily="@font/inter"
-            android:gravity="center"
-            android:text="See what cool discounts and deals are there to exchange for"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.486"
-            app:layout_constraintStart_toStartOf="@+id/logoImage"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="143dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/inter_semibold"
-            android:text="Summary"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.138"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <ImageView
-            android:id="@+id/referBox"
-            android:layout_width="336dp"
-            android:layout_height="86dp"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/green_box"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="28dp"
-            app:layout_constraintEnd_toEndOf="@+id/referBox"
-            app:layout_constraintHorizontal_bias="0.064"
-            app:layout_constraintStart_toStartOf="@+id/referBox"
-            app:layout_constraintTop_toTopOf="@+id/referBox"
-            app:srcCompat="@drawable/money_light" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="77dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="28dp"
-            android:fontFamily="@font/inter_semibold"
-            android:text="300 points"
-            android:textColor="#000000"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/referBox"
-            app:layout_constraintHorizontal_bias="0.009"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/referBox" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="28dp"
-            app:layout_constraintEnd_toEndOf="@+id/referBox"
-            app:layout_constraintHorizontal_bias="0.254"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="@+id/referBox"
-            app:srcCompat="@drawable/refresh_2_light" />
-
-        <TextView
-            android:layout_width="77dp"
-            android:layout_height="27dp"
-            android:layout_marginTop="28dp"
-            android:fontFamily="@font/inter_semibold"
-            android:text="10 Exchange Items"
-            android:textColor="#000000"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/referBox"
-            app:layout_constraintHorizontal_bias="0.195"
-            app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toTopOf="@+id/referBox" />
-
-        <TextView
-            android:layout_width="143dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/inter_semibold"
-            android:text="Deals"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.138"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/referBox" />
-
-        <ImageView
-            android:id="@+id/factBox"
-            android:layout_width="336dp"
-            android:layout_height="80dp"
-            android:background="@drawable/yellow_box"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="327dp" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            app:srcCompat="@drawable/deals_coffee_icon"
-            tools:layout_editor_absoluteX="51dp"
-            tools:layout_editor_absoluteY="339dp" />
-
-        <TextView
-            android:layout_width="163dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
-            android:fontFamily="@font/inter"
-            android:text="10% off Coffee"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/factBox"
-            app:layout_constraintHorizontal_bias="0.011"
-            app:layout_constraintStart_toEndOf="@+id/imageView5"
-            app:layout_constraintTop_toTopOf="@+id/factBox" />
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="89dp"
-            android:layout_height="25dp"
-            app:srcCompat="@drawable/claimnow_button"
-            tools:layout_editor_absoluteX="270dp"
-            tools:layout_editor_absoluteY="369dp" />
-
-        <TextView
-            android:layout_width="69dp"
-            android:layout_height="16dp"
-            android:fontFamily="@font/inter"
-            android:text="100 points"
-            android:textColor="#000000"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="290dp"
-            tools:layout_editor_absoluteY="339dp" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -220,6 +446,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu"
-        app:itemIconSize="40dp" />
+        app:itemIconSize="40dp"
+
+        app:itemIconTint="@drawable/bottom_navigation_item_color"
+        app:itemTextColor="@drawable/bottom_navigation_item_color"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
