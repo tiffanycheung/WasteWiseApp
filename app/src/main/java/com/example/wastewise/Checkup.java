@@ -4,13 +4,11 @@ import java.util.ArrayList;
 
 public class Checkup {
     private String activityName;
-    private String numOfQuestions;
     private int image;
     private boolean completed;
 
-    public Checkup(String activityName, String numOfQuestions, int image, boolean completed) {
+    public Checkup(String activityName, int image, boolean completed) {
         this.activityName = activityName;
-        this.numOfQuestions = numOfQuestions;
         this.image = image;
         this.completed = completed;
     }
@@ -23,14 +21,6 @@ public class Checkup {
         this.activityName = activityName;
     }
 
-    public String getNumOfQuestions() {
-        return numOfQuestions;
-    }
-
-    public void setNumOfQuestions(String numOfQuestions) {
-        this.numOfQuestions = numOfQuestions;
-    }
-
     public int getImage() {
         return image;
     }
@@ -39,7 +29,7 @@ public class Checkup {
         this.image = image;
     }
 
-    public boolean isCompleted() {
+    public boolean getCompleted() {
         return completed;
     }
 
@@ -49,11 +39,11 @@ public class Checkup {
 
     public static ArrayList<Checkup> createActivities() {
         ArrayList<Checkup> activitiesList = new ArrayList<>();
-        activitiesList.add(new Checkup("Checkup 1: Waste Disposal", "3 Questions", R.drawable.checkup_1, true));
-        activitiesList.add(new Checkup("Checkup 2: E-Waste", "3 Questions", R.drawable.checkup_2, false));
-        activitiesList.add(new Checkup("Checkup 3: Biomedical Waste", "3 Questions", R.drawable.checkup_3, false));
-        activitiesList.add(new Checkup("Checkup 4: Hazardous Waste", "3 Questions", R.drawable.checkup_4, true));
-        activitiesList.add(new Checkup("Checkup 5: Green Waste", "3 Questions", R.drawable.checkup_5, true));
+        activitiesList.add(new Checkup("Checkup 1: Waste Disposal", R.drawable.checkup_1, false));
+        activitiesList.add(new Checkup("Checkup 2: E-Waste", R.drawable.checkup_2, false));
+        activitiesList.add(new Checkup("Checkup 3: Biomedical Waste", R.drawable.checkup_3, false));
+        activitiesList.add(new Checkup("Checkup 4: Hazardous Waste", R.drawable.checkup_4, false));
+        activitiesList.add(new Checkup("Checkup 5: Green Waste", R.drawable.checkup_5, false));
         return activitiesList;
     }
 

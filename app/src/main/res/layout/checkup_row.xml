@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/activityTxt"
+        android:id="@+id/businessTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -19,16 +19,16 @@
         app:layout_constraintTop_toTopOf="@+id/activityIcon" />
 
     <TextView
-        android:id="@+id/questionsTxt"
+        android:id="@+id/timeTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/inter_medium"
-        android:text="# questions"
+        android:text="3 Questions"
         android:textColor="#939393"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/activityTxt"
-        app:layout_constraintTop_toBottomOf="@+id/activityTxt" />
+        app:layout_constraintStart_toStartOf="@+id/businessTxt"
+        app:layout_constraintTop_toBottomOf="@+id/businessTxt" />
 
     <ImageView
         android:id="@+id/activityIcon"

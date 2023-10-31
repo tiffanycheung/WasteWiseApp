@@ -79,7 +79,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bro" />
 
     <Button
-        android:id="@+id/sendInviteBtn"
+        android:id="@+id/submitBtn"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
@@ -104,9 +104,9 @@
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/sendInviteBtn"
-        app:layout_constraintStart_toStartOf="@+id/sendInviteBtn"
-        app:layout_constraintTop_toBottomOf="@+id/sendInviteBtn" />
+        app:layout_constraintEnd_toEndOf="@+id/submitBtn"
+        app:layout_constraintStart_toStartOf="@+id/submitBtn"
+        app:layout_constraintTop_toBottomOf="@+id/submitBtn" />
 
     <ImageView
         android:id="@+id/whiteBackground"

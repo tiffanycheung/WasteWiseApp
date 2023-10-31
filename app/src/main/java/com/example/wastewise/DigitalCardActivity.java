@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 //import com.example.wastewise.databinding.DigitalCardBinding;
 //import com.example.wastewise.databinding.HomeBinding;
@@ -16,8 +17,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DigitalCardActivity extends AppCompatActivity {
 
-    private TextView nameTxt;
+    private TextView nameTxt, emptyStateTxt;
     private ImageView backBtn;
+    private ConstraintLayout transaction1, transaction2, transaction3, transaction4;
 
     //DigitalCardBinding binding;
 
@@ -32,7 +34,12 @@ public class DigitalCardActivity extends AppCompatActivity {
 
         // initialisations
         nameTxt = findViewById(R.id.nameTxt);
+        emptyStateTxt = findViewById(R.id.emptyStateTxt);
         backBtn = findViewById(R.id.backBtn);
+        transaction1 = findViewById(R.id.business1);
+        transaction2 = findViewById(R.id.business2);
+        transaction3 = findViewById(R.id.business3);
+        transaction4 = findViewById(R.id.business4);
 
         //Bottom Navigation Bar
 
@@ -89,15 +96,24 @@ public class DigitalCardActivity extends AppCompatActivity {
 
         });*/
 
-            backBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // TODO: needs to work out whether to go back to home page or profile page
-                }
-            });
+        // TODO: get user's name, points and number of exchange items from database
+        String name = "";
 
-            // TODO: recyclerview for transaction history (connected to database)
+        // make transaction history visible only for Amanda Vuong, otherwise all new users will have empty transaction history
+        if(name.equals("Amanda Vuong")) {
+            transaction1.setVisibility(View.VISIBLE);
+            transaction2.setVisibility(View.VISIBLE);
+            transaction3.setVisibility(View.VISIBLE);
+            transaction4.setVisibility(View.VISIBLE);
+            emptyStateTxt.setVisibility(View.INVISIBLE);
+        }
 
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO: needs to work out whether to go back to home page or profile page
+            }
+        });
     }
 
 

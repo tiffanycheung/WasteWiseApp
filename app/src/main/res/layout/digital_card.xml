@@ -25,154 +25,442 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/backBtn"
-        android:layout_width="41dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arrow_left_light__1_" />
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="41dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.077"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_left_light__1_" />
 
-    <TextView
-        android:id="@+id/digitalCardTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Digital Card"
-        android:textColor="#2D8B00"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backBtn" />
+            <TextView
+                android:id="@+id/digitalCardTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Digital Card"
+                android:textColor="#2D8B00"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/backBtn" />
 
-    <ImageView
-        android:id="@+id/cardBox"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/green_box"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/digitalCardTitle" />
+            <ImageView
+                android:id="@+id/cardBox"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/green_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/digitalCardTitle" />
 
-    <TextView
-        android:id="@+id/nameTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Name"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/cardBox"
-        app:layout_constraintTop_toTopOf="@+id/cardBox" />
+            <TextView
+                android:id="@+id/nameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Name"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/cardBox"
+                app:layout_constraintTop_toTopOf="@+id/cardBox" />
 
-    <ImageView
-        android:id="@+id/leafIcon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/cardBox"
-        app:layout_constraintTop_toTopOf="@+id/cardBox"
-        app:srcCompat="@drawable/leaf" />
+            <ImageView
+                android:id="@+id/leafIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/cardBox"
+                app:layout_constraintTop_toTopOf="@+id/cardBox"
+                app:srcCompat="@drawable/leaf" />
 
-    <ImageView
-        android:id="@+id/barcodeImg"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardBox"
-        app:layout_constraintEnd_toEndOf="@+id/cardBox"
-        app:layout_constraintStart_toStartOf="@+id/cardBox"
-        app:layout_constraintTop_toBottomOf="@+id/nameTxt"
-        app:srcCompat="@drawable/barcode" />
+            <ImageView
+                android:id="@+id/barcodeImg"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cardBox"
+                app:layout_constraintEnd_toEndOf="@+id/cardBox"
+                app:layout_constraintStart_toStartOf="@+id/cardBox"
+                app:layout_constraintTop_toBottomOf="@+id/nameTxt"
+                app:srcCompat="@drawable/barcode" />
 
-    <ImageView
-        android:id="@+id/pinkBox"
-        android:layout_width="350dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/pink_box"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardBox" />
+            <ImageView
+                android:id="@+id/pinkBox"
+                android:layout_width="350dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/pink_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardBox" />
 
-    <ImageView
-        android:id="@+id/yellowBox"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/yellow_box_rounder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pinkBox" />
+            <TextView
+                android:id="@+id/pointsTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="# points"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/pointsIcon"
+                app:layout_constraintTop_toTopOf="@+id/pointsIcon" />
 
-    <TextView
-        android:id="@+id/transactionTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Transaction history"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/pinkBox"
-        app:layout_constraintTop_toTopOf="@+id/yellowBox" />
+            <ImageView
+                android:id="@+id/pointsIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:layout_constraintBottom_toBottomOf="@+id/pinkBox"
+                app:layout_constraintStart_toStartOf="@+id/nameTxt"
+                app:layout_constraintTop_toTopOf="@+id/pinkBox"
+                app:srcCompat="@drawable/points" />
 
-    <TextView
-        android:id="@+id/pointsTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="# points"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/pointsIcon"
-        app:layout_constraintTop_toTopOf="@+id/pointsIcon" />
+            <TextView
+                android:id="@+id/exchangeTxt"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="# exchange items"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/pinkBox"
+                app:layout_constraintEnd_toEndOf="@+id/pinkBox"
+                app:layout_constraintTop_toTopOf="@+id/pinkBox" />
 
-    <ImageView
-        android:id="@+id/pointsIcon"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/pinkBox"
-        app:layout_constraintStart_toStartOf="@+id/nameTxt"
-        app:layout_constraintTop_toTopOf="@+id/pinkBox"
-        app:srcCompat="@drawable/points" />
+            <ImageView
+                android:id="@+id/exchangeIcon"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/pinkBox"
+                app:layout_constraintEnd_toStartOf="@+id/exchangeTxt"
+                app:layout_constraintTop_toTopOf="@+id/pinkBox"
+                app:srcCompat="@drawable/exchange" />
 
-    <TextView
-        android:id="@+id/exchangeTxt"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="# exchange items"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/pinkBox"
-        app:layout_constraintEnd_toEndOf="@+id/pinkBox"
-        app:layout_constraintTop_toTopOf="@+id/pinkBox" />
+            <ImageView
+                android:id="@+id/yellowBox"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/yellow_box_rounder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pinkBox" />
 
-    <ImageView
-        android:id="@+id/exchangeIcon"
-        android:layout_width="20dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/pinkBox"
-        app:layout_constraintEnd_toStartOf="@+id/exchangeTxt"
-        app:layout_constraintTop_toTopOf="@+id/pinkBox"
-        app:srcCompat="@drawable/exchange" />
+            <TextView
+                android:id="@+id/transactionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Transaction history"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/yellowBox"
+                app:layout_constraintTop_toTopOf="@+id/yellowBox" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/business1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="invisible"
+                app:layout_constraintTop_toBottomOf="@+id/transactionTitle">
+
+                <TextView
+                    android:id="@+id/businessTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="Soul Origin"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@+id/activityIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/timeTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="11:30 AM"
+                    android:textColor="#6C6C6C"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/businessTxt" />
+
+                <ImageView
+                    android:id="@+id/activityIcon"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@drawable/soul_origin_logo" />
+
+                <ImageView
+                    android:id="@+id/pointsBackground"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="30dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/activityIcon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/activityIcon"
+                    app:srcCompat="@drawable/black_btn" />
+
+                <TextView
+                    android:id="@+id/transactionPoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="10 points"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/pointsBackground"
+                    app:layout_constraintEnd_toEndOf="@+id/pointsBackground"
+                    app:layout_constraintStart_toStartOf="@+id/pointsBackground"
+                    app:layout_constraintTop_toTopOf="@+id/pointsBackground" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/business2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:layout_constraintTop_toBottomOf="@+id/business1">
+
+                <TextView
+                    android:id="@+id/businessTxt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="Woolworths"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@+id/activityIcon2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/timeTxt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="10:53 AM"
+                    android:textColor="#6C6C6C"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/businessTxt2" />
+
+                <ImageView
+                    android:id="@+id/activityIcon2"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@drawable/woolworths" />
+
+                <ImageView
+                    android:id="@+id/pointsBackground2"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="30dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/activityIcon2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/activityIcon2"
+                    app:srcCompat="@drawable/black_btn" />
+
+                <TextView
+                    android:id="@+id/transactionPoints2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="40 points"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/pointsBackground2"
+                    app:layout_constraintEnd_toEndOf="@+id/pointsBackground2"
+                    app:layout_constraintStart_toStartOf="@+id/pointsBackground2"
+                    app:layout_constraintTop_toTopOf="@+id/pointsBackground2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/business3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:layout_constraintTop_toBottomOf="@+id/business2">
+
+                <TextView
+                    android:id="@+id/businessTxt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="Boost"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@+id/activityIcon3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/timeTxt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="Yesterday 3:34 PM"
+                    android:textColor="#6C6C6C"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/businessTxt3" />
+
+                <ImageView
+                    android:id="@+id/activityIcon3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@drawable/boost_juice" />
+
+                <ImageView
+                    android:id="@+id/pointsBackground3"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="30dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/activityIcon3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/activityIcon3"
+                    app:srcCompat="@drawable/black_btn" />
+
+                <TextView
+                    android:id="@+id/transactionPoints3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="20 points"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/pointsBackground3"
+                    app:layout_constraintEnd_toEndOf="@+id/pointsBackground3"
+                    app:layout_constraintStart_toStartOf="@+id/pointsBackground3"
+                    app:layout_constraintTop_toTopOf="@+id/pointsBackground3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/business4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:layout_constraintTop_toBottomOf="@+id/business3">
+
+                <TextView
+                    android:id="@+id/businessTxt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="Coles"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@+id/activityIcon4"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/timeTxt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="Yesterday 1:48 PM"
+                    android:textColor="#6C6C6C"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/businessTxt4" />
+
+                <ImageView
+                    android:id="@+id/activityIcon4"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@drawable/coles_logo_svg" />
+
+                <ImageView
+                    android:id="@+id/pointsBackground4"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="30dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/activityIcon4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/activityIcon4"
+                    app:srcCompat="@drawable/black_btn" />
+
+                <TextView
+                    android:id="@+id/transactionPoints4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="50 points"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/pointsBackground4"
+                    app:layout_constraintEnd_toEndOf="@+id/pointsBackground4"
+                    app:layout_constraintStart_toStartOf="@+id/pointsBackground4"
+                    app:layout_constraintTop_toTopOf="@+id/pointsBackground4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/emptyStateTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="No transactions yet!"
+                android:textColor="#6C6C6C"
+                android:textSize="16sp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/transactionTitle"
+                app:layout_constraintTop_toBottomOf="@+id/transactionTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

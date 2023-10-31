@@ -108,7 +108,7 @@ public class HomeActivity extends AppCompatActivity {
         checkupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), CheckupsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CheckupLanding.class);
                 startActivity(intent);
                 finish();
             }
@@ -218,7 +218,7 @@ public class HomeActivity extends AppCompatActivity {
         TextView referTxt = dialog.findViewById(R.id.referTxt);
         TextView codeTxt = dialog.findViewById(R.id.codeTxt);
         ImageView copyBtn = dialog.findViewById(R.id.copyCodeBtn);
-        Button sendBtn = dialog.findViewById(R.id.sendInviteBtn);
+        Button sendBtn = dialog.findViewById(R.id.submitBtn);
 
         referTxt.setText("Tell your friends about us. You get 100 points from us when they create an account with us.");
 
