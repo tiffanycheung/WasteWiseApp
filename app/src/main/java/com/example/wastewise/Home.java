@@ -44,26 +44,26 @@ public class Home extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.home);
 
         //Bottom Navigation Bar
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                { if (item.getItemId() == R.id.home) {
-                }
-
-                    if (item.getItemId() == R.id.leaderboard) {
-                        Intent intent = new Intent(Home.this, Leaderboard.class);
-                        startActivity(intent);
-                    }
-                    if (item.getItemId() == R.id.forum) {
-                    }
-                    if (item.getItemId() == R.id.checkup) {
-                    }
-                    if (item.getItemId() == R.id.profile) {
-                    }
-                    return true;
-                }
-            }
-        });
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                { if (item.getItemId() == R.id.home) {
+//                }
+//
+//                    if (item.getItemId() == R.id.leaderboard) {
+//                        Intent intent = new Intent(Home.this, Leaderboard.class);
+//                        startActivity(intent);
+//                    }
+//                    if (item.getItemId() == R.id.forum) {
+//                    }
+//                    if (item.getItemId() == R.id.checkup) {
+//                    }
+//                    if (item.getItemId() == R.id.profile) {
+//                    }
+//                    return true;
+//                }
+//            }
+//        });
         //binding for navigation bar
 
      /*   binding = HomeBinding.inflate(getLayoutInflater());
@@ -84,9 +84,6 @@ public class Home extends AppCompatActivity {
 
         // TODO: customise welcome message to current user
         // FirebaseUser user = mAuth.getCurrentUser();
-
-        // TODO: need some way to figure out the user's local council based on their postcode input? - last priority
-
 
 
         // initialisation
