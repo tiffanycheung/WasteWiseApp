@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.Random;
 
 
-public class HomeActivity extends AppCompatActivity {
+public class Home extends AppCompatActivity {
 
     private ImageView leaderboardBtn, rewardsBtn, eventsBtn, cardBtn, referBtn, checkupBtn;
     private TextView factTxt, referTxt, checkupTxt;
@@ -51,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
 
                     if (item.getItemId() == R.id.leaderboard) {
-                        Intent intent = new Intent(HomeActivity.this, Leaderboard.class);
+                        Intent intent = new Intent(Home.this, Leaderboard.class);
                         startActivity(intent);
                     }
                     if (item.getItemId() == R.id.forum) {
@@ -122,7 +122,8 @@ public class HomeActivity extends AppCompatActivity {
         cardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), DigitalCardActivity.class);
+                Intent intent = new Intent(getApplicationContext(), DigitalCard.class);
+                intent.putExtra("PREVIOUS_PAGE", "Home");
                 startActivity(intent);
                 finish();
             }
@@ -148,7 +149,7 @@ public class HomeActivity extends AppCompatActivity {
         eventsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), EventsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Events.class);
                 startActivity(intent);
                 finish();
             }
@@ -239,14 +240,14 @@ public class HomeActivity extends AppCompatActivity {
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "Email invite sent!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Home.this, "Email invite sent!", Toast.LENGTH_SHORT).show();
             }
         });
 
         copyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "Code copied to clipboard.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Home.this, "Code copied to clipboard.", Toast.LENGTH_SHORT).show();
             }
         });
 

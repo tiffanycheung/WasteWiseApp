@@ -33,7 +33,7 @@ public class Rewards extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 {
                     if (item.getItemId() == R.id.home) {
-                        Intent intent = new Intent(Rewards.this, HomeActivity.class);
+                        Intent intent = new Intent(Rewards.this, Home.class);
                         startActivity(intent);
                     }
 

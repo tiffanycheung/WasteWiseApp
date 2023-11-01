@@ -32,7 +32,7 @@ public class Leaderboard extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 {
                     if (item.getItemId() == R.id.home) {
-                        Intent intent = new Intent(Leaderboard.this, HomeActivity.class);
+                        Intent intent = new Intent(Leaderboard.this, Home.class);
                         startActivity(intent);
                     }
 

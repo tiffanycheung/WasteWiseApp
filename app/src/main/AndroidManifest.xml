@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WasteWise">
         <activity
-            android:name=".LoginActivity"
+            android:name=".Login"
             android:exported="true" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".SignUp"
             android:exported="true" />
         <activity
-            android:name=".QuestionnaireActivity"
+            android:name=".UserQuestionnaire"
             android:exported="true" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Home"
             android:exported="true" />
         <activity
             android:name=".ForgotPassword"
@@ -31,10 +31,10 @@
             android:name=".Rewards"
             android:exported="true" />
         <activity
-            android:name=".EventsActivity"
+            android:name=".Events"
             android:exported="true" />
         <activity
-            android:name=".DigitalCardActivity"
+            android:name=".DigitalCard"
             android:exported="true" />
         <activity
             android:name=".CheckupLanding"
@@ -43,7 +43,7 @@
             android:name=".CheckupActivity"
             android:exported="true" />
         <activity
-            android:name=".SubmissionActivity"
+            android:name=".CheckupSubmission"
             android:exported="true" />
 
         <activity

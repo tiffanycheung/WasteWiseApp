@@ -54,7 +54,7 @@ public class ForgotPassword extends AppCompatActivity  {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ForgotPassword.this, SignUpActivity.class);
+                Intent intent = new Intent(ForgotPassword.this, SignUp.class);
                 startActivity(intent);
                 finish();
             }
@@ -68,7 +68,7 @@ public class ForgotPassword extends AppCompatActivity  {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(ForgotPassword.this, "Reset password link has been sent to your email.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ForgotPassword.this, LoginActivity.class);
+                        Intent intent = new Intent(ForgotPassword.this, Login.class);
                         startActivity(intent);
                         finish();
                     }

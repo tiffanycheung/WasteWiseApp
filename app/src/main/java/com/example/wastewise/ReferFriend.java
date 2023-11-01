@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ReferFriendActivity extends AppCompatActivity {
+public class ReferFriend extends AppCompatActivity {
 
     private TextView referTxt;
     private ImageView copyBtn, sendInviteBtn;

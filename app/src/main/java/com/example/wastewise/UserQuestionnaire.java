@@ -22,7 +22,7 @@ import java.util.Map;
 
 
 // user questionnaire page
-public class QuestionnaireActivity extends AppCompatActivity {
+public class UserQuestionnaire extends AppCompatActivity {
 
     private EditText fnameEditTxt, lnameEditTxt, dobEditTxt, postcodeEditTxt;
     private Button startBtn;
@@ -60,7 +60,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
                     // create user object and retrieve name and postcode
                     insertUserData();
                     // go to home page and pass the user's name and postcode
-                    Intent intent = new Intent(QuestionnaireActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(UserQuestionnaire.this, Home.class);
                     startActivity(intent);
                     finish();
                 }
@@ -70,7 +70,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(QuestionnaireActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(UserQuestionnaire.this, SignUp.class);
                 startActivity(intent);
                 finish();
             }
@@ -111,7 +111,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
                         documentReference.set(userProfile).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Toast.makeText(QuestionnaireActivity.this, "Account Created.",
+                                Toast.makeText(UserQuestionnaire.this, "Account Created.",
                                         Toast.LENGTH_SHORT).show();
                                 Log.d("TAG", "onSuccess: user Profile is created");
 

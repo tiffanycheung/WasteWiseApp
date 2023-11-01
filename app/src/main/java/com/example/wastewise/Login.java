@@ -3,7 +3,6 @@ package com.example.wastewise;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,10 +17,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     private EditText emailEditTxt, passwordEditTxt;
     private TextView forgotPasswordTxt;
@@ -72,12 +70,12 @@ public class LoginActivity extends AppCompatActivity {
                 password = String.valueOf(passwordEditTxt.getText());
 
                 if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(LoginActivity.this, "Please enter email.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Please enter email.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(LoginActivity.this, "Please enter password.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Please enter password.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -87,12 +85,12 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(), Home.class);
                                     startActivity(intent);
                                     finish();
                                 } else {
                                     // If sign in fails, display a message to the user.
-                                    Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                    Toast.makeText(Login.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -104,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
         forgotPasswordTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
+                Intent intent = new Intent(Login.this, ForgotPassword.class);
                 startActivity(intent);
 
             }
@@ -113,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(Login.this, MainActivity.class);
                 startActivity(intent);
             }
         });

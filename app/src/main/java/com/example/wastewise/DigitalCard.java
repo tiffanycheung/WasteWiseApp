@@ -15,11 +15,12 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 //import com.example.wastewise.databinding.HomeBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class DigitalCardActivity extends AppCompatActivity {
+public class DigitalCard extends AppCompatActivity {
 
     private TextView nameTxt, emptyStateTxt;
-    private ImageView backBtn;
+    private ImageView backBtn, infoBtn;
     private ConstraintLayout transaction1, transaction2, transaction3, transaction4;
+    private String previousPage;
 
     //DigitalCardBinding binding;
 
@@ -36,25 +37,29 @@ public class DigitalCardActivity extends AppCompatActivity {
         nameTxt = findViewById(R.id.nameTxt);
         emptyStateTxt = findViewById(R.id.emptyStateTxt);
         backBtn = findViewById(R.id.backBtn);
+        infoBtn = findViewById(R.id.infoBtn);
         transaction1 = findViewById(R.id.business1);
         transaction2 = findViewById(R.id.business2);
         transaction3 = findViewById(R.id.business3);
         transaction4 = findViewById(R.id.business4);
 
-        //Bottom Navigation Bar
+        // record the page that the digital card was clicked on from
+        Intent intent = getIntent();
+        previousPage = intent.getStringExtra("PREVIOUS_PAGE");
 
+        //Bottom Navigation Bar
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 { if (item.getItemId() == R.id.home) {
-                    Intent intent = new Intent(DigitalCardActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(DigitalCard.this, Home.class);
                     startActivity(intent);
                 }
 
                     if (item.getItemId() == R.id.leaderboard) {
-                        Intent intent = new Intent(DigitalCardActivity.this, Leaderboard.class);
+                        Intent intent = new Intent(DigitalCard.this, Leaderboard.class);
                         startActivity(intent);
                     }
                     if (item.getItemId() == R.id.forum) {
@@ -67,7 +72,6 @@ public class DigitalCardActivity extends AppCompatActivity {
                 }
             }
         });
-
 
         /*binding = DigitalCardBinding.inflate(getLayoutInflater());
 
@@ -108,10 +112,29 @@ public class DigitalCardActivity extends AppCompatActivity {
             emptyStateTxt.setVisibility(View.INVISIBLE);
         }
 
+        // go back to the previous page
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: needs to work out whether to go back to home page or profile page
+                if (previousPage.equals("Home")) {
+                    Intent intent = new Intent(DigitalCard.this, Home.class);
+                    startActivity(intent);
+                }
+
+                if (previousPage.equals("Profile")) {
+                    Intent intent = new Intent(DigitalCard.this, Profile.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+        // go to explanation page
+        infoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DigitalCard.this, Explanation.class);
+                startActivity(intent);
             }
         });
     }

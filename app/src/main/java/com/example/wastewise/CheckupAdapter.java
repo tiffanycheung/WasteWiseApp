@@ -25,14 +25,16 @@ public class CheckupAdapter extends RecyclerView.Adapter<CheckupAdapter.MyViewHo
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView activityTxt;
+        private TextView activityTxt, completedTxt, descTxt;
         private ImageView activityIcon;
         onCheckupListener onCheckupListener;
 
         public MyViewHolder(final View itemView, onCheckupListener onCheckupListener) {
             super(itemView);
-            activityTxt = itemView.findViewById(R.id.businessTxt);
+            activityTxt = itemView.findViewById(R.id.activityTxt);
             activityIcon = itemView.findViewById(R.id.activityIcon);
+            descTxt = itemView.findViewById(R.id.descTxt);
+            completedTxt = itemView.findViewById(R.id.completedTxt);
             this.onCheckupListener = onCheckupListener;
 
             itemView.setOnClickListener(this);
@@ -58,10 +60,19 @@ public class CheckupAdapter extends RecyclerView.Adapter<CheckupAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull CheckupAdapter.MyViewHolder holder, int position) {
         String activityName = activitiesList.get(position).getActivityName();
+        String description = activitiesList.get(position).getDescription();
         int activityIcon = activitiesList.get(position).getImage();
+        boolean completed = activitiesList.get(position).getCompleted();
 
         holder.activityTxt.setText(activityName);
         holder.activityIcon.setImageResource(activityIcon);
+        holder.descTxt.setText(description);
+
+        // set the completed marker as visible if the user has completed the quiz
+        if (completed) {
+            holder.completedTxt.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override

@@ -26,6 +26,7 @@ public class CheckupActivity extends AppCompatActivity {
     private boolean noBtnClicked = false;
     private boolean yesBtn3Clicked = false;
     private boolean noBtn3Clicked = false;
+    public static String completedActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,24 +153,18 @@ public class CheckupActivity extends AppCompatActivity {
                 // check completion of activity before submission
                 boolean allFilledOut = filledOut(yesBtnClicked, noBtnClicked, yesBtn3Clicked, noBtn3Clicked);
 
-
-                // TODO: not sure if the below works at updating completion
                 // go to submission page only if all fields are filled out
                 if (allFilledOut == true) {
 
-                    // update completion
-                    int position = 0;
-                    for (int i = 0; i < CheckupLanding.activitiesList.size(); i++) {
-                        if (CheckupLanding.activitiesList.get(i).getActivityName().equals(activityName)) {
-                            position = i;
-                        }
-                    }
-                    CheckupLanding.activitiesList.get(position).setCompleted(true);
+                    // take the name of the completed activity to update completion status later
+                    completedActivity = activityName;
 
-                    Intent intent = new Intent(CheckupActivity.this, SubmissionActivity.class);
+                    // go back to checkups landing page
+                    Intent intent = new Intent(CheckupActivity.this, CheckupSubmission.class);
                     startActivity(intent);
                 }
 
+                // TODO: add 5 points to the user in Firebase database
 
             }
         });
@@ -225,6 +220,7 @@ public class CheckupActivity extends AppCompatActivity {
         boolean yesNoFilled = true;
         boolean allFilledOut = false;
 
+
         if(TextUtils.isEmpty(answerEditTxt.getText().toString())) {
             answerEditTxt.setError("Please enter your response.");
             editTxtFilled = false;
@@ -237,6 +233,10 @@ public class CheckupActivity extends AppCompatActivity {
 
         if(editTxtFilled && yesNoFilled) {
             allFilledOut = true;
+        }
+
+        if(!((yesBtnClicked || noBtnClicked) && (yesBtn3Clicked || noBtn3Clicked) && editTxtFilled)) {
+            Toast.makeText(CheckupActivity.this, "Please answer all questions.", Toast.LENGTH_SHORT).show();
         }
 
         return allFilledOut;

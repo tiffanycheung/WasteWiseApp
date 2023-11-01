@@ -6,14 +6,11 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-public class EventsActivity extends AppCompatActivity {
+public class Events extends AppCompatActivity {
     //EventsBinding binding;
 
     BottomNavigationView bottomNavigationView;
@@ -33,12 +30,12 @@ public class EventsActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 { if (item.getItemId() == R.id.home) {
-                    Intent intent = new Intent(EventsActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(Events.this, Home.class);
                     startActivity(intent);
                 }
 
                     if (item.getItemId() == R.id.leaderboard) {
-                        Intent intent = new Intent(EventsActivity.this, Leaderboard.class);
+                        Intent intent = new Intent(Events.this, Leaderboard.class);
                         startActivity(intent);
                     }
                     if (item.getItemId() == R.id.forum) {
