@@ -48,30 +48,30 @@ public class DigitalCard extends AppCompatActivity {
         previousPage = intent.getStringExtra("PREVIOUS_PAGE");
 
         //Bottom Navigation Bar
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(R.id.home);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                { if (item.getItemId() == R.id.home) {
-                    Intent intent = new Intent(DigitalCard.this, Home.class);
-                    startActivity(intent);
-                }
-
-                    if (item.getItemId() == R.id.leaderboard) {
-                        Intent intent = new Intent(DigitalCard.this, Leaderboard.class);
-                        startActivity(intent);
-                    }
-                    if (item.getItemId() == R.id.forum) {
-                    }
-                    if (item.getItemId() == R.id.checkup) {
-                    }
-                    if (item.getItemId() == R.id.profile) {
-                    }
-                    return true;
-                }
-            }
-        });
+//        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+//        bottomNavigationView.setSelectedItemId(R.id.home);
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                { if (item.getItemId() == R.id.home) {
+//                    Intent intent = new Intent(DigitalCard.this, Home.class);
+//                    startActivity(intent);
+//                }
+//
+//                    if (item.getItemId() == R.id.leaderboard) {
+//                        Intent intent = new Intent(DigitalCard.this, Leaderboard.class);
+//                        startActivity(intent);
+//                    }
+//                    if (item.getItemId() == R.id.forum) {
+//                    }
+//                    if (item.getItemId() == R.id.checkup) {
+//                    }
+//                    if (item.getItemId() == R.id.profile) {
+//                    }
+//                    return true;
+//                }
+//            }
+//        });
 
         /*binding = DigitalCardBinding.inflate(getLayoutInflater());
 
@@ -126,6 +126,11 @@ public class DigitalCard extends AppCompatActivity {
                     startActivity(intent);
                 }
 
+                if (previousPage.equals("Explanation")) {
+                    Intent intent = new Intent(DigitalCard.this, Explanation.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -134,6 +139,7 @@ public class DigitalCard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DigitalCard.this, Explanation.class);
+                intent.putExtra("PAGE_USER_CAME_FROM", previousPage);
                 startActivity(intent);
             }
         });
