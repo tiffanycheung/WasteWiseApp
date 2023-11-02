@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         //set current user to null for testing
-        // currentUser = null;
+      //  currentUser = null;
 
         if(currentUser != null){
             Intent intent = new Intent(getApplicationContext(), Home.class);
