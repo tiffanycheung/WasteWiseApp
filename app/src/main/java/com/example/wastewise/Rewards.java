@@ -23,6 +23,8 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.util.Random;
+
 public class Rewards extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
@@ -40,6 +42,10 @@ public class Rewards extends AppCompatActivity {
     private FrameLayout frameLayout, claimNowContainer, claimLinkLayout;
 
     private ImageView popUpImage, claimNowImage, claimLinkImage;
+
+    private Integer userPoints;
+
+    private DocumentReference documentReference;
 
 
     @Override
@@ -111,7 +117,7 @@ public class Rewards extends AppCompatActivity {
 
         userId = fAuth.getCurrentUser().getUid();
 
-        DocumentReference documentReference = fStore.collection("users").document(userId);
+        documentReference = fStore.collection("users").document(userId);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
@@ -120,29 +126,22 @@ public class Rewards extends AppCompatActivity {
                 pointsNoTxt.setText(documentSnapshot.get("pointsNo").toString() + " Points");
                 exchangeItemTxt.setText(documentSnapshot.get("exchangeItemNo").toString() + " Exchange Items");
 
-                // points no = documentSnapshot
-
+                // Get User Points
                 Object pointsNoObject = documentSnapshot.get("pointsNo");
-              //  Integer userPoints = ((Long) pointsNoObject).intValue();
-
-                Integer userPoints = 200;
+                userPoints = ((Long) pointsNoObject).intValue();
 
 
                 //REWARD 1 : if <100 points change the "Claim Now" button display to Unavailable for
                 if (userPoints <100) {
 
                   showRewardUnavailable(claimBtn1, R.drawable.deals_coffee_icon);
-                 /* showRewardUnavailable(claimBtn2, R.drawable.deals_grocery_icon);
-                  showRewardUnavailable(claimBtn3, R.drawable.deals_food_icon);
-                  showRewardUnavailable(claimBtn4, R.drawable.deals_petrol_icon);*/
 
                 } else {
                     String coffeeDescription = "Would you like to claim 10% off your next Coffee order?";
                     String coffeeCodeText = " to redeem your coffee.";
-                    String coffeeCode = "<html><font color='#2D8B00'><u><b>LK993</b></u></font></html>";
-                    showRewardsAvailable(claimBtn1, coffeeDescription, coffeeCodeText, coffeeCode, R.drawable.deals_coffee_icon);
+                    String coffeeCode = "<html><font color='#2D8B00'><u><b>" + generateRandomCode()+ "</b></u></font></html>";
+                    showRewardsAvailable(claimBtn1, coffeeDescription, coffeeCodeText, coffeeCode, R.drawable.deals_coffee_icon, 100);
 
-                    //TODO: CHANGE POINTS AFTER REDEMPTION
 
                 }
 
@@ -151,11 +150,34 @@ public class Rewards extends AppCompatActivity {
                 if (userPoints <250) {
                     showRewardUnavailable(claimBtn2, R.drawable.deals_grocery_icon);
                 } else {
-
+                    String groceryDescription = "Would you like to claim $5 off your Groceries?";
+                    String groceryCodeText = " to get $5 off your groceries.";
+                    String groceryCode = "<html><font color='#2D8B00'><u><b>" + generateRandomCode()+ "</b></u></font></html>";
+                    showRewardsAvailable(claimBtn2, groceryDescription, groceryCodeText, groceryCode, R.drawable.deals_grocery_icon, 250);
                 }
 
+                // REWARD 3: Free Bagel with Purchase
 
+                if (userPoints < 80) {
+                    showRewardUnavailable(claimBtn3, R.drawable.deals_food_icon);
+                }  else {
+                    String foodDescription = "Would you like to claim a Free Bagel with Purchase?";
+                    String foodCodeText = " to get a Free Bagel with Purchase.";
+                    String foodCode = "<html><font color='#2D8B00'><u><b>" + generateRandomCode()+ "</b></u></font></html>";
+                    showRewardsAvailable(claimBtn3, foodDescription, foodCodeText, foodCode, R.drawable.deals_food_icon, 80);
+                }
 
+                // REWARD 4 : $10 off Petrol
+
+                if (userPoints < 450) {
+                    showRewardUnavailable(claimBtn4, R.drawable.deals_petrol_icon);
+                } else {
+                    String petrolDescription = "Would you like to claim $10 off Petrol?";
+                    String petrolText = " to get $10 off Petrol.";
+                    String petrolCode = "<html><font color='#2D8B00'><u><b>" + generateRandomCode()+ "</b></u></font></html>";
+                    showRewardsAvailable(claimBtn4, petrolDescription, petrolText, petrolCode, R.drawable.deals_petrol_icon, 450);
+
+                }
             }
         });
 
@@ -193,7 +215,7 @@ public class Rewards extends AppCompatActivity {
 
     }
 
-    private void showRewardsAvailable(Button button, String description, String claimCodeDescription, String claimCode, int imageResource) {
+    private void showRewardsAvailable(Button button, String description, String claimCodeDescription, String claimCode, int imageResource, int points) {
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -216,10 +238,14 @@ public class Rewards extends AppCompatActivity {
                         claimLinkDescription.setText(Html.fromHtml("Present the code " + claimCode +claimCodeDescription));
 
                         claimLinkImage.setImageResource(imageResource);
+
+                        userPoints = userPoints - points;
+                        documentReference.update("pointsNo", userPoints);
                         claimHomeBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 claimLinkLayout.setVisibility(View.INVISIBLE);
+
 
                             }
                         });
@@ -240,10 +266,26 @@ public class Rewards extends AppCompatActivity {
             }
         });
 
-        //TODO: RANDOM CODE GENERATOR
-
-
     }
+
+    //Generate a random code to claim rewards
+    public static String generateRandomCode() {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        StringBuilder code = new StringBuilder(5);
+        Random random = new Random();
+
+        for (int i = 0; i < 5; i++) {
+            int index = random.nextInt(characters.length());
+            char randomChar = characters.charAt(index);
+            code.append(randomChar);
+        }
+
+        return code.toString();
+    }
+
+
+
+
 
 
 
