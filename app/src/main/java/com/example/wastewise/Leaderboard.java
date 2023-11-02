@@ -3,6 +3,9 @@ package com.example.wastewise;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +16,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class Leaderboard extends AppCompatActivity {
 
     //LeaderboardBinding binding;
+    private TextView userPoints, georgeTxt, georgePts, fionaTxt, fionaPts, fourthPlace, fifthPlace, sixthPlace, johnTxt, johnPts, willisTxt, willisPts, kenTxt, kenPts, emptyState;
+    private ImageView newUserIcon, amandaIcon, georgeIcon, fionaIcon, johnIcon, willisIcon, kenIcon;
 
     BottomNavigationView bottomNavigationView;
 
@@ -23,6 +28,42 @@ public class Leaderboard extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.leaderboard);
 
+        // initialisations
+        newUserIcon = findViewById(R.id.newUserIcon);
+        userPoints = findViewById(R.id.userPoints);
+        amandaIcon = findViewById(R.id.amandaIcon);
+        georgeIcon = findViewById(R.id.georgeIcon);
+        georgeTxt = findViewById(R.id.georgeTxt);
+        georgePts = findViewById(R.id.georgePoints);
+        fionaIcon = findViewById(R.id.fionaIcon);
+        fionaTxt = findViewById(R.id.fionaTxt);
+        fionaPts = findViewById(R.id.fionaPoints);
+        fourthPlace = findViewById(R.id.fourthPlace);
+        johnTxt = findViewById(R.id.johnTxt);
+        johnIcon = findViewById(R.id.johnImg);
+        johnPts = findViewById(R.id.johnPoints);
+        fifthPlace = findViewById(R.id.fifthPlace);
+        willisIcon = findViewById(R.id.willisImg);
+        willisTxt = findViewById(R.id.willisTxt);
+        willisPts = findViewById(R.id.willisPoints);
+        sixthPlace = findViewById(R.id.sixthPlace);
+        kenIcon = findViewById(R.id.kenImg);
+        kenTxt = findViewById(R.id.kenTxt);
+        kenPts = findViewById(R.id.kenPoints);
+        emptyState = findViewById(R.id.emptyStateTxt);
+
+        // set prompt text for new users with no friends
+        emptyState.setText("Add your friends to see them on the leaderboard!");
+
+        // TODO: get user's name and points from database
+        String name = "";
+        String points = "";
+        userPoints.setText(points);
+
+        // if the user is Amanda Vuong (user with pre-filled details in the database), show her leaderboard
+        if (name.equals("Amanda Vuong")) {
+            showLeaderboard();
+        }
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.leaderboard);
@@ -77,4 +118,34 @@ public class Leaderboard extends AppCompatActivity {
     }
 */
     }
+
+    private void showLeaderboard() {
+        // make new user icon and empty state invisible
+        newUserIcon.setVisibility(View.INVISIBLE);
+        emptyState.setVisibility(View.INVISIBLE);
+        // make leaderboard elements visible
+        amandaIcon.setVisibility(View.VISIBLE);
+        georgeIcon.setVisibility(View.VISIBLE);
+        georgeTxt.setVisibility(View.VISIBLE);
+        georgePts.setVisibility(View.VISIBLE);
+        fionaIcon.setVisibility(View.VISIBLE);
+        fionaTxt.setVisibility(View.VISIBLE);
+        fionaPts.setVisibility(View.VISIBLE);
+        fourthPlace.setVisibility(View.VISIBLE);
+        johnTxt.setVisibility(View.VISIBLE);
+        johnIcon.setVisibility(View.VISIBLE);
+        johnPts.setVisibility(View.VISIBLE);
+        fifthPlace.setVisibility(View.VISIBLE);
+        willisIcon.setVisibility(View.VISIBLE);
+        willisTxt.setVisibility(View.VISIBLE);
+        willisPts.setVisibility(View.VISIBLE);
+        sixthPlace.setVisibility(View.VISIBLE);
+        kenIcon.setVisibility(View.VISIBLE);
+        kenTxt.setVisibility(View.VISIBLE);
+        kenPts.setVisibility(View.VISIBLE);
+        //TODO: get Amanda's points from database and show
+        String amandaPts = "";
+        userPoints.setText(amandaPts);
+    }
+
 }
