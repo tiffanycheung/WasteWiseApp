@@ -288,7 +288,7 @@
 
 
             <Button
-                android:id="@+id/claimNowButton1"
+                android:id="@+id/editProfileBtn"
                 android:layout_width="89sp"
                 android:layout_height="35dp"
                 android:layout_marginTop="12dp"

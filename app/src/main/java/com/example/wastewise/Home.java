@@ -56,7 +56,7 @@ public class Home extends AppCompatActivity {
         factTxt = findViewById(R.id.factTxt);
         referTxt = findViewById(R.id.referTxt);
         checkupTxt = findViewById(R.id.checkupTxt);
-        nameTxt = findViewById(R.id.nameTxt);
+        nameTxt = findViewById(R.id.profileNameTxt);
         leaderboardBtn = findViewById(R.id.leaderboardBox);
         rewardsBtn = findViewById(R.id.rewardsBox);
         eventsBtn = findViewById(R.id.eventsBox);
@@ -82,6 +82,9 @@ public class Home extends AppCompatActivity {
                         startActivity(intent);
                     }
                     if (item.getItemId() == R.id.profile) {
+                        Intent intent = new Intent(Home.this, Profile.class);
+                        startActivity(intent);
+
                     }
                     return true;
                 }
@@ -103,8 +106,6 @@ public class Home extends AppCompatActivity {
                     }
                 });
 
-
-        // TODO: need some way to figure out the user's local council based on their postcode input? - last priority
 
         // set up text prompts
         referTxt.setText("You could earn over 100 points. Eligibility and criteria and T&Cs apply.");

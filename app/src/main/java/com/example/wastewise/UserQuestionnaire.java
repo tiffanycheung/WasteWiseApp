@@ -36,6 +36,8 @@ public class UserQuestionnaire extends AppCompatActivity {
 
     private String userID;
 
+    private Integer pointsNo, exchangeItemNo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +93,9 @@ public class UserQuestionnaire extends AppCompatActivity {
         email = intent.getStringExtra("EMAIL");
         password = intent.getStringExtra("PASSWORD");
 
+        pointsNo = 0;
+        exchangeItemNo = 0;
+
 
         String fullName = fnameEditTxt.getText().toString() + " " + lnameEditTxt.getText().toString();
         String dob = dobEditTxt.getText().toString();
@@ -107,6 +112,8 @@ public class UserQuestionnaire extends AppCompatActivity {
                         userProfile.put("fullName", fullName);
                         userProfile.put("dob", dob);
                         userProfile.put("postcode", postcode);
+                        userProfile.put("pointsNo", pointsNo);
+                        userProfile.put("exchangeItemNo", exchangeItemNo);
 
                         documentReference.set(userProfile).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override

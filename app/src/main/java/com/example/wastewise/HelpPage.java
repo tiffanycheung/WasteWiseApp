@@ -20,7 +20,7 @@ public class HelpPage extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.help_page);
 
-        // initalisations
+        // initialisations
         desc1 = findViewById(R.id.desc1);
         desc2 = findViewById(R.id.desc2);
         exitBtn = findViewById(R.id.exitBtn);

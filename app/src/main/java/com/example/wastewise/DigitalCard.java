@@ -2,12 +2,10 @@ package com.example.wastewise;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -34,7 +32,7 @@ public class DigitalCard extends AppCompatActivity {
         setContentView(R.layout.digital_card);
 
         // initialisations
-        nameTxt = findViewById(R.id.nameTxt);
+        nameTxt = findViewById(R.id.profileNameTxt);
         emptyStateTxt = findViewById(R.id.emptyStateTxt);
         backBtn = findViewById(R.id.backBtn);
         infoBtn = findViewById(R.id.infoBtn);

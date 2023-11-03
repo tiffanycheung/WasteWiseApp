@@ -59,7 +59,7 @@ public class Rewards extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         pointsNoTxt = findViewById(R.id.pointsNoTxt);
         exchangeItemTxt = findViewById(R.id.exchangeItemTxt);
-        claimBtn1 = findViewById(R.id.claimNowButton1);
+        claimBtn1 = findViewById(R.id.editProfileBtn);
         claimBtn2 = findViewById(R.id.claimNowButton2);
         claimBtn3 = findViewById(R.id.claimNowButton3);
         claimBtn4 = findViewById(R.id.claimNowButton4);
