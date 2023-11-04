@@ -22,13 +22,15 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/exitBtn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="30dp"
-                app:layout_constraintEnd_toEndOf="@+id/yellowBox1"
+                android:id="@+id/backBtn"
+                android:layout_width="41dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.077"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/cross" />
+                app:srcCompat="@drawable/arrow_left_light__1_" />
 
             <TextView
                 android:id="@+id/titleTxt"
@@ -41,7 +43,7 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exitBtn" />
+                app:layout_constraintTop_toBottomOf="@+id/backBtn" />
 
             <ImageView
                 android:id="@+id/yellowBox1"

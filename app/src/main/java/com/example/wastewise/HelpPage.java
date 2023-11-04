@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class HelpPage extends AppCompatActivity {
 
     private TextView desc1, desc2, optionTxt, pointsTxt;
-    private ImageView exitBtn;
+    private ImageView backBtn;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -23,7 +23,7 @@ public class HelpPage extends AppCompatActivity {
         // initialisations
         desc1 = findViewById(R.id.desc1);
         desc2 = findViewById(R.id.desc2);
-        exitBtn = findViewById(R.id.exitBtn);
+        backBtn = findViewById(R.id.backBtn);
         optionTxt = findViewById(R.id.option1);
         pointsTxt = findViewById(R.id.points1);
 
@@ -46,7 +46,7 @@ public class HelpPage extends AppCompatActivity {
         pointsTxt.setText("20 points");
 
         // go back to redeem points page
-        exitBtn.setOnClickListener(new View.OnClickListener() {
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HelpPage.this, Explanation.class);

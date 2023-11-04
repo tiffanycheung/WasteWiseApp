@@ -16,15 +16,17 @@
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="#262626"
         android:fontFamily="@font/inter"
         android:text="Let's Start"
         android:textAllCaps="false"
         android:textSize="16sp"
         app:cornerRadius="10dip"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postcodeEditTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/referralEditTxt" />
 
     <ImageView
         android:id="@+id/logoImage"
@@ -124,6 +126,18 @@
         app:layout_constraintStart_toStartOf="@+id/dobTxt"
         app:layout_constraintTop_toBottomOf="@+id/dobEditTxt" />
 
+    <TextView
+        android:id="@+id/referralTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/inter"
+        android:text="Referral Code (optional)"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/postcodeTxt"
+        app:layout_constraintTop_toBottomOf="@+id/postcodeEditTxt" />
+
     <EditText
         android:id="@+id/lnameEditTxt"
         android:layout_width="355dp"
@@ -183,6 +197,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postcodeTxt" />
+
+    <EditText
+        android:id="@+id/referralEditTxt"
+        android:layout_width="355dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_text_style"
+        android:ems="10"
+        android:hint="Code"
+        android:inputType="number"
+        android:paddingLeft="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/referralTxt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

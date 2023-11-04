@@ -20,7 +20,7 @@ public class CheckupActivity extends AppCompatActivity {
     private ArrayList<String> questionsList;
     private TextView titleTxt, questionTxt1, questionTxt2, questionTxt3;
     private Button submitBtn, yesBtn, noBtn, yesBtn3, noBtn3;
-    private ImageView exitBtn;
+    private ImageView backBtn;
     private EditText answerEditTxt;
     private boolean yesBtnClicked = false;
     private boolean noBtnClicked = false;
@@ -49,7 +49,7 @@ public class CheckupActivity extends AppCompatActivity {
         questionTxt2 = findViewById(R.id.questionTxt2);
         questionTxt3 = findViewById(R.id.questionTxt3);
         submitBtn = findViewById(R.id.submitBtn);
-        exitBtn = findViewById(R.id.exitBtn);
+        backBtn = findViewById(R.id.backBtn);
         answerEditTxt = findViewById(R.id.answerEditTxt);
         yesBtn = findViewById(R.id.yesBtn);
         noBtn = findViewById(R.id.noBtn);
@@ -170,7 +170,7 @@ public class CheckupActivity extends AppCompatActivity {
         });
 
         // exit button goes back to landing page
-        exitBtn.setOnClickListener(new View.OnClickListener() {
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CheckupActivity.this, CheckupLanding.class);

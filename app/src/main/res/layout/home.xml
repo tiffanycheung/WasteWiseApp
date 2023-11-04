@@ -69,7 +69,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="360dp"
                 android:layout_height="110dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/yellow_box"
+                android:background="@drawable/white_box"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/factTitle" />
@@ -79,7 +79,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="360dp"
                 android:layout_height="110dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/green_box"
+                android:background="@drawable/yellow_box"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/referTitle" />
@@ -99,9 +99,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="30dp"
                 android:background="@drawable/green_box"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/leaderboardTitle"
                 app:layout_constraintTop_toBottomOf="@+id/leaderboardTitle" />
 
@@ -153,8 +151,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:text="Refer and Earn"
                 android:textColor="#000000"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/factBox"
-                app:layout_constraintTop_toBottomOf="@+id/factBox" />
+                app:layout_constraintStart_toStartOf="@+id/leaderboardBox"
+                app:layout_constraintTop_toBottomOf="@+id/leaderboardBox" />
 
             <TextView
                 android:id="@+id/checkupTitle"
@@ -165,8 +163,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:text="Waste Checkup"
                 android:textColor="#000000"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/referBox"
-                app:layout_constraintTop_toBottomOf="@+id/referBox" />
+                app:layout_constraintStart_toStartOf="@+id/factBox"
+                app:layout_constraintTop_toBottomOf="@+id/factBox" />
 
             <TextView
                 android:id="@+id/checkupTxt"

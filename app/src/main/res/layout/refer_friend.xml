@@ -68,7 +68,7 @@
         android:background="@drawable/white_box_with_border"
         android:ems="10"
         android:fontFamily="@font/inter_medium"
-        android:hint="Enter email address"
+        android:hint="Enter your friend's email address"
         android:inputType="textEmailAddress"
         android:paddingLeft="20dp"
         android:textColor="#000000"
@@ -141,14 +141,17 @@
         app:layout_constraintStart_toStartOf="@+id/whiteBackground"
         app:layout_constraintTop_toTopOf="@+id/whiteBackground" />
 
-    <ImageView
-        android:id="@+id/exchangeItemsIcon"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+    <TextView
+        android:id="@+id/copyTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
+        android:text="Copy"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/copyCodeBtn"
         app:layout_constraintEnd_toEndOf="@+id/whiteBackground"
         app:layout_constraintStart_toStartOf="@+id/copyCodeBtn"
-        app:layout_constraintTop_toTopOf="@+id/copyCodeBtn"
-        app:srcCompat="@drawable/copy" />
+        app:layout_constraintTop_toTopOf="@+id/copyCodeBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

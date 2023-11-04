@@ -48,7 +48,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/activityIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/activityIcon"
-        app:srcCompat="@drawable/play" />
+        app:srcCompat="@drawable/arrow_right" />
 
     <View
         android:id="@+id/view"

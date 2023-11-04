@@ -104,92 +104,93 @@
         app:layout_constraintTop_toBottomOf="@+id/profileNameTxt" />
 
 
-    <ImageView
-        android:id="@+id/transactionBox"
-        android:layout_width="341dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/green_box"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blueFrame" />
+            <ImageView
+                android:id="@+id/transactionBox"
+                android:layout_width="341dp"
+                android:layout_height="86dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/green_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/blueFrame" />
 
-    <ImageView
-        android:id="@+id/pointIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toStartOf="@+id/transactionBox"
-        app:layout_constraintTop_toTopOf="@+id/transactionBox"
-        app:srcCompat="@drawable/money_light" />
+            <ImageView
+                android:id="@+id/pointIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="28dp"
+                app:layout_constraintBottom_toBottomOf="@+id/transactionBox"
+                app:layout_constraintStart_toStartOf="@+id/transactionBox"
+                app:layout_constraintTop_toTopOf="@+id/transactionBox"
+                app:srcCompat="@drawable/points" />
 
-    <TextView
-        android:id="@+id/profilePointTxt"
-        android:layout_width="77dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="300 points"
-        android:textColor="#000000"
-        android:textSize="12dp"
-        app:layout_constraintStart_toStartOf="@+id/transactionBox"
-        app:layout_constraintTop_toTopOf="@+id/transactionBox" />
+            <TextView
+                android:id="@+id/profilePointTxt"
+                android:layout_width="77dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="300 points"
+                android:textColor="#000000"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/pointIcon"
+                app:layout_constraintStart_toEndOf="@+id/pointIcon"
+                app:layout_constraintTop_toTopOf="@+id/pointIcon" />
 
-    <ImageView
-        android:id="@+id/exchangeItemsIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toEndOf="@+id/profilePointTxt"
-        app:layout_constraintTop_toTopOf="@+id/transactionBox"
-        app:srcCompat="@drawable/refresh_2_light" />
+            <ImageView
+                android:id="@+id/exchangeItemsIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="52dp"
+                app:layout_constraintBottom_toBottomOf="@+id/transactionBox"
+                app:layout_constraintStart_toEndOf="@+id/profilePointTxt"
+                app:layout_constraintTop_toTopOf="@+id/transactionBox"
+                app:srcCompat="@drawable/exchange" />
 
-    <TextView
-        android:id="@+id/exchangePointTxt"
-        android:layout_width="77dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="10 Exchange Items"
-        android:textColor="#000000"
-        android:textSize="12dp"
-        app:layout_constraintStart_toStartOf="@+id/transactionBox"
-        app:layout_constraintTop_toTopOf="@+id/transactionBox" />
+            <TextView
+                android:id="@+id/exchangePointTxt"
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="10 Exchange Items"
+                android:textColor="#000000"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/exchangeItemsIcon"
+                app:layout_constraintStart_toEndOf="@+id/exchangeItemsIcon"
+                app:layout_constraintTop_toTopOf="@+id/exchangeItemsIcon" />
 
-    <ImageView
-        android:id="@+id/logoutTab"
-        android:layout_width="340dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="3dp"
-        android:background="@drawable/logout_tab"
-        app:layout_constraintEnd_toEndOf="@+id/digitalCardTab"
-        app:layout_constraintStart_toStartOf="@+id/digitalCardTab"
-        app:layout_constraintTop_toBottomOf="@+id/digitalCardTab" />
+            <ImageView
+                android:id="@+id/logoutTab"
+                android:layout_width="340dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/logout_tab"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/digitalCardTab"
+                app:layout_constraintStart_toStartOf="@+id/digitalCardTab"
+                app:layout_constraintTop_toBottomOf="@+id/digitalCardTab" />
 
-    <ImageView
-        android:id="@+id/digitalCardTab"
-        android:layout_width="340dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="3dp"
-        android:background="@drawable/digitalcard_tab"
-        app:layout_constraintEnd_toEndOf="@+id/settingsTab"
-        app:layout_constraintStart_toStartOf="@+id/settingsTab"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTab" />
+            <ImageView
+                android:id="@+id/digitalCardTab"
+                android:layout_width="340dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/digitalcard_tab"
+                app:layout_constraintEnd_toEndOf="@+id/settingsTab"
+                app:layout_constraintStart_toStartOf="@+id/settingsTab"
+                app:layout_constraintTop_toBottomOf="@+id/settingsTab" />
 
-    <ImageView
-        android:id="@+id/settingsTab"
-        android:layout_width="340dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/settings_tab"
-        app:layout_constraintEnd_toEndOf="@+id/transactionBox"
-        app:layout_constraintStart_toStartOf="@+id/transactionBox"
-        app:layout_constraintTop_toBottomOf="@+id/transactionBox" />
+            <ImageView
+                android:id="@+id/settingsTab"
+                android:layout_width="340dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/settings_tab"
+                app:layout_constraintEnd_toEndOf="@+id/transactionBox"
+                app:layout_constraintStart_toStartOf="@+id/transactionBox"
+                app:layout_constraintTop_toBottomOf="@+id/transactionBox" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
