@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,9 +32,11 @@ public class AddPostActivity extends AppCompatActivity {
 
     //Views
     EditText titleEt,descriptionEt;
-    ImageView imageIv;
+    ImageView imageIv, goBackBtn, profileImage;
 
     Button uploadBtn;
+
+    TextView nameTxt;
 
     //User Info
 
@@ -53,6 +56,8 @@ public class AddPostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_post);
 
+        getSupportActionBar().hide();
+
         pd = new ProgressDialog(this);
 
 
@@ -62,8 +67,11 @@ public class AddPostActivity extends AppCompatActivity {
         //initialisation
         titleEt = findViewById(R.id.pTitleEt);
         descriptionEt = findViewById(R.id.pDescriptionEt);
-        imageIv = findViewById(R.id.pImageIv);
+       // imageIv = findViewById(R.id.pImageIv);
         uploadBtn = findViewById(R.id.pUploadBtn);
+        goBackBtn = findViewById(R.id.goBackBtn);
+        nameTxt = findViewById(R.id.nameTxt);
+        profileImage = findViewById(R.id.profileImage);
 
         //Get Users Name using Firebase
 
@@ -79,9 +87,14 @@ public class AddPostActivity extends AppCompatActivity {
 
                 name = documentSnapshot.get("fullName").toString();
                 email = documentSnapshot.get("email").toString();
+                nameTxt.setText(name);
             }
         });
 
+        //Set Name
+
+
+        //TODO: Set profile Image
 
         //Upload Btn Click Listener
 
@@ -104,7 +117,14 @@ public class AddPostActivity extends AppCompatActivity {
             }
         });
 
-        //TODO: NEEDS A BACK BUTTON
+        //Back Button
+        goBackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddPostActivity.this, Forum.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void uploadData(String title, String description) {
@@ -129,7 +149,6 @@ public class AddPostActivity extends AppCompatActivity {
         hashMap.put("timestamp",timeStamp);
         hashMap.put("name", name);
         hashMap.put("email", email);
-
 
 
         newPostRef.set(hashMap).addOnSuccessListener(aVoid -> {

@@ -5,7 +5,6 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,8 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
-
-import com.squareup.picasso.Picasso;
 
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
@@ -62,28 +59,13 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
         Calendar calendar = Calendar.getInstance(Locale.getDefault());
         calendar.setTimeInMillis(Long.parseLong(timeStamp));
         String pTime = DateFormat.format("dd/MM/yyyy hh:mm aa", calendar).toString();
-
         //set Data
         holder.uNameTv.setText(name);
         holder.pTimeTv.setText(pTime);
         holder.pTitleTv.setText(title);
         holder.pDescriptionTv.setText(description);
 
-              /*  ImageView uPictureIv, pImageIv;
-        TextView uNameTv, pTimeTv, pTitleTv, pDescriptionTv, pLikesTv;
-        ImageButton moreBtn;
-        Button likeBtn, commentBtn, shareBtn;*/
 
-
-
-        // set user dp
-
-       /* try {
-            Picasso.get().load(uDp).placeholder(R.drawable.profile_pic).into(holder.uPictureIv);
-        }
-        catch (Exception e) {
-
-        }*/
 
         //handle Button clicks
         holder.moreBtn.setOnClickListener(new View.OnClickListener() {
@@ -134,25 +116,28 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
         // views from row_post.xml
 
         ImageView uPictureIv, pImageIv;
-        TextView uNameTv, pTimeTv, pTitleTv, pDescriptionTv, pLikesTv;
+        TextView uNameTv, pTimeTv, pTitleTv, pDescriptionTv, pLikesTv, likeTxt, commentTxt, shareTxt;
         ImageButton moreBtn;
-        Button likeBtn, commentBtn, shareBtn;
+        //Button likeBtn, commentBtn, shareBtn;
+
+        ImageView likeBtn, commentBtn, shareBtn;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
 
             //initialisation
             uPictureIv = itemView.findViewById(R.id.uPictureIV);
-            pImageIv = itemView.findViewById(R.id.pImageIv);
-            uNameTv = itemView.findViewById(R.id.uNameTV);
-            pTimeTv = itemView.findViewById(R.id.pTimeTv);
+           // pImageIv = itemView.findViewById(R.id.pImageIv);
             pTitleTv = itemView.findViewById(R.id.pTitleTv);
+            pTimeTv = itemView.findViewById(R.id.timestampTv);
+            uNameTv = itemView.findViewById(R.id.pNameTv);
             pDescriptionTv = itemView.findViewById(R.id.pDescriptionTv);
-            pLikesTv = itemView.findViewById(R.id.pLikesTv);
+            pLikesTv = itemView.findViewById(R.id.likeTxt);
             moreBtn = itemView.findViewById(R.id.moreBtn);
-            likeBtn = itemView.findViewById(R.id.likeBtn);
+            likeBtn = itemView.findViewById(R.id.addPostBkBtn);
             commentBtn = itemView.findViewById(R.id.commentBtn);
             shareBtn = itemView.findViewById(R.id.shareBtn);
+
 
         }
     }

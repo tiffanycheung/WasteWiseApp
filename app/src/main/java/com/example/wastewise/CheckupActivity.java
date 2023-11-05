@@ -49,7 +49,7 @@ public class CheckupActivity extends AppCompatActivity {
         questionTxt2 = findViewById(R.id.questionTxt2);
         questionTxt3 = findViewById(R.id.questionTxt3);
         submitBtn = findViewById(R.id.submitBtn);
-        backBtn = findViewById(R.id.backBtn);
+        backBtn = findViewById(R.id.addPostBkBtn);
         answerEditTxt = findViewById(R.id.answerEditTxt);
         yesBtn = findViewById(R.id.yesBtn);
         noBtn = findViewById(R.id.noBtn);

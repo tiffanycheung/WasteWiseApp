@@ -22,7 +22,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/backBtn"
+                android:id="@+id/addPostBkBtn"
                 android:layout_width="41dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="32dp"
@@ -36,9 +36,9 @@
                 android:id="@+id/helpBtn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                app:layout_constraintBottom_toBottomOf="@+id/backBtn"
+                app:layout_constraintBottom_toBottomOf="@+id/addPostBkBtn"
                 app:layout_constraintEnd_toEndOf="@+id/yellowBox1"
-                app:layout_constraintTop_toTopOf="@+id/backBtn"
+                app:layout_constraintTop_toTopOf="@+id/addPostBkBtn"
                 app:srcCompat="@drawable/help" />
 
             <TextView
@@ -52,7 +52,7 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/backBtn" />
+                app:layout_constraintTop_toBottomOf="@+id/addPostBkBtn" />
 
             <TextView
                 android:id="@+id/descTxt"

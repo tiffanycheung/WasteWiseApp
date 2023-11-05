@@ -44,7 +44,7 @@ public class Explanation extends AppCompatActivity {
         opt5 = findViewById(R.id.yellowBox5);
         opt6 = findViewById(R.id.yellowBox6);
         helpBtn = findViewById(R.id.helpBtn);
-        backBtn = findViewById(R.id.backBtn);
+        backBtn = findViewById(R.id.addPostBkBtn);
 
         // set up text prompts
         descTxt.setText("Curious how to earn more points? Get involved with these activities to start earning them now!");
