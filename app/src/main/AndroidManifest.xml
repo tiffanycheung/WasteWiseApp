@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WasteWise">
         <activity
+            android:name=".AddPostActivity"
+            android:exported="false" />
+        <activity
             android:name=".Login"
             android:exported="true" />
         <activity
@@ -54,7 +57,9 @@
         <activity
             android:name=".HelpPage"
             android:exported="true" />
-
+        <activity
+            android:name=".Forum"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

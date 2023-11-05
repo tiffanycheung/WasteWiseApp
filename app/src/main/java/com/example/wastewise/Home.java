@@ -76,6 +76,8 @@ public class Home extends AppCompatActivity {
                         startActivity(intent);
                     }
                     if (item.getItemId() == R.id.forum) {
+                        Intent intent = new Intent(Home.this, Forum.class);
+                        startActivity(intent);
                     }
                     if (item.getItemId() == R.id.checkup) {
                         Intent intent = new Intent(Home.this, CheckupLanding.class);
