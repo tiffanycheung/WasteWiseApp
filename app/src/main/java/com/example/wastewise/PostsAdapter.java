@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -52,12 +54,14 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
 
     private String userId;
 
-    public PostsAdapter(Context context) {
+  /* public PostsAdapter(Context context) {
         this.context = context;
-    }
+    }*/
 
-    public PostsAdapter(List<UserPost> postList) {
+    public PostsAdapter(Context context, List<UserPost> postList) {
+
         this.postList = postList;
+        this.context = context;
     }
 
     String name;
@@ -66,6 +70,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
     String description;
    // String userId;
     String timeStamp;
+    String profileImage;
     String uDp;
     Number likesNo;
 
@@ -91,7 +96,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
         title = postList.get(i).getTitle();
         description = postList.get(i).getDescription();
         timeStamp = postList.get(i).getTimeStamp();
-       likesNo = postList.get(i).getLikesNo();
+        likesNo = postList.get(i).getLikesNo();
+        profileImage = postList.get(i).getPhotoUrl();
 
        // uDp = postList.get(i).getDp();
 
@@ -105,6 +111,26 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
         holder.pTitleTv.setText(title);
         holder.pDescriptionTv.setText(description);
         holder.likeTxt.setText(String.valueOf(likesNo));
+
+        /*if (profileImage != null && !profileImage.isEmpty()) {
+          Glide.with(context) // Use 'context' to load the image
+                    .load(profileImage)
+                    .into(holder.uPictureIv);
+        }*/
+
+        //Set Profile Image Display
+        //holder.uPictureIv.setImageResource(profileImage);
+
+        //String testing = "events_cleanupday_icon";
+
+        int profileImageResourceId = context.getResources().getIdentifier(profileImage, "drawable", context.getPackageName());
+       // Drawable drawable = context.getResources().getDrawable(profileImageResourceId);
+        holder.uPictureIv.setImageResource(profileImageResourceId);
+
+       // context.getResources().getIdentifier(drawableName, "drawable", context.getPackageName());
+
+
+        //holder.uPictureIv.setImageResource(Integer.parseInt(profileImage));
 
         holder.moreBtn.setOnClickListener(new View.OnClickListener() {
             @Override

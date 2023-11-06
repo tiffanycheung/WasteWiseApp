@@ -1,16 +1,20 @@
 package com.example.wastewise;
 
+import java.util.ArrayList;
+
 public class UserPost {
 
    Number likesNo;
     String name, email,title, description, userId, timeStamp, documentId;
+
+    String photoUrl;
 
     public UserPost() {
 
     }
 
     public UserPost(String documentId, String name, String email, String title, String description,
-                    String userId, String timeStamp, Number likesNo) {
+                    String userId, String timeStamp, Number likesNo, String photoUrl) {
         this.documentId = documentId;
         this.name = name;
         this.email = email;
@@ -19,6 +23,7 @@ public class UserPost {
         this.userId = userId;
         this.timeStamp = timeStamp;
         this.likesNo = likesNo;
+        this.photoUrl = photoUrl;
         //this.uDp = uDp;
     }
 
@@ -85,6 +90,15 @@ public class UserPost {
     public void setDocumentId(String documentId) {
         this.documentId = documentId;
     }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
     /*   public String getDp() {
         return uDp;
     }

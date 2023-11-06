@@ -150,6 +150,8 @@ public class AddPostActivity extends AppCompatActivity {
         hashMap.put("name", name);
         hashMap.put("email", email);
         hashMap.put("likesNo", 0);
+        hashMap.put("photoUrl", "profile_pic");
+
 
 
         newPostRef.set(hashMap).addOnSuccessListener(aVoid -> {

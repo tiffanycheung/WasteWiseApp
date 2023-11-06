@@ -46,7 +46,7 @@ public class Forum extends AppCompatActivity {
 
         //set up recycler view
         postList = new ArrayList<>();
-        postsAdapter = new PostsAdapter(postList);
+        postsAdapter = new PostsAdapter(getApplicationContext(), postList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -86,6 +86,7 @@ public class Forum extends AppCompatActivity {
                     // Access data for each document
                     // Process postData
                     String documentId, name, email,title, description, userId, timeStamp;
+                    String photoUrl;
                     Number likesNo;
 
                     documentId = document.getId();
@@ -107,9 +108,16 @@ public class Forum extends AppCompatActivity {
                         likesNo = 0;
                     }
 
+                   photoUrl = document.getString("photoUrl");
+                    if (photoUrl == null) {
+                        Map<String, Object> hashMap = new HashMap<>();
+                        hashMap.put("photoUrl", "profile_pic");
+                         photoUrl = "profile_pic";
+                    }
+
                     //likesNo = (int) likesNoLong;
 
-                    UserPost post = new UserPost(documentId, name,email,title, description, userId, timeStamp, likesNo);
+                    UserPost post = new UserPost(documentId, name,email,title, description, userId, timeStamp, likesNo, photoUrl);
                     postList.add(post);
 
                 }
