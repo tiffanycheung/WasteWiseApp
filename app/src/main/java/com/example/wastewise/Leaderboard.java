@@ -1,11 +1,14 @@
 package com.example.wastewise;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +20,7 @@ public class Leaderboard extends AppCompatActivity {
 
     //LeaderboardBinding binding;
     private TextView userPoints, georgeTxt, georgePts, fionaTxt, fionaPts, fourthPlace, fifthPlace, sixthPlace, johnTxt, johnPts, willisTxt, willisPts, kenTxt, kenPts, emptyState;
-    private ImageView newUserIcon, amandaIcon, georgeIcon, fionaIcon, johnIcon, willisIcon, kenIcon;
+    private ImageView newUserIcon, amandaIcon, georgeIcon, fionaIcon, johnIcon, willisIcon, kenIcon, addBtn;
 
     BottomNavigationView bottomNavigationView;
 
@@ -51,6 +54,7 @@ public class Leaderboard extends AppCompatActivity {
         kenTxt = findViewById(R.id.kenTxt);
         kenPts = findViewById(R.id.kenPoints);
         emptyState = findViewById(R.id.emptyStateTxt);
+        addBtn = findViewById(R.id.addBtn);
 
         // set prompt text for new users with no friends
         emptyState.setText("Add your friends to see them on the leaderboard!");
@@ -64,6 +68,13 @@ public class Leaderboard extends AppCompatActivity {
         if (name.equals("Amanda Vuong")) {
             showLeaderboard();
         }
+
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.leaderboard);
@@ -146,6 +157,57 @@ public class Leaderboard extends AppCompatActivity {
         //TODO: get Amanda's points from database and show
         String amandaPts = "";
         userPoints.setText(amandaPts);
+    }
+
+    private void showDialog() {
+        Dialog dialog = new Dialog(this, R.style.DialogStyle);
+        dialog.setContentView(R.layout.refer_friend);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_bg);
+
+        ImageView exitBtn = dialog.findViewById(R.id.exitBtn);
+        TextView referTxt = dialog.findViewById(R.id.referTxt);
+        TextView codeTxt = dialog.findViewById(R.id.codeTxt);
+        ImageView copyBtn = dialog.findViewById(R.id.copyCodeBtn);
+        Button sendBtn = dialog.findViewById(R.id.submitBtn);
+
+        referTxt.setText("Tell your friends about us. You get 100 points from us when they create an account with us.");
+
+        // generate a random code
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        // create a StringBuilder to store the random code
+        StringBuilder codeBuilder = new StringBuilder(6);
+        // generate a 6-character random code
+        for (int i = 0; i < 6; i++) {
+            int randomIndex = (int) (Math.random() * characters.length());
+            char randomChar = characters.charAt(randomIndex);
+            codeBuilder.append(randomChar);
+        }
+        // convert the StringBuilder to a String
+        String randomCode = codeBuilder.toString();
+        codeTxt.setText(randomCode);
+
+        sendBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Leaderboard.this, "Email invite sent!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        copyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Leaderboard.this, "Code copied to clipboard.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        exitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 
 }
