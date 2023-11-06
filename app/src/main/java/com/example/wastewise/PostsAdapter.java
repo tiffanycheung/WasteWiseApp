@@ -60,6 +60,15 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
         this.postList = postList;
     }
 
+    String name;
+    String email;
+    String title;
+    String description;
+   // String userId;
+    String timeStamp;
+    String uDp;
+    Number likesNo;
+
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
@@ -73,14 +82,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, @SuppressLint("RecyclerView") int i) {
 
-        String name;
-        String email;
-        String title;
-        String description;
-        String userId;
-        String timeStamp;
-        String uDp;
-        Number likesNo;
+
 
         // get Data
         userId = postList.get(i).getUserId();
@@ -236,17 +238,32 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
         holder.shareBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Share", Toast.LENGTH_SHORT).show();
+                String titleShare = holder.pTitleTv.getText().toString().trim();
+                String descriptionShare = holder.pDescriptionTv.getText().toString().trim();
 
+                sharePost(view.getContext(), titleShare, descriptionShare);
+               //Toast.makeText(view.getContext(), "Share", Toast.LENGTH_SHORT).show();
 
             }
         });
 
     }
 
-    public void userAddsLike() {
+    private void sharePost(Context context, String title, String description){
+
+        String shareBodyText = title +"\n" + description;
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        //For sharing via an email app
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject Here:");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareBodyText);
+
+
+        context.startActivity((Intent.createChooser(shareIntent, "Share Via")));
 
     }
+
+
     //See if user liked post
 
     public void isLikedByCurrentUser(String documentId, String currentUserId, OnSuccessListener<Boolean> onSuccess) {
