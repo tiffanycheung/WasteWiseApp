@@ -28,6 +28,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
@@ -111,57 +112,117 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
             }
         });
 
-        //Set On Click Listener
+        UserPost userPost = postList.get(i);
+        String documentId = userPost.getDocumentId();
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference postsCollection = db.collection("posts");
+        DocumentReference newPostRef = postsCollection.document(documentId);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        //Set thumb to blue if liked by user before
+        isLikedByCurrentUser(documentId, userId, isLiked -> {
+            if (isLiked) {
+                //button is blue by default as user has liked post before
+                holder.likeBtn.setColorFilter(R.color.blue);
+        } else {
+                holder.likeBtn.setColorFilter(null);
+            }});
+
+        //On Click listener for like button
         holder.likeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Button turns blue when liked
+                isLikedByCurrentUser(documentId, userId, isLiked -> {
+                    if (isLiked) {
 
-                UserPost userPost = postList.get(i);
-                String documentId = userPost.getDocumentId();
+                        holder.likeBtn.setColorFilter(null);
 
-                holder.likeBtn.setColorFilter(R.color.blue);
-                Toast.makeText(view.getContext(), "Like", Toast.LENGTH_SHORT).show();
+                        newPostRef.update("likes", FieldValue.arrayRemove(userId));
 
+                        Toast.makeText(view.getContext(), "Unlike", Toast.LENGTH_SHORT).show();
 
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                CollectionReference postsCollection = db.collection("posts");
-                DocumentReference newPostRef = postsCollection.document(documentId);
+                        newPostRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                            @Override
+                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                if (documentSnapshot.exists()) {
 
-
-                newPostRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        if (documentSnapshot.exists()) {
-
-                            Number currentLikesNo = (Number) documentSnapshot.get("likesNo");
-                            //Long currentLikesNo = documentSnapshot.getLong("likesNo");
-                            if (currentLikesNo != null) {
-                                Number newLikesNo = currentLikesNo.intValue() + 1;
+                                    Number currentLikesNo = (Number) documentSnapshot.get("likesNo");
+                                    if (currentLikesNo != null) {
+                                        Number newLikesNo = currentLikesNo.intValue() -1 ;
 
 
-                                // Update the number of likes in Database
-                                newPostRef.update("likesNo", newLikesNo)
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
+                                        // Update the number of likes in Database
+                                        newPostRef.update("likesNo", newLikesNo)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
 
-                                                holder.likeTxt.setText(String.valueOf(newLikesNo));
+                                                        holder.likeTxt.setText(String.valueOf(newLikesNo));
 
-                                            }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                holder.likeTxt.setText(String.valueOf(newLikesNo));
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
 
-                                            }
-                                        });
-                            }
+                                                    }
+                                                });
+                                    }
 
 
+                                }
+                            }});
+
+
+                    } else {
+
+                        holder.likeBtn.setColorFilter(R.color.blue);
+                        Toast.makeText(view.getContext(), "Like", Toast.LENGTH_SHORT).show();
+
+
+                        newPostRef.update("likes", FieldValue.arrayUnion(userId));
+
+                        //  userId = firebaseAuth.getCurrentUser().getUid();
+
+                        newPostRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                            @Override
+                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                if (documentSnapshot.exists()) {
+
+                                    Number currentLikesNo = (Number) documentSnapshot.get("likesNo");
+                                    //Long currentLikesNo = documentSnapshot.getLong("likesNo");
+                                    if (currentLikesNo != null) {
+                                        Number newLikesNo = currentLikesNo.intValue() + 1;
+
+
+                                        // Update the number of likes in Database
+                                        newPostRef.update("likesNo", newLikesNo)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+
+                                                        holder.likeTxt.setText(String.valueOf(newLikesNo));
+
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+
+                                                    }
+                                                });
+                                    }
+
+
+                                }
+                            }});
+
+                    }
+                });
             }
-        }});}});
+            });
 
         holder.commentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,6 +243,32 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
         });
 
     }
+
+    public void userAddsLike() {
+
+    }
+    //See if user liked post
+
+    public void isLikedByCurrentUser(String documentId, String currentUserId, OnSuccessListener<Boolean> onSuccess) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference postRef = db.collection("posts").document(documentId);
+
+        postRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                List<String> likes = (List<String>) documentSnapshot.get("likes");
+                if (likes != null) {
+                    boolean isLiked = likes.contains(currentUserId);
+                    onSuccess.onSuccess(isLiked);
+                } else {
+                    onSuccess.onSuccess(false); // Post has no likes yet
+                }
+            } else {
+                onSuccess.onSuccess(false); // Post does not exist
+            }
+        });
+    }
+
+
 
     @Override
     public int getItemCount() {
