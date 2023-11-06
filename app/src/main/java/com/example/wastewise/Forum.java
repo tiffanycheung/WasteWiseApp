@@ -20,6 +20,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -67,6 +68,7 @@ public class Forum extends AppCompatActivity {
     }
 
     private void loadPosts() {
+
         //path of posts
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference postsCollection = db.collection("posts");
@@ -83,15 +85,31 @@ public class Forum extends AppCompatActivity {
                 for (QueryDocumentSnapshot document : task.getResult()) {
                     // Access data for each document
                     // Process postData
-                    String name, email,title, description, userId, timeStamp;
+                    String documentId, name, email,title, description, userId, timeStamp;
+                    Number likesNo;
+
+                    documentId = document.getId();
                     name = document.getString("name");
                     email = document.getString("email");
                     title = document.getString("title");
                     description = document.getString("description");
                     userId = document.getString("userId");
                     timeStamp = document.getString("timestamp");
+                   // likesNo = Math.toIntExact(document.getLong("likesNo"));
+                    //likesNo = 0;
+                   likesNo = (Number) document.get("likesNo");
+                    if (likesNo != null) {
+                        likesNo = (Number) document.get("likesNo");
+                    } else {
 
-                    UserPost post = new UserPost(name,email,title, description, userId, timeStamp);
+                        Map<String, Object> hashMap = new HashMap<>();
+                        hashMap.put("likesNo", 0);
+                        likesNo = 0;
+                    }
+
+                    //likesNo = (int) likesNoLong;
+
+                    UserPost post = new UserPost(documentId, name,email,title, description, userId, timeStamp, likesNo);
                     postList.add(post);
 
                 }

@@ -23,7 +23,7 @@ public class HelpPage extends AppCompatActivity {
         // initialisations
         desc1 = findViewById(R.id.desc1);
         desc2 = findViewById(R.id.desc2);
-        backBtn = findViewById(R.id.addPostBkBtn);
+        backBtn = findViewById(R.id.likeBtn);
         optionTxt = findViewById(R.id.option1);
         pointsTxt = findViewById(R.id.points1);
 

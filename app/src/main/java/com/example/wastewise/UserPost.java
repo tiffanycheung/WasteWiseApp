@@ -2,20 +2,23 @@ package com.example.wastewise;
 
 public class UserPost {
 
-    String name, email,title, description, userId, timeStamp;
+   Number likesNo;
+    String name, email,title, description, userId, timeStamp, documentId;
 
     public UserPost() {
 
     }
 
-    public UserPost(String name, String email, String title, String description,
-                    String userId, String timeStamp) {
+    public UserPost(String documentId, String name, String email, String title, String description,
+                    String userId, String timeStamp, Number likesNo) {
+        this.documentId = documentId;
         this.name = name;
         this.email = email;
         this.title = title;
         this.description = description;
         this.userId = userId;
         this.timeStamp = timeStamp;
+        this.likesNo = likesNo;
         //this.uDp = uDp;
     }
 
@@ -67,7 +70,22 @@ public class UserPost {
         this.title = timeStamp;
     }
 
- /*   public String getDp() {
+   public Number getLikesNo() {
+        return likesNo;
+    }
+
+    public void setLikesNo(Number likesNo) {
+        this.likesNo = likesNo;
+    }
+
+    public String getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
+    /*   public String getDp() {
         return uDp;
     }
 

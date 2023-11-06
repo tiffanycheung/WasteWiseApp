@@ -149,6 +149,7 @@ public class AddPostActivity extends AppCompatActivity {
         hashMap.put("timestamp",timeStamp);
         hashMap.put("name", name);
         hashMap.put("email", email);
+        hashMap.put("likesNo", 0);
 
 
         newPostRef.set(hashMap).addOnSuccessListener(aVoid -> {

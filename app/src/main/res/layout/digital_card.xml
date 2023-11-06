@@ -26,7 +26,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/addPostBkBtn"
+                android:id="@+id/likeBtn"
                 android:layout_width="41dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="32dp"
@@ -47,7 +47,7 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addPostBkBtn" />
+                app:layout_constraintTop_toBottomOf="@+id/likeBtn" />
 
             <ImageView
                 android:id="@+id/cardBox"
@@ -474,9 +474,9 @@
                 android:id="@+id/infoBtn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                app:layout_constraintBottom_toBottomOf="@+id/addPostBkBtn"
+                app:layout_constraintBottom_toBottomOf="@+id/likeBtn"
                 app:layout_constraintEnd_toEndOf="@+id/cardBox"
-                app:layout_constraintTop_toTopOf="@+id/addPostBkBtn"
+                app:layout_constraintTop_toTopOf="@+id/likeBtn"
                 app:srcCompat="@drawable/info" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,12 @@
 package com.example.wastewise;
 
+import static java.security.AccessController.getContext;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,17 +17,39 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
 
     Context context;
     List<UserPost> postList;
+    private FirebaseAuth firebaseAuth;
+
+
+    private FirebaseFirestore firebaseStore;
+
+    private String userId;
 
     public PostsAdapter(Context context) {
         this.context = context;
@@ -42,9 +70,16 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolder holder, int i) {
+    public void onBindViewHolder(@NonNull MyHolder holder, @SuppressLint("RecyclerView") int i) {
 
-        String name, email,title, description, userId, timeStamp, uDp;
+        String name;
+        String email;
+        String title;
+        String description;
+        String userId;
+        String timeStamp;
+        String uDp;
+        Number likesNo;
 
         // get Data
         userId = postList.get(i).getUserId();
@@ -53,6 +88,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
         title = postList.get(i).getTitle();
         description = postList.get(i).getDescription();
         timeStamp = postList.get(i).getTimeStamp();
+       likesNo = postList.get(i).getLikesNo();
+
        // uDp = postList.get(i).getDp();
 
         //Convert timestamp to dd/mm/yyyy hh:mm am/pm
@@ -64,25 +101,67 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
         holder.pTimeTv.setText(pTime);
         holder.pTitleTv.setText(title);
         holder.pDescriptionTv.setText(description);
+        holder.likeTxt.setText(String.valueOf(likesNo));
 
-
-
-        //handle Button clicks
         holder.moreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "More", Toast.LENGTH_SHORT).show();
+
             }
         });
 
+        //Set On Click Listener
         holder.likeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Like", Toast.LENGTH_SHORT).show();
+                //Button turns blue when liked
+
+                UserPost userPost = postList.get(i);
+                String documentId = userPost.getDocumentId();
+
+                holder.likeBtn.setColorFilter(R.color.blue);
+                Toast.makeText(view.getContext(), "Like", Toast.LENGTH_SHORT).show();
+
+
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                CollectionReference postsCollection = db.collection("posts");
+                DocumentReference newPostRef = postsCollection.document(documentId);
+
+
+                newPostRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+
+                            Number currentLikesNo = (Number) documentSnapshot.get("likesNo");
+                            //Long currentLikesNo = documentSnapshot.getLong("likesNo");
+                            if (currentLikesNo != null) {
+                                Number newLikesNo = currentLikesNo.intValue() + 1;
+
+
+                                // Update the number of likes in Database
+                                newPostRef.update("likesNo", newLikesNo)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+
+                                                holder.likeTxt.setText(String.valueOf(newLikesNo));
+
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                holder.likeTxt.setText(String.valueOf(newLikesNo));
+
+                                            }
+                                        });
+                            }
 
 
             }
-        });
+        }});}});
 
         holder.commentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,11 +211,12 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
             pTimeTv = itemView.findViewById(R.id.timestampTv);
             uNameTv = itemView.findViewById(R.id.pNameTv);
             pDescriptionTv = itemView.findViewById(R.id.pDescriptionTv);
-            pLikesTv = itemView.findViewById(R.id.likeTxt);
+            //pLikesTv = itemView.findViewById(R.id.likeTxt);
             moreBtn = itemView.findViewById(R.id.moreBtn);
-            likeBtn = itemView.findViewById(R.id.addPostBkBtn);
+            likeBtn = itemView.findViewById(R.id.likeBtn);
             commentBtn = itemView.findViewById(R.id.commentBtn);
             shareBtn = itemView.findViewById(R.id.shareBtn);
+            likeTxt = itemView.findViewById(R.id.likeTxt);
 
 
         }

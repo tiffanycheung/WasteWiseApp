@@ -51,7 +51,7 @@ public class UserQuestionnaire extends AppCompatActivity {
         dobEditTxt = findViewById(R.id.dobEditTxt);
         postcodeEditTxt = findViewById(R.id.postcodeEditTxt);
         startBtn = findViewById(R.id.startBtn);
-        backBtn = findViewById(R.id.addPostBkBtn);
+        backBtn = findViewById(R.id.likeBtn);
 
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -54,7 +54,7 @@ public class SignUp extends AppCompatActivity {
         continueBtn = findViewById(R.id.continueBtn);
         emailEditTxt = findViewById(R.id.emailEditTxt);
         passwordEditTxt = findViewById(R.id.passwordEditTxt);
-        backBtn = findViewById(R.id.addPostBkBtn);
+        backBtn = findViewById(R.id.likeBtn);
 
 
         // go to questionnaire page when button is clicked on

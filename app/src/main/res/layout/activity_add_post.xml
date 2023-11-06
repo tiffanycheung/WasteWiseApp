@@ -130,7 +130,6 @@
             android:minHeight="120dp"
             android:padding="10dp"
             android:background="@color/white"
-            android:layout_marginTop="12dp"
             android:textSize="12sp"
             app:hintEnabled="true" />
 

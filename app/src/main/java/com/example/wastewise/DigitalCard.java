@@ -34,7 +34,7 @@ public class DigitalCard extends AppCompatActivity {
         // initialisations
         nameTxt = findViewById(R.id.profileNameTxt);
         emptyStateTxt = findViewById(R.id.emptyStateTxt);
-        backBtn = findViewById(R.id.addPostBkBtn);
+        backBtn = findViewById(R.id.likeBtn);
         infoBtn = findViewById(R.id.infoBtn);
         transaction1 = findViewById(R.id.business1);
         transaction2 = findViewById(R.id.business2);
