@@ -3,6 +3,7 @@ package com.example.wastewise;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -79,29 +80,6 @@ public class Home extends AppCompatActivity {
         yesBtn = findViewById(R.id.yesBtn);
         noBtn = findViewById(R.id.noBtn);
 
-        //logout
-        logoutImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logoutContainer.setVisibility(View.VISIBLE);
-                yesBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        //log user out
-
-                        //Back to main activity
-
-
-                        Toast.makeText(getApplicationContext(), "User Logged Out", Toast.LENGTH_SHORT).show();
-
-                        Intent intent = new Intent(Home.this, MainActivity.class);
-                        startActivity(intent);
-                        FirebaseAuth.getInstance().signOut();
-            }
-        });
-
-        //Bottom Navigation Bar
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -130,6 +108,41 @@ public class Home extends AppCompatActivity {
                 }
             }
         });
+
+        //logout
+        logoutImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logoutContainer.setVisibility(View.VISIBLE);
+                yesBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        //log user out
+
+                        //Back to main activity
+
+
+                        Toast.makeText(getApplicationContext(), "User Logged Out", Toast.LENGTH_SHORT).show();
+                        FirebaseAuth.getInstance().signOut();
+                        Log.e("MyApp", "Signed Out");
+
+                        Intent intent = new Intent(Home.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+
+            }
+        });
+                noBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        logoutContainer.setVisibility(View.INVISIBLE);
+
+
+                    }
+                });
+
+        //Bottom Navigation Bar
         }});
 
         // Welcome message to current user
@@ -142,8 +155,13 @@ public class Home extends AppCompatActivity {
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
                     @Override
                     public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                        if (documentSnapshot != null) {
 
-                        nameTxt.setText(documentSnapshot.get("fullName").toString());
+                            nameTxt.setText(documentSnapshot.get("fullName").toString());
+                        } else {
+                            nameTxt.setText("");
+
+                        }
                     }
                 });
 

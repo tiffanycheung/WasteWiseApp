@@ -66,18 +66,28 @@ public class Profile extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
-        userId = fAuth.getCurrentUser().getUid();
+        FirebaseUser currentUser = fAuth.getCurrentUser();
+        if (currentUser != null) {
+
+        userId = currentUser.getUid();
+        }
 
         DocumentReference documentReference = fStore.collection("users").document(userId);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-
+                if (documentSnapshot != null) {
                 profileNameTxt.setText(documentSnapshot.get("fullName").toString());
                 profilePointTxt.setText(documentSnapshot.get("pointsNo").toString() + " Points" );
                 exchangePointTxt.setText(documentSnapshot.get("exchangeItemNo").toString() + " Exchange Items");
 
 
+            } else {
+                    profileNameTxt.setText("Username");
+                    profilePointTxt.setText("0 Points" );
+                    exchangePointTxt.setText("0 Exchange Items");
+
+                }
             }
         });
 

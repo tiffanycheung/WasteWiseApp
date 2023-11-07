@@ -1,5 +1,6 @@
 package com.example.wastewise;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,8 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 
 
 // title page
@@ -19,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        mAuth = FirebaseAuth.getInstance();
+        // mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         //set current user to null for testing
@@ -27,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
         // currentUser = null;
 
         if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), Home.class);
+            //Intent intent = new Intent(getApplicationContext(), Home.class);
+            Intent intent = new Intent(MainActivity.this, Home.class);
             startActivity(intent);
             finish();
         }
@@ -36,10 +40,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
         mAuth = FirebaseAuth.getInstance();
         // hide action bar
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);
 
         // initialise widgets
         Button signUpBtn = findViewById(R.id.signUpBtn);

@@ -126,62 +126,64 @@ public class Rewards extends AppCompatActivity {
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                if (documentSnapshot != null) {
 
-                // Display points and exchange items
-                pointsNoTxt.setText(documentSnapshot.get("pointsNo").toString() + " Points");
-                exchangeItemTxt.setText(documentSnapshot.get("exchangeItemNo").toString() + " Exchange Items");
+                    // Display points and exchange items
+                    pointsNoTxt.setText(documentSnapshot.get("pointsNo").toString() + " Points");
+                    exchangeItemTxt.setText(documentSnapshot.get("exchangeItemNo").toString() + " Exchange Items");
 
-                // Get User Points
-                Object pointsNoObject = documentSnapshot.get("pointsNo");
-                userPoints = ((Long) pointsNoObject).intValue();
-
-
-                //REWARD 1 : if <100 points change the "Claim Now" button display to Unavailable for
-                if (userPoints <100) {
-
-                  showRewardUnavailable(claimBtn1, R.drawable.deals_coffee_icon);
-
-                } else {
-                    String coffeeDescription = "Would you like to claim 10% off your next Coffee order?";
-                    String coffeeCodeText = " to redeem your coffee.";
-                    String coffeeCode = "<html><font color='#2D8B00'><u><b>" + generateRandomCode()+ "</b></u></font></html>";
-                    showRewardsAvailable(claimBtn1, coffeeDescription, coffeeCodeText, coffeeCode, R.drawable.deals_coffee_icon, 100);
+                    // Get User Points
+                    Object pointsNoObject = documentSnapshot.get("pointsNo");
+                    userPoints = ((Long) pointsNoObject).intValue();
 
 
-                }
+                    //REWARD 1 : if <100 points change the "Claim Now" button display to Unavailable for
+                    if (userPoints < 100) {
 
-                //REWARD 2: Grocery Reward
+                        showRewardUnavailable(claimBtn1, R.drawable.deals_coffee_icon);
 
-                if (userPoints <250) {
-                    showRewardUnavailable(claimBtn2, R.drawable.deals_grocery_icon);
-                } else {
-                    String groceryDescription = "Would you like to claim $5 off your Groceries?";
-                    String groceryCodeText = " to get $5 off your groceries.";
-                    String groceryCode = "<html><font color='#2D8B00'><u><b>" + generateRandomCode()+ "</b></u></font></html>";
-                    showRewardsAvailable(claimBtn2, groceryDescription, groceryCodeText, groceryCode, R.drawable.deals_grocery_icon, 250);
-                }
+                    } else {
+                        String coffeeDescription = "Would you like to claim 10% off your next Coffee order?";
+                        String coffeeCodeText = " to redeem your coffee.";
+                        String coffeeCode = "<html><font color='#2D8B00'><u><b>" + generateRandomCode() + "</b></u></font></html>";
+                        showRewardsAvailable(claimBtn1, coffeeDescription, coffeeCodeText, coffeeCode, R.drawable.deals_coffee_icon, 100);
 
-                // REWARD 3: Free Bagel with Purchase
 
-                if (userPoints < 80) {
-                    showRewardUnavailable(claimBtn3, R.drawable.deals_food_icon);
-                }  else {
-                    String foodDescription = "Would you like to claim a Free Bagel with Purchase?";
-                    String foodCodeText = " to get a Free Bagel with Purchase.";
-                    String foodCode = "<html><font color='#2D8B00'><u><b>" + generateRandomCode()+ "</b></u></font></html>";
-                    showRewardsAvailable(claimBtn3, foodDescription, foodCodeText, foodCode, R.drawable.deals_food_icon, 80);
-                }
+                    }
 
-                // REWARD 4 : $10 off Petrol
+                    //REWARD 2: Grocery Reward
 
-                if (userPoints < 450) {
-                    showRewardUnavailable(claimBtn4, R.drawable.deals_petrol_icon);
-                } else {
-                    String petrolDescription = "Would you like to claim $10 off Petrol?";
-                    String petrolText = " to get $10 off Petrol.";
-                    String petrolCode = "<html><font color='#2D8B00'><u><b>" + generateRandomCode()+ "</b></u></font></html>";
-                    showRewardsAvailable(claimBtn4, petrolDescription, petrolText, petrolCode, R.drawable.deals_petrol_icon, 450);
+                    if (userPoints < 250) {
+                        showRewardUnavailable(claimBtn2, R.drawable.deals_grocery_icon);
+                    } else {
+                        String groceryDescription = "Would you like to claim $5 off your Groceries?";
+                        String groceryCodeText = " to get $5 off your groceries.";
+                        String groceryCode = "<html><font color='#2D8B00'><u><b>" + generateRandomCode() + "</b></u></font></html>";
+                        showRewardsAvailable(claimBtn2, groceryDescription, groceryCodeText, groceryCode, R.drawable.deals_grocery_icon, 250);
+                    }
 
+                    // REWARD 3: Free Bagel with Purchase
+
+                    if (userPoints < 80) {
+                        showRewardUnavailable(claimBtn3, R.drawable.deals_food_icon);
+                    } else {
+                        String foodDescription = "Would you like to claim a Free Bagel with Purchase?";
+                        String foodCodeText = " to get a Free Bagel with Purchase.";
+                        String foodCode = "<html><font color='#2D8B00'><u><b>" + generateRandomCode() + "</b></u></font></html>";
+                        showRewardsAvailable(claimBtn3, foodDescription, foodCodeText, foodCode, R.drawable.deals_food_icon, 80);
+                    }
+
+                    // REWARD 4 : $10 off Petrol
+
+                    if (userPoints < 450) {
+                        showRewardUnavailable(claimBtn4, R.drawable.deals_petrol_icon);
+                    } else {
+                        String petrolDescription = "Would you like to claim $10 off Petrol?";
+                        String petrolText = " to get $10 off Petrol.";
+                        String petrolCode = "<html><font color='#2D8B00'><u><b>" + generateRandomCode() + "</b></u></font></html>";
+                        showRewardsAvailable(claimBtn4, petrolDescription, petrolText, petrolCode, R.drawable.deals_petrol_icon, 450);
+
+                    }
                 }
             }
         });
