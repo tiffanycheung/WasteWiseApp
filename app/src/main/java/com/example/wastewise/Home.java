@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,13 +31,18 @@ import java.util.Random;
 
 public class Home extends AppCompatActivity {
 
-    private ImageView leaderboardBtn, rewardsBtn, eventsBtn, cardBtn, referBtn, checkupBtn;
+    private ImageView leaderboardBtn, rewardsBtn, eventsBtn, cardBtn, referBtn, checkupBtn, logoutImage;
     private TextView factTxt, referTxt, checkupTxt, nameTxt;
     private FirebaseAuth fAuth;
 
     private FirebaseFirestore fStore;
 
     private String userId;
+    private FrameLayout logoutContainer;
+
+    private Button yesBtn, noBtn;
+
+
 
     /*
     HomeBinding binding;
@@ -49,6 +55,8 @@ public class Home extends AppCompatActivity {
         // hide action bar
         getSupportActionBar().hide();
         setContentView(R.layout.home);
+
+        //setContentView(R.layout.home);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         //home is selected by default
@@ -66,12 +74,40 @@ public class Home extends AppCompatActivity {
         referBtn = findViewById(R.id.referBox);
         checkupBtn = findViewById(R.id.checkupBox);
 
+        logoutImage = findViewById(R.id.logoutImage);
+        logoutContainer = findViewById(R.id.logoutContainer);
+        yesBtn = findViewById(R.id.yesBtn);
+        noBtn = findViewById(R.id.noBtn);
+
+        //logout
+        logoutImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logoutContainer.setVisibility(View.VISIBLE);
+                yesBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        //log user out
+
+                        //Back to main activity
+
+
+                        Toast.makeText(getApplicationContext(), "User Logged Out", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(Home.this, MainActivity.class);
+                        startActivity(intent);
+                        FirebaseAuth.getInstance().signOut();
+            }
+        });
+
         //Bottom Navigation Bar
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                { if (item.getItemId() == R.id.home) {
-                }
+                {
+                    if (item.getItemId() == R.id.home) {
+                    }
 
                     if (item.getItemId() == R.id.leaderboard) {
                         Intent intent = new Intent(Home.this, Leaderboard.class);
@@ -94,6 +130,7 @@ public class Home extends AppCompatActivity {
                 }
             }
         });
+        }});
 
         // Welcome message to current user
         fAuth = FirebaseAuth.getInstance();

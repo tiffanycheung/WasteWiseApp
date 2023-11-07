@@ -5,15 +5,20 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -23,7 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 public class Profile extends AppCompatActivity {
 
     private TextView profileNameTxt, profilePointTxt, exchangePointTxt;
-    private Button editProfileBtn;
+    private Button editProfileBtn, yesBtn, noBtn;
     private ImageView settingsTab, digitalCardTab, logoutTab;
 
     private FirebaseAuth fAuth;
@@ -33,6 +38,9 @@ public class Profile extends AppCompatActivity {
     private String userId;
 
     private BottomNavigationView bottomNavigationView;
+
+    private FrameLayout logoutContainer;
+
 
 
     @Override
@@ -50,6 +58,9 @@ public class Profile extends AppCompatActivity {
         settingsTab = findViewById(R.id.settingsTab);
         digitalCardTab = findViewById(R.id.digitalCardTab);
         logoutTab = findViewById(R.id.logoutTab);
+        logoutContainer = findViewById(R.id.logoutContainer);
+        yesBtn = findViewById(R.id.yesBtn);
+        noBtn = findViewById(R.id.noBtn);
 
         //Set Name of User, Points and Exchange Items
         fAuth = FirebaseAuth.getInstance();
@@ -125,6 +136,44 @@ public class Profile extends AppCompatActivity {
                 intent.putExtra("PAGE_USER_CAME_FROM", "Profile");
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        logoutTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logoutContainer.setVisibility(View.VISIBLE);
+                yesBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        //log user out
+
+                        //Back to main activity
+
+
+                        Toast.makeText(getApplicationContext(), "User Logged Out", Toast.LENGTH_SHORT).show();
+
+                       Intent intent = new Intent(Profile.this, MainActivity.class);
+                        startActivity(intent);
+                        FirebaseAuth.getInstance().signOut();
+                       // finish();
+
+                       /* fAuth = FirebaseAuth.getInstance();
+                        fAuth.signOut();
+*/
+
+                    }
+                });
+
+                noBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        logoutContainer.setVisibility(View.INVISIBLE);
+
+                    }
+                });
+
             }
         });
 
