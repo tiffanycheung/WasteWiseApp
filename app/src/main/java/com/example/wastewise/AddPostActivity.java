@@ -91,11 +91,6 @@ public class AddPostActivity extends AppCompatActivity {
             }
         });
 
-        //Set Name
-
-
-        //TODO: Set profile Image
-
         //Upload Btn Click Listener
 
         uploadBtn.setOnClickListener(new View.OnClickListener() {

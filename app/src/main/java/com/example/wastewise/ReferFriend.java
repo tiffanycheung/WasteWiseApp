@@ -22,8 +22,6 @@ public class ReferFriend extends AppCompatActivity {
         // initialisations
         copyBtn = findViewById(R.id.copyCodeBtn);
 
-        // TODO: generate random text for the code
-
         copyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,7 +37,6 @@ public class ReferFriend extends AppCompatActivity {
 //                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
 //                startActivity(intent);
 //                finish();
-                // TODO: add toast saying "invite sent!"
             }
         });
 

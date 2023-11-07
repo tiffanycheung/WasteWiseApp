@@ -39,10 +39,16 @@ public class Events extends AppCompatActivity {
                         startActivity(intent);
                     }
                     if (item.getItemId() == R.id.forum) {
+                        Intent intent = new Intent(Events.this, Forum.class);
+                        startActivity(intent);
                     }
                     if (item.getItemId() == R.id.checkup) {
+                        Intent intent = new Intent(Events.this, CheckupLanding.class);
+                        startActivity(intent);
                     }
                     if (item.getItemId() == R.id.profile) {
+                        Intent intent = new Intent(Events.this, Profile.class);
+                        startActivity(intent);
                     }
                     return true;
                 }

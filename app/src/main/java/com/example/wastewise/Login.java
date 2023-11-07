@@ -98,7 +98,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        // TODO: forgot password functionality (but maybe we can put this on low priority)
         forgotPasswordTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

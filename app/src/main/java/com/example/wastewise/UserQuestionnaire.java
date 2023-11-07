@@ -78,7 +78,6 @@ public class UserQuestionnaire extends AppCompatActivity {
             }
         });
 
-        // TODO: add a field for refer a friend code
 
 
     }

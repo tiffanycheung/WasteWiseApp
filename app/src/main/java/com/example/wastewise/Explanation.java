@@ -2,15 +2,21 @@ package com.example.wastewise;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Explanation extends AppCompatActivity {
     private TextView descTxt, dailyTxt, dailyPoints, option1, option2, option3, option4, option5, option6, points1, points2, points3, points4, points5, points6;
     private ImageView opt1, opt2, opt3, opt4, opt5, opt6, helpBtn, backBtn;
+
+    private BottomNavigationView bottomNavigationView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +68,40 @@ public class Explanation extends AppCompatActivity {
         points4.setText("20 points");
         points5.setText("40 points");
         points6.setText("100 points");
+
+        //Bottom Navigation Bar
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                { if (item.getItemId() == R.id.home) {
+                    Intent intent = new Intent(Explanation.this, Home.class);
+                    startActivity(intent);
+                }
+
+                    if (item.getItemId() == R.id.leaderboard) {
+                        Intent intent = new Intent(Explanation.this, Leaderboard.class);
+                        startActivity(intent);
+                    }
+                    if (item.getItemId() == R.id.forum) {
+                        Intent intent = new Intent(Explanation.this, Forum.class);
+                        startActivity(intent);
+                    }
+                    if (item.getItemId() == R.id.checkup) {
+                        Intent intent = new Intent(Explanation.this, CheckupLanding.class);
+                        startActivity(intent);
+                    }
+                    if (item.getItemId() == R.id.profile) {
+                        Intent intent = new Intent(Explanation.this, Profile.class);
+                        startActivity(intent);
+                    }
+                    return true;
+                }
+            }
+        });
 
         opt1.setOnClickListener(new View.OnClickListener() {
             @Override

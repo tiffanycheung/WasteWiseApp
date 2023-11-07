@@ -89,8 +89,7 @@ public class Rewards extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 {
                     if (item.getItemId() == R.id.home) {
-                        Intent intent = new Intent(Rewards.this, Home.class);
-                        startActivity(intent);
+
                     }
 
                     if (item.getItemId() == R.id.leaderboard) {
@@ -99,10 +98,16 @@ public class Rewards extends AppCompatActivity {
 
                     }
                     if (item.getItemId() == R.id.forum) {
+                        Intent intent = new Intent(Rewards.this, Forum.class);
+                        startActivity(intent);
                     }
                     if (item.getItemId() == R.id.checkup) {
+                        Intent intent = new Intent(Rewards.this, CheckupLanding.class);
+                        startActivity(intent);
                     }
                     if (item.getItemId() == R.id.profile) {
+                        Intent intent = new Intent(Rewards.this, Profile.class);
+                        startActivity(intent);
                     }
                     return true;
                 }

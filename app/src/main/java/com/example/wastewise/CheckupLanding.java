@@ -2,13 +2,17 @@ package com.example.wastewise;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
@@ -18,6 +22,8 @@ public class CheckupLanding extends AppCompatActivity implements CheckupAdapter.
     private RecyclerView checkupRecyclerView;
     private CheckupAdapter adapter;
     public static ArrayList<Checkup> activitiesList = Checkup.createActivities();
+
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,9 @@ public class CheckupLanding extends AppCompatActivity implements CheckupAdapter.
         // initialisations
         checkupRecyclerView = findViewById(R.id.transactionRecycler);
         descTxt = findViewById(R.id.descTxt);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.checkup);
+
 
         // set up prompt text
         descTxt.setText("Let’s track your waste management progress with these quick checkups!");
@@ -41,7 +50,37 @@ public class CheckupLanding extends AppCompatActivity implements CheckupAdapter.
         checkupRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-        // TODO: add bottom navigation bar
+        // add bottom navigation bar
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                { if (item.getItemId() == R.id.home) {
+                    Intent intent = new Intent(CheckupLanding.this, Home.class);
+                    startActivity(intent);
+                }
+
+                    if (item.getItemId() == R.id.leaderboard) {
+                        Intent intent = new Intent(CheckupLanding.this, Leaderboard.class);
+                        startActivity(intent);
+                    }
+                    if (item.getItemId() == R.id.forum) {
+                        Intent intent = new Intent(CheckupLanding.this, Forum.class);
+                        startActivity(intent);
+                    }
+                    if (item.getItemId() == R.id.checkup) {
+
+                    }
+                    if (item.getItemId() == R.id.profile) {
+                        Intent intent = new Intent(CheckupLanding.this, Profile.class);
+                        startActivity(intent);
+
+                    }
+                    return true;
+                }
+            }
+        });
+
 
     }
 

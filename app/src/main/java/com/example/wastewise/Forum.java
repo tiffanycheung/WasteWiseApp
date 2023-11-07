@@ -5,13 +5,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -33,6 +36,8 @@ public class Forum extends AppCompatActivity {
 
     PostsAdapter postsAdapter;
 
+    private BottomNavigationView bottomNavigationView;
+
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -53,6 +58,40 @@ public class Forum extends AppCompatActivity {
         recyclerView.setAdapter(postsAdapter);
 
         loadPosts();
+
+        //Bottom Navigation View
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.forum);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                {
+                    if (item.getItemId() == R.id.home) {
+                    Intent intent = new Intent(Forum.this, Home.class);
+                    startActivity(intent);
+                }
+
+                    if (item.getItemId() == R.id.leaderboard) {
+                        Intent intent = new Intent(Forum.this, Leaderboard.class);
+                        startActivity(intent);
+                    }
+                    if (item.getItemId() == R.id.forum) {
+
+                    }
+                    if (item.getItemId() == R.id.checkup) {
+                        Intent intent = new Intent(Forum.this, CheckupLanding.class);
+                        startActivity(intent);
+                    }
+                    if (item.getItemId() == R.id.profile) {
+                        Intent intent = new Intent(Forum.this, Profile.class);
+                        startActivity(intent);
+                    }
+                    return true;
+                }
+            }
+        });
+
 
         // When "Add posts" clicked go to Add Post Activity
 

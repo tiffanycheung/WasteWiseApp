@@ -11,7 +11,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.ArrayList;
 
@@ -27,6 +40,17 @@ public class CheckupActivity extends AppCompatActivity {
     private boolean yesBtn3Clicked = false;
     private boolean noBtn3Clicked = false;
     public static String completedActivity;
+
+    private FirebaseAuth fAuth;
+
+    private FirebaseFirestore fStore;
+
+    private DocumentReference documentReference;
+    private Integer userPoints;
+
+    private String userId;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,100 +171,140 @@ public class CheckupActivity extends AppCompatActivity {
 
         // submit button goes to another page + updates completion
         submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                                         @Override
+                                         public void onClick(View view) {
 
-                // check completion of activity before submission
-                boolean allFilledOut = filledOut(yesBtnClicked, noBtnClicked, yesBtn3Clicked, noBtn3Clicked);
+                                             submitBtn.setEnabled(false);
 
-                // go to submission page only if all fields are filled out
-                if (allFilledOut == true) {
+                                             // check completion of activity before submission
+                                             boolean allFilledOut = filledOut(yesBtnClicked, noBtnClicked, yesBtn3Clicked, noBtn3Clicked);
 
-                    // take the name of the completed activity to update completion status later
-                    completedActivity = activityName;
+                                             // go to submission page only if all fields are filled out
+                                             if (allFilledOut == true) {
 
-                    // go back to checkups landing page
-                    Intent intent = new Intent(CheckupActivity.this, CheckupSubmission.class);
-                    startActivity(intent);
+                                                 // take the name of the completed activity to update completion status later
+                                                 completedActivity = activityName;
+
+                                                 //add 5 points to the user in Firebase database
+                                                 // documentReference.update("pointsNo", userPoints);
+
+                                                 fAuth = FirebaseAuth.getInstance();
+                                                 fStore = FirebaseFirestore.getInstance();
+
+                                                 userId = fAuth.getCurrentUser().getUid();
+
+                                                 documentReference = fStore.collection("users").document(userId);
+
+                                                 documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                                                                   @Override
+                                                                                                   public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                                                                       if (task.isSuccessful()) {
+                                                                                                           DocumentSnapshot documentSnapshot = task.getResult();
+                                                                                                           if (documentSnapshot != null && documentSnapshot.exists()) {
+                                                                                                               // Retrieve user data and update the points
+                                                                                                               Object pointsNoObject = documentSnapshot.get("pointsNo");
+                                                                                                               if (pointsNoObject != null) {
+                                                                                                                   userPoints = ((Long) pointsNoObject).intValue();
+                                                                                                               } else {
+                                                                                                                   userPoints = 100;
+                                                                                                               }
+
+                                                                                                               //add 5 points to the user in Firebase database
+                                                                                                               userPoints = userPoints + 5;
+
+                                                                                                               // Update the points in Firestore
+                                                                                                               documentReference.update("pointsNo", userPoints);
+                                                                                                               Toast.makeText(CheckupActivity.this, "5 Points updated successfully", Toast.LENGTH_SHORT).show();
+                                                                                                           }
+                                                                                                       } else {
+                                                                                                           // Handle the error, if any
+                                                                                                           Toast.makeText(CheckupActivity.this, "Failed to update points", Toast.LENGTH_SHORT).show();
+                                                                                                       }
+                                                                                                   }
+                                                                                               });
+
+                                                 // go back to checkups landing page*/
+                                                 Intent intent = new Intent(CheckupActivity.this, CheckupSubmission.class);
+                                                 startActivity(intent);
+                                             }
+                                             submitBtn.setEnabled(true);
+                                         }
+                                     });
+
+
+                // exit button goes back to landing page
+                backBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(CheckupActivity.this, CheckupLanding.class);
+                        startActivity(intent);
+                    }
+                });
+
+            }
+
+            private ArrayList<String> createQuestions(String activityName) {
+
+                ArrayList<String> questionsList = new ArrayList<String>();
+
+                switch (activityName) {
+                    case "Checkup 1: Waste Disposal":
+                        questionsList.add("Did you separate your recyclables from your regular trash?");
+                        questionsList.add("Please provide examples of how you've personally contributed to reducing waste or promoting recycling in your local community.");
+                        questionsList.add("Did you compost organic materials like food scraps?");
+                        break;
+                    case "Checkup 2: E-Waste":
+                        questionsList.add("Did you avoid disposing of electronic waste in regular household bins?");
+                        questionsList.add("Have you ever recycled electronic devices? If so, where did you take them for recycling?");
+                        questionsList.add("Have you participated in an e-waste program?");
+                        break;
+                    case "Checkup 3: Biomedical Waste":
+                        questionsList.add("Do you have a designated container or area in your home for the safe storage of biomedical waste materials?");
+                        questionsList.add("What practices or precautions do you take when disposing of biomedical waste from your household, including items like used syringes, expired medications, or other medical supplies?");
+                        questionsList.add("Are you aware of any local guidelines or regulations for the disposal of household biomedical waste in your area?");
+                        break;
+                    case "Checkup 4: Hazardous Waste":
+                        questionsList.add("Did you properly label and store your household chemicals in a safe way?");
+                        questionsList.add("Can you describe any practices or precautions you take when disposing of hazardous household materials?");
+                        questionsList.add("Did you refrain from pouring chemicals down the drains?");
+                        break;
+                    case "Checkup 5: Green Waste":
+                        questionsList.add("Did you avoid mixing green waste with regular household waste?");
+                        questionsList.add("What methods or practices do you currently use to manage and dispose of green waste from your garden or yard?");
+                        questionsList.add("Do you compost leaves and grass clippings to make nutrient-rich soil?");
+                        break;
                 }
 
-                // TODO: add 5 points to the user in Firebase database
-
+                return questionsList;
             }
-        });
 
-        // exit button goes back to landing page
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CheckupActivity.this, CheckupLanding.class);
-                startActivity(intent);
+            private boolean filledOut(boolean yesBtnClicked, boolean noBtnClicked, boolean yesBtn3Clicked, boolean noBtn3Clicked) {
+                boolean editTxtFilled = true;
+                boolean yesNoFilled = true;
+                boolean allFilledOut = false;
+
+
+                if (TextUtils.isEmpty(answerEditTxt.getText().toString())) {
+                    answerEditTxt.setError("Please enter your response.");
+                    editTxtFilled = false;
+                }
+
+                if (!((yesBtnClicked || noBtnClicked) && (yesBtn3Clicked || noBtn3Clicked))) {
+                    yesNoFilled = false;
+                    Toast.makeText(CheckupActivity.this, "Please answer all questions.", Toast.LENGTH_SHORT).show();
+                }
+
+                if (editTxtFilled && yesNoFilled) {
+                    allFilledOut = true;
+                }
+
+                if (!((yesBtnClicked || noBtnClicked) && (yesBtn3Clicked || noBtn3Clicked) && editTxtFilled)) {
+                    Toast.makeText(CheckupActivity.this, "Please answer all questions.", Toast.LENGTH_SHORT).show();
+                }
+
+                return allFilledOut;
             }
-        });
-
-    }
-
-    private ArrayList<String> createQuestions(String activityName) {
-
-        ArrayList<String> questionsList = new ArrayList<String>();
-
-        switch(activityName) {
-            case "Checkup 1: Waste Disposal":
-                questionsList.add("Did you separate your recyclables from your regular trash?");
-                questionsList.add("Please provide examples of how you've personally contributed to reducing waste or promoting recycling in your local community.");
-                questionsList.add("Did you compost organic materials like food scraps?");
-                break;
-            case "Checkup 2: E-Waste":
-                questionsList.add("Did you avoid disposing of electronic waste in regular household bins?");
-                questionsList.add("Have you ever recycled electronic devices? If so, where did you take them for recycling?");
-                questionsList.add("Have you participated in an e-waste program?");
-                break;
-            case "Checkup 3: Biomedical Waste":
-                questionsList.add("Do you have a designated container or area in your home for the safe storage of biomedical waste materials?");
-                questionsList.add("What practices or precautions do you take when disposing of biomedical waste from your household, including items like used syringes, expired medications, or other medical supplies?");
-                questionsList.add("Are you aware of any local guidelines or regulations for the disposal of household biomedical waste in your area?");
-                break;
-            case "Checkup 4: Hazardous Waste":
-                questionsList.add("Did you properly label and store your household chemicals in a safe way?");
-                questionsList.add("Can you describe any practices or precautions you take when disposing of hazardous household materials?");
-                questionsList.add("Did you refrain from pouring chemicals down the drains?");
-                break;
-            case "Checkup 5: Green Waste":
-                questionsList.add("Did you avoid mixing green waste with regular household waste?");
-                questionsList.add("What methods or practices do you currently use to manage and dispose of green waste from your garden or yard?");
-                questionsList.add("Do you compost leaves and grass clippings to make nutrient-rich soil?");
-                break;
-        }
-
-        return questionsList;
-    }
-
-    private boolean filledOut(boolean yesBtnClicked, boolean noBtnClicked, boolean yesBtn3Clicked, boolean noBtn3Clicked) {
-        boolean editTxtFilled = true;
-        boolean yesNoFilled = true;
-        boolean allFilledOut = false;
 
 
-        if(TextUtils.isEmpty(answerEditTxt.getText().toString())) {
-            answerEditTxt.setError("Please enter your response.");
-            editTxtFilled = false;
-        }
 
-        if(!((yesBtnClicked || noBtnClicked) && (yesBtn3Clicked || noBtn3Clicked))) {
-            yesNoFilled = false;
-            Toast.makeText(CheckupActivity.this, "Please answer all questions.", Toast.LENGTH_SHORT).show();
-        }
-
-        if(editTxtFilled && yesNoFilled) {
-            allFilledOut = true;
-        }
-
-        if(!((yesBtnClicked || noBtnClicked) && (yesBtn3Clicked || noBtn3Clicked) && editTxtFilled)) {
-            Toast.makeText(CheckupActivity.this, "Please answer all questions.", Toast.LENGTH_SHORT).show();
-        }
-
-        return allFilledOut;
-    }
-
-
-}
+    };

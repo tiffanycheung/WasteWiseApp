@@ -50,6 +50,8 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.home);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        //home is selected by default
         bottomNavigationView.setSelectedItemId(R.id.home);
 
         // initialisation

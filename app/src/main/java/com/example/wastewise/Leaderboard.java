@@ -11,10 +11,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 //import com.example.wastewise.databinding.LeaderboardBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class Leaderboard extends AppCompatActivity {
 
@@ -23,6 +30,13 @@ public class Leaderboard extends AppCompatActivity {
     private ImageView newUserIcon, amandaIcon, georgeIcon, fionaIcon, johnIcon, willisIcon, kenIcon, addBtn;
 
     BottomNavigationView bottomNavigationView;
+
+    private FirebaseAuth fAuth;
+
+    private FirebaseFirestore fStore;
+
+    private String userId, name, points;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,15 +73,50 @@ public class Leaderboard extends AppCompatActivity {
         // set prompt text for new users with no friends
         emptyState.setText("Add your friends to see them on the leaderboard!");
 
-        // TODO: get user's name and points from database
-        String name = "";
-        String points = "";
-        userPoints.setText(points);
+        //get user's name and points from database
+       // String name = "";
 
+        //String name;
+      // String points = "";
+
+        //points = "";
+
+
+       fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+
+        userId = fAuth.getCurrentUser().getUid();
+
+        DocumentReference documentReference = fStore.collection("users").document(userId);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+
+               points = documentSnapshot.get("pointsNo").toString() + "pts" ;
+
+               name =  documentSnapshot.get("fullName").toString() +"";
+
+                userPoints.setText(points);
+                // if the user is Amanda Vuong (user with pre-filled details in the database), show her leaderboard
+                if (name.equals("Amanda Vuong")) {
+                    showLeaderboard();
+                }
+
+          /*  if (documentSnapshot.contains("fullName")) {
+                    name = documentSnapshot.getString("fullName");
+                } else {
+                name = "";
+            }*/
+
+            }
+        });
+
+       // userPoints.setText(points);
+/*
         // if the user is Amanda Vuong (user with pre-filled details in the database), show her leaderboard
         if (name.equals("Amanda Vuong")) {
             showLeaderboard();
-        }
+        }*/
 
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +124,8 @@ public class Leaderboard extends AppCompatActivity {
                 showDialog();
             }
         });
+
+        //Bottom Navigation View
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.leaderboard);
@@ -92,10 +143,16 @@ public class Leaderboard extends AppCompatActivity {
 
                     }
                     if (item.getItemId() == R.id.forum) {
+                        Intent intent = new Intent(Leaderboard.this, Forum.class);
+                        startActivity(intent);
                     }
                     if (item.getItemId() == R.id.checkup) {
+                        Intent intent = new Intent(Leaderboard.this, CheckupLanding.class);
+                        startActivity(intent);
                     }
                     if (item.getItemId() == R.id.profile) {
+                        Intent intent = new Intent(Leaderboard.this, Profile.class);
+                        startActivity(intent);
                     }
                     return true;
                 }
@@ -154,8 +211,8 @@ public class Leaderboard extends AppCompatActivity {
         kenIcon.setVisibility(View.VISIBLE);
         kenTxt.setVisibility(View.VISIBLE);
         kenPts.setVisibility(View.VISIBLE);
-        //TODO: get Amanda's points from database and show
-        String amandaPts = "";
+        //get Amanda's points from database and show
+        String amandaPts = points;
         userPoints.setText(amandaPts);
     }
 
