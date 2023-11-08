@@ -92,7 +92,7 @@ public class UserQuestionnaire extends AppCompatActivity {
         email = intent.getStringExtra("EMAIL");
         password = intent.getStringExtra("PASSWORD");
 
-        pointsNo = 0;
+        pointsNo = 100;
         exchangeItemNo = 0;
 
 
@@ -113,7 +113,7 @@ public class UserQuestionnaire extends AppCompatActivity {
                         userProfile.put("postcode", postcode);
                         userProfile.put("pointsNo", pointsNo);
                         userProfile.put("exchangeItemNo", exchangeItemNo);
-
+                        userProfile.put("profileImage", "profile_pic");
                         documentReference.set(userProfile).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {

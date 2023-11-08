@@ -37,6 +37,12 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.MyHold
         String comment = commentList.get(i).getComment();
         String timestamp = commentList.get(i).getTimestamp();
 
+        String photoImage = commentList.get(i).getuDp();
+
+        if (photoImage == null) {
+            photoImage = "new_user";
+        }
+
         //TODO: BELOW and Add variable in forum comment
         //String profileImage = commentList.get(i).getProfileImage();
 
@@ -50,8 +56,9 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.MyHold
         holder.timeTv.setText(pTime);
 
         //TODO: Set profile Image
-        //int profileImageResourceId = context.getResources().getIdentifier(profileImage, "drawable", context.getPackageName());
-        //holder.profileIv.setImageResource(profileImageResourceId);
+       int profileImageResourceId = context.getResources().getIdentifier(photoImage, "drawable", context.getPackageName());
+        // Drawable drawable = context.getResources().getDrawable(profileImageResourceId);
+        holder.profileIv.setImageResource(profileImageResourceId);
 
         //holder.timeTv.setText("heyyy");
 

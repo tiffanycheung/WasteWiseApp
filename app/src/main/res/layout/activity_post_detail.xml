@@ -240,6 +240,7 @@
         android:id="@+id/commentLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background = "@color/white"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -255,6 +256,7 @@
             android:layout_marginBottom="1dp"
             android:padding = "10dp"
             android:hint = "Enter comment..."
+            android:background = "@color/white"
             android:inputType="textCapSentences|textMultiLine">
 
         </EditText>

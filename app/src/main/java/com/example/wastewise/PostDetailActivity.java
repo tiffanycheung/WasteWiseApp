@@ -141,8 +141,7 @@ public class PostDetailActivity extends AppCompatActivity {
                     hashMap.put("comment", comment);
                     hashMap.put("uid", myUid);
                     hashMap.put("name", myName);
-                    //TODO:
-                   // hashMap.put("profileImage", profileImage);
+                    hashMap.put("profileImage", "profile_pic");
 
                     //put data in Database
                     commentsRef.add(hashMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -153,7 +152,6 @@ public class PostDetailActivity extends AppCompatActivity {
                             Toast.makeText(PostDetailActivity.this, "Comment Added.", Toast.LENGTH_SHORT);
                             commentEt.setText("");
                             updateCommentCount();
-                            //TODO: UpdateComment count
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -191,7 +189,11 @@ public class PostDetailActivity extends AppCompatActivity {
         commentList = new ArrayList<>();
         firebaseStore = FirebaseFirestore.getInstance();
 
+
+        //Get Photo URL of commenter
+
         DocumentReference documentReference = firebaseStore.collection("posts").document(postId);
+
         CollectionReference commentsCollection = documentReference.collection("comments");
 
         Query query = commentsCollection.orderBy("cId", Query.Direction.DESCENDING);
@@ -211,21 +213,14 @@ public class PostDetailActivity extends AppCompatActivity {
                 String uid = document.getString("uid");
                 String name = document.getString("name");
                 //String email = document.getString("name");
-                //String
-                //TODO: AND UPDATE FORUM COMMENT
 
-                //String profileUrl = document.getString("profileImage);
+                String profileUrl = document.getString("profileImage");
 
-
-                // Create a Comment object or a data structure to represent the comment
-                ForumComment commentItem = new ForumComment(comment, cId, name);
-
-                    //public ForumComment(String comment, String timestamp, String name, String email) {
-
-                    // Add the comment to the list
+                ForumComment commentItem = new ForumComment(comment, cId, name, profileUrl);
                 commentList.add(commentItem);
-            }
 
+
+            }
             if (commentsAdapter == null) {
                 commentsAdapter = new CommentsAdapter(getApplicationContext(), commentList);
                 recyclerView.setAdapter(commentsAdapter);
@@ -234,9 +229,8 @@ public class PostDetailActivity extends AppCompatActivity {
             }
 
         });
-
-
     }
+
 
     boolean processComment = false;
     private void updateCommentCount() {
@@ -290,8 +284,6 @@ public class PostDetailActivity extends AppCompatActivity {
                     int profileImageResourceId = context.getResources().getIdentifier(photoUrl, "drawable", context.getPackageName());
                     uPictureIv.setImageResource(profileImageResourceId);
 
-                    //TODO: 3.SET IMAGE VIEW by doing the int.context stuff
-
 
                     String timeStamp = documentSnapshot.get("timestamp").toString();
 
@@ -336,6 +328,7 @@ public class PostDetailActivity extends AppCompatActivity {
                 public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                     if (documentSnapshot != null) {
                         myName = documentSnapshot.get("fullName").toString();
+
                         //TODO: BELOW
                         //profileImage = documentSnapshot.get("profileImage").toString();
 
@@ -343,6 +336,29 @@ public class PostDetailActivity extends AppCompatActivity {
                 }
 
 
+            });
+
+
+            //myDp
+            DocumentReference postRef = firebaseStore.collection("posts").document(postId);
+
+// Retrieve the document
+            postRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    if (documentSnapshot.exists()) {
+                        // Get the photoUrl field from the document
+                         myDp = documentSnapshot.getString("photoUrl");
+                        if (myDp != null) {
+
+                        } else {
+                        }
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                }
             });
         }
     }

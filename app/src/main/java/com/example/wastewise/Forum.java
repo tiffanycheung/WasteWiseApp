@@ -165,8 +165,6 @@ public class Forum extends AppCompatActivity {
             } else {
 
                 Log.e("Forum", "Error loading posts: " + task.getException());
-
-                // Handle any errors
             }
         });
 

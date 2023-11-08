@@ -89,9 +89,6 @@ public class AddPostActivity extends AppCompatActivity {
                 email = documentSnapshot.get("email").toString();
                 nameTxt.setText(name);
 
-                //TODO: 1. Profile Image
-
-                // profileImage = documentSnapshot.get("profileURl").toString();
             }
         });
 
@@ -149,10 +146,6 @@ public class AddPostActivity extends AppCompatActivity {
         hashMap.put("name", name);
         hashMap.put("email", email);
         hashMap.put("likesNo", 0);
-        //hashMap.put("photoUrl", "profile_pic");
-
-        //TODO: 2
-       // hashMap.put("photoUrl", profileImage);
 
 
 

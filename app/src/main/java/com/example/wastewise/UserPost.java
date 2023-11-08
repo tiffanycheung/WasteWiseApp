@@ -99,13 +99,6 @@ public class UserPost {
         this.photoUrl = photoUrl;
     }
 
-    /*   public String getDp() {
-        return uDp;
-    }
-
-    public void setDp(String uDp) {
-        this.uDp = uDp;
-    }*/
 }
 
 

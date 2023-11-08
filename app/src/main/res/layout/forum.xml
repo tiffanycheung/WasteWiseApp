@@ -90,7 +90,7 @@
             app:srcCompat="@drawable/line_1" />
 
         <FrameLayout
-            android:layout_width="340dp"
+            android:layout_width="370dp"
             android:layout_height="460dp"
             android:layout_marginTop="14dp"
             app:layout_constraintEnd_toEndOf="@+id/descTxt"

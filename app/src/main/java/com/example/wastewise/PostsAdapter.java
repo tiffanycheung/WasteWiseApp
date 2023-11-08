@@ -55,10 +55,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
 
     private String userId;
 
-  /* public PostsAdapter(Context context) {
-        this.context = context;
-    }*/
-
     public PostsAdapter(Context context, List<UserPost> postList) {
 
         this.postList = postList;
@@ -73,7 +69,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
     String timeStamp;
     String profileImage;
     String uDp;
-    Number likesNo;
+    Number likesNo, commentNo;
 
     @NonNull
     @Override
@@ -100,12 +96,11 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
         likesNo = postList.get(i).getLikesNo();
         profileImage = postList.get(i).getPhotoUrl();
 
-       // uDp = postList.get(i).getDp();
 
-        //Convert timestamp to dd/mm/yyyy hh:mm am/pm
         Calendar calendar = Calendar.getInstance(Locale.getDefault());
         calendar.setTimeInMillis(Long.parseLong(timeStamp));
         String pTime = DateFormat.format("dd/MM/yyyy hh:mm aa", calendar).toString();
+
         //set Data
         holder.uNameTv.setText(name);
         holder.pTimeTv.setText(pTime);
@@ -115,8 +110,28 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
 
 
         int profileImageResourceId = context.getResources().getIdentifier(profileImage, "drawable", context.getPackageName());
-       // Drawable drawable = context.getResources().getDrawable(profileImageResourceId);
         holder.uPictureIv.setImageResource(profileImageResourceId);
+
+        UserPost userPost = postList.get(i);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        final String documentId = userPost.getDocumentId();
+
+        //Comment No
+        DocumentReference documentReference = db.collection("posts").document(documentId);
+        CollectionReference commentsCollection = documentReference.collection("comments");
+        commentsCollection.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                int commentCount = task.getResult().size();
+                String commentNo = "" + commentCount;
+                holder.commentTxt.setText(commentNo);
+                //  comment count for the post
+
+
+            } else {
+
+            }
+        });
+
 
 
         holder.moreBtn.setOnClickListener(new View.OnClickListener() {
@@ -127,10 +142,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
             }
         });
 
-        UserPost userPost = postList.get(i);
-        String documentId = userPost.getDocumentId();
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference postsCollection = db.collection("posts");
         DocumentReference newPostRef = postsCollection.document(documentId);
 
@@ -347,6 +359,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
             shareBtn = itemView.findViewById(R.id.shareBtn);
             likeTxt = itemView.findViewById(R.id.likeTxt);
             postLayout = itemView.findViewById(R.id.postLayout);
+            commentTxt= itemView.findViewById(R.id.commentTxt);
+
 
 
         }

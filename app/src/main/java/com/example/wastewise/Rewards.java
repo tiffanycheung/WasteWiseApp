@@ -1,6 +1,7 @@
 package com.example.wastewise;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 //import com.example.wastewise.databinding.RewardsBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -90,7 +92,8 @@ public class Rewards extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 {
                     if (item.getItemId() == R.id.home) {
-
+                        Intent intent = new Intent(Rewards.this, Home.class);
+                        startActivity(intent);
                     }
 
                     if (item.getItemId() == R.id.leaderboard) {
@@ -197,6 +200,9 @@ public class Rewards extends AppCompatActivity {
         button.setText("Unavailable");
         button.setTextSize(8);
 
+        int lightColor = ContextCompat.getColor(this, R.color.grey); // Replace R.color.your_light_color with the color you want to use
+        ColorStateList colorStateList = ColorStateList.valueOf(lightColor);
+        button.setBackgroundTintList(colorStateList);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -235,6 +241,7 @@ public class Rewards extends AppCompatActivity {
                 // set text
 
                 button.setText("Claim Now");
+
                 claimNowDescription.setText(description);
                 claimNowImage.setImageResource(imageResource);
 

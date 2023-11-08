@@ -7,13 +7,13 @@ public class ForumComment {
 
     }
 
-    public ForumComment(String comment, String timestamp, String name) {
+    public ForumComment(String comment, String timestamp, String name, String uDp) {
         //this.id = id;
         this.comment = comment;
         this.timestamp = timestamp;
         this.name = name;
        // this.email = email;
-       // this.uDp = uDp;
+       this.uDp = uDp;
 
     }
 
