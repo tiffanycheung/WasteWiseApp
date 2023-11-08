@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -112,25 +113,11 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
         holder.pDescriptionTv.setText(description);
         holder.likeTxt.setText(String.valueOf(likesNo));
 
-        /*if (profileImage != null && !profileImage.isEmpty()) {
-          Glide.with(context) // Use 'context' to load the image
-                    .load(profileImage)
-                    .into(holder.uPictureIv);
-        }*/
-
-        //Set Profile Image Display
-        //holder.uPictureIv.setImageResource(profileImage);
-
-        //String testing = "events_cleanupday_icon";
 
         int profileImageResourceId = context.getResources().getIdentifier(profileImage, "drawable", context.getPackageName());
        // Drawable drawable = context.getResources().getDrawable(profileImageResourceId);
         holder.uPictureIv.setImageResource(profileImageResourceId);
 
-       // context.getResources().getIdentifier(drawableName, "drawable", context.getPackageName());
-
-
-        //holder.uPictureIv.setImageResource(Integer.parseInt(profileImage));
 
         holder.moreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -273,6 +260,16 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
             }
         });
 
+        holder.postLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, PostDetailActivity.class);
+                intent.putExtra("postId", documentId);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     private void sharePost(Context context, String title, String description){
@@ -331,6 +328,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
 
         ImageView likeBtn, commentBtn, shareBtn;
 
+        LinearLayout postLayout;
+
         public MyHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -347,6 +346,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
             commentBtn = itemView.findViewById(R.id.commentBtn);
             shareBtn = itemView.findViewById(R.id.shareBtn);
             likeTxt = itemView.findViewById(R.id.likeTxt);
+            postLayout = itemView.findViewById(R.id.postLayout);
 
 
         }

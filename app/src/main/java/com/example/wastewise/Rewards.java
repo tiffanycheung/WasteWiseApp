@@ -1,6 +1,7 @@
 package com.example.wastewise;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
@@ -138,7 +139,7 @@ public class Rewards extends AppCompatActivity {
 
 
                     //REWARD 1 : if <100 points change the "Claim Now" button display to Unavailable for
-                    if (userPoints < 100) {
+                    if (userPoints < 80) {
 
                         showRewardUnavailable(claimBtn1, R.drawable.deals_coffee_icon);
 
@@ -153,7 +154,7 @@ public class Rewards extends AppCompatActivity {
 
                     //REWARD 2: Grocery Reward
 
-                    if (userPoints < 250) {
+                    if (userPoints < 100) {
                         showRewardUnavailable(claimBtn2, R.drawable.deals_grocery_icon);
                     } else {
                         String groceryDescription = "Would you like to claim $5 off your Groceries?";
@@ -164,7 +165,7 @@ public class Rewards extends AppCompatActivity {
 
                     // REWARD 3: Free Bagel with Purchase
 
-                    if (userPoints < 80) {
+                    if (userPoints < 250) {
                         showRewardUnavailable(claimBtn3, R.drawable.deals_food_icon);
                     } else {
                         String foodDescription = "Would you like to claim a Free Bagel with Purchase?";
@@ -194,7 +195,8 @@ public class Rewards extends AppCompatActivity {
 
     private void showRewardUnavailable(Button button, int imageResource) {
         button.setText("Unavailable");
-        button.setTextSize(9);
+        button.setTextSize(8);
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WasteWise">
         <activity
+            android:name=".PostDetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".AddPostActivity"
             android:exported="false" />
         <activity
