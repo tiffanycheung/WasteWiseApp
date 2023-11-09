@@ -223,10 +223,11 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/soul_origin_logo" />
+                    app:srcCompat="@drawable/soul_origin_logo" />
 
                 <ImageView
                     android:id="@+id/pointsBackground"
@@ -291,10 +292,11 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/woolworths" />
+                    app:srcCompat="@drawable/woolworths" />
 
                 <ImageView
                     android:id="@+id/pointsBackground2"
@@ -359,10 +361,11 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/boost_juice" />
+                    app:srcCompat="@drawable/boost_juice" />
 
                 <ImageView
                     android:id="@+id/pointsBackground3"
@@ -427,10 +430,11 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/coles_logo_svg" />
+                    app:srcCompat="@drawable/coles_logo_svg" />
 
                 <ImageView
                     android:id="@+id/pointsBackground4"
