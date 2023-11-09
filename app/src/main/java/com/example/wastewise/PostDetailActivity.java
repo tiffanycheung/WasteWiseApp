@@ -279,10 +279,18 @@ public class PostDetailActivity extends AppCompatActivity {
                     pDescriptionTv.setText(documentSnapshot.get("description").toString());
                     pLikesTv.setText(documentSnapshot.get("likesNo").toString());
 
-                    String photoUrl = documentSnapshot.get("photoUrl").toString();
+                    Object photoUrlObject = documentSnapshot.get("photoUrl");
+                    String photoUrl;
 
-                    int profileImageResourceId = context.getResources().getIdentifier(photoUrl, "drawable", context.getPackageName());
-                    uPictureIv.setImageResource(profileImageResourceId);
+                    if (photoUrlObject != null) {
+                         photoUrl = photoUrlObject.toString();
+                        int profileImageResourceId = context.getResources().getIdentifier(photoUrl, "drawable", context.getPackageName());
+                        uPictureIv.setImageResource(profileImageResourceId);
+                    } else {
+                        photoUrl = "profile_pic";
+                        int profileImageResourceId = context.getResources().getIdentifier(photoUrl, "drawable", context.getPackageName());
+                        uPictureIv.setImageResource(profileImageResourceId);
+                    }
 
 
                     String timeStamp = documentSnapshot.get("timestamp").toString();

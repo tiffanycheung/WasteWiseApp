@@ -251,14 +251,14 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyHolder> {
             }
             });
 
-        holder.commentBtn.setOnClickListener(new View.OnClickListener() {
+   /*     holder.commentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "Comment", Toast.LENGTH_SHORT).show();
 
 
             }
-        });
+        });*/
 
         holder.shareBtn.setOnClickListener(new View.OnClickListener() {
             @Override
