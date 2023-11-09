@@ -44,7 +44,7 @@ public class Rewards extends AppCompatActivity {
 
     private FrameLayout frameLayout, claimNowContainer, claimLinkLayout;
 
-    private ImageView popUpImage, claimNowImage, claimLinkImage;
+    private ImageView popUpImage, claimNowImage, claimLinkImage, backBtn;
 
     private Integer userPoints;
 
@@ -66,6 +66,7 @@ public class Rewards extends AppCompatActivity {
         claimBtn2 = findViewById(R.id.claimNowButton2);
         claimBtn3 = findViewById(R.id.claimNowButton3);
         claimBtn4 = findViewById(R.id.claimNowButton4);
+        backBtn = findViewById(R.id.backBtn);
 
         frameLayout = findViewById(R.id.popupContainer);
         popUpTitle = findViewById(R.id.popUpTitle);
@@ -84,6 +85,13 @@ public class Rewards extends AppCompatActivity {
         claimLinkImage = findViewById(R.id.claimLinkImage);
         claimHomeBtn = findViewById(R.id.claimHomeBtn);
 
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Rewards.this, Home.class);
+                startActivity(intent);
+            }
+        });
 
         bottomNavigationView.setSelectedItemId(R.id.home);
 
